@@ -24,14 +24,19 @@ import java.util.Date;
 
 import adapter.viewPagerAdapter;
 
-public class activityBase extends AppCompatActivity {
+public class activityBase extends AppCompatActivity{
 
-
+    fragmentCalander fragmentcalander;
+    fragmentMain fragmentmain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+        fragmentcalander = new fragmentCalander();
+        fragmentmain = new fragmentMain();
+
 
         /*
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -78,12 +83,11 @@ public class activityBase extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void btnCalendarClick(View view) {
-        Fragment fragment = new fragmentCalander();
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.calanderViewPager,fragment);
-        fragmentTransaction.commit();
+        FragmentTransaction fragment = getSupportFragmentManager().beginTransaction();
+        fragment.replace(R.id.calanderViewPager,fragmentcalander);
+        fragment.commit();
     }
 
 
