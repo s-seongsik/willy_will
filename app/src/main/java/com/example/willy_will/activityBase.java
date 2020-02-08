@@ -51,21 +51,8 @@ public class activityBase extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-<<<<<<< HEAD
     }*/
 
-    /**
-     * Last Modified: 2020-02-08
-     * Last Modified By: Shin Minyong
-     * Created: -
-     * Created By: -
-     * Function: Starting ItemSearchActivity
-     * Called when the user taps the btnSearch (Search Activity Button)
-     */
-=======
-    }
-
->>>>>>> 82434b3... mainActivity 에러 수정
     public void btnSearchClick(View view){
         Intent intent = new Intent(activityBase.this , activityItemSearch.class);
         startActivity(intent);
