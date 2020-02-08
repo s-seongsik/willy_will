@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorAccent2">#D89063</color>
+
+    <!-- [2020-02-07] Created by Shin Minyong -->
+    <color name="almost_black">#333</color>
+    <color name="dark_gray">#666</color>
+    <color name="light_gray">#ccc</color>
+    <!-- ~[2020-02-07] Created by Shin Minyong -->
 </resources>

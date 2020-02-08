@@ -1,3 +1,29 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- [2020-02-07] Created by Shin Minyong -->
+
+    <!-- Common -->
+    <dimen name="match_constraint">0dp</dimen>
+    <dimen name="basic_padding">16dp</dimen>
+    <dimen name="basic_margin">16dp</dimen>
+    <!-- ~Common -->
+
+    <!-- Pop-up -->
+    <dimen name="popup_width">300dp</dimen>
+    <!-- ~Pop-up -->
+
+    <!-- Icon Button -->
+    <dimen name="icon_button_size">48dp</dimen>
+    <!-- ~Icon Button -->
+
+    <!-- Button -->
+    <dimen name="button_width">75dp</dimen>
+    <dimen name="button_height">32dp</dimen>
+    <!-- radius = height / 2 -->
+    <dimen name="button_radius">16dp</dimen>
+    <dimen name="button_margin">2dp</dimen>
+    <!-- ~Button -->
+
+    <!-- ~[2020-02-07] Created by Shin Minyong -->
 </resources>
