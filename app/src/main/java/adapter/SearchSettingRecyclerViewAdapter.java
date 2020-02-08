@@ -1,4 +1,4 @@
-package com.example.willy_will;
+package adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.willy_will.R;
 
 public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.GroupListViewHolder> {
 
@@ -62,8 +64,8 @@ public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.Grou
     @NonNull
     @Override
     public GroupListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        TextView textView = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.group_text_view, parent, false);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        TextView textView = (TextView) layoutInflater.inflate(R.layout.search_setting_recyclerview_item, parent, false);
         // ...
         GroupListViewHolder groupListViewHolder = new GroupListViewHolder(textView);
         return groupListViewHolder;
