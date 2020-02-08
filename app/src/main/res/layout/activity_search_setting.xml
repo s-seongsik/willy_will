@@ -9,7 +9,6 @@
         android:id="@+id/popup_title"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
         android:gravity="center"
         android:text="@string/group_search_setting_title"
         android:textColor="@color/almost_black"
@@ -27,6 +26,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/popup_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

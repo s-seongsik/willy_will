@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.willy_will.R;
 
-public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.GroupListViewHolder> {
+import java.util.ArrayList;
+
+public class SearchSettingRecyclerViewAdapter extends RecyclerView.Adapter<SearchSettingRecyclerViewAdapter.TextViewHolder> {
 
     /**
      * https://developer.android.com/guide/topics/ui/layout/recyclerview#java
@@ -20,59 +22,59 @@ public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.Grou
      * https://recipes4dev.tistory.com/167
      */
 
-    private String[] dataset;
+    private ArrayList<String> dset;
 
     /**
      * Last Modified: -
      * Last Modified By: -
-     * Created: 2020-02-08
+     * Created: 2020-02-09
      * Created By: Shin Minyong
      * Function: Provide a reference to the views for each data item
      * Complex data items may need more than one view per item, and
      * you provide access to all the views for a data item in a view holder.
      */
-    public static class GroupListViewHolder extends RecyclerView.ViewHolder{
-        public TextView textView;
-        public GroupListViewHolder(TextView txtV) {
-            super(txtV);
-            textView = txtV;
+    public class TextViewHolder extends RecyclerView.ViewHolder{
+        public TextView txtV;
+        public TextViewHolder(TextView textView) {
+            super(textView);
+            txtV = textView.findViewById(R.id.search_setting_recyclerview_text);
         }
     }
 
     /**
      * Last Modified: -
      * Last Modified By: -
-     * Created: 2020-02-08
+     * Created: 2020-02-09
      * Created By: Shin Minyong
      * Function: Provide a suitable constructor (depends on the kind of dataset)
-     * @param groupDataset
+     * @param dataset
      */
-    public GroupListAdapter(String[] groupDataset) {
-        dataset = groupDataset;
+    public SearchSettingRecyclerViewAdapter(ArrayList<String> dataset) {
+        dset = dataset;
     }
 
     /**
-     * Last Modified: 2020-02-08
+     * Last Modified: 2020-02-09
      * Last Modified By: Shin Minyong
      * Created: -
      * Created By: -
      * Function: Create new views (invoked by the layout manager)
      * @param parent
      * @param viewType
-     * @return groupListViewHolder
+     * @return textViewHolder
      */
     @NonNull
     @Override
-    public GroupListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TextViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        // ↓↓↓↓↓↓↓↓↓↓ ERROR ↓↓↓↓↓↓↓↓↓↓
         TextView textView = (TextView) layoutInflater.inflate(R.layout.search_setting_recyclerview_item, parent, false);
-        // ...
-        GroupListViewHolder groupListViewHolder = new GroupListViewHolder(textView);
-        return groupListViewHolder;
+        TextViewHolder textViewHolder = new TextViewHolder(textView);
+        return textViewHolder;
     }
 
     /**
-     * Last Modified: 2020-02-08
+     * Last Modified: 2020-02-09
      * Last Modified By: Shin Minyong
      * Created: -
      * Created By: -
@@ -81,22 +83,21 @@ public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.Grou
      * @param position
      */
     @Override
-    public void onBindViewHolder(@NonNull GroupListViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.textView.setText(dataset[position]);
+    public void onBindViewHolder(@NonNull TextViewHolder holder, int position) {
+        String data = dset.get(position);
+        holder.txtV.setText(data);
     }
 
     /**
-     * Last Modified: 2020-02-08
+     * Last Modified: 2020-02-09
      * Last Modified By: Shin Minyong
      * Created: -
      * Created By: -
      * Function: Return the size of the dataset (invoked by the layout manager)
-     * @return dataset.length
+     * @return dataset.size()
      */
     @Override
     public int getItemCount() {
-        return dataset.length;
+        return dset.size();
     }
 }
