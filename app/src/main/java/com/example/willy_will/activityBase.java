@@ -7,16 +7,26 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import adapter.viewPagerAdapter;
 
 public class activityBase extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +37,16 @@ public class activityBase extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         */
+
+        //setDate
+        TextView tv_date = (TextView) findViewById(R.id.tv_date);
+        Date todaydate = Calendar.getInstance().getTime();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MM.dd");
+        String dateString = sdf.format(todaydate);
+        tv_date.setText(dateString);
+
+        //~setDate
 
         // set fab event Listener
         FloatingActionButton fab = findViewById(R.id.fabItemAdd);
@@ -57,6 +77,15 @@ public class activityBase extends AppCompatActivity {
         Intent intent = new Intent(activityBase.this , activityItemSearch.class);
         startActivity(intent);
     }
+
+    public void btnCalendarClick(View view) {
+        Fragment fragment = new fragmentCalander();
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.calanderViewPager,fragment);
+        fragmentTransaction.commit();
+    }
+
 
     /*
     @Override

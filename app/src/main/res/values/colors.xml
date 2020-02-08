@@ -7,4 +7,5 @@
     <color name="colorBasic">#007fbf</color>
     <color name="colorInactive">#B24D4D4D</color>
     <color name="colorGroup1">#ADF44336</color>
+    <color name="colorString">#000000</color>
 </resources>
