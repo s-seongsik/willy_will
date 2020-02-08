@@ -53,7 +53,7 @@ public class activityBase extends AppCompatActivity {
         return true;
     }
 
-    public void btnSearchClick(){
+    public void btnSearchClick(View view){
         Intent intent = new Intent(activityBase.this , activityItemSearch.class);
         startActivity(intent);
     }
