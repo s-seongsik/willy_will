@@ -2,10 +2,14 @@ package adapter;
 
 
 import android.graphics.drawable.Drawable;
+import android.widget.CheckBox;
 
 public class mainListItem {
+    private String rank;
     private String name;
-    private String contents;
+    private String time;
+    private String routine;
+    private CheckBox done;
 
     public String getName() {
         return name;
@@ -15,13 +19,32 @@ public class mainListItem {
         this.name = name;
     }
 
-    public String getContents() {
-        return contents;
+    public String getTime() {
+        return time;
     }
 
-    public void setContents(String contents) {
-        this.contents = contents;
+    public void setTime(String date) {
+        this.time = date;
     }
 
+    public String getRoutine() {
+        return routine;
+    }
+
+    public void setRoutine(String date) {
+        this.routine = routine;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public CheckBox getDone() { return done;}
+
+    public void setDone() {this.done = done;}
 }
 

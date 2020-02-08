@@ -1,14 +1,25 @@
 package adapter;
 
+import android.app.Application;
+import android.app.Service;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
+import android.text.Spannable;
+import android.text.style.BackgroundColorSpan;
+import androidx.core.content.ContextCompat;
 
 import com.example.willy_will.R;
+
+import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -45,30 +56,57 @@ public class mainListAdapter extends BaseAdapter implements Serializable {
         }
 
         /* 'listview_custom'에 정의된 위젯에 대한 참조 획득 */
+        CheckBox cb_done = (CheckBox) convertView.findViewById(R.id.cb_done);
         TextView tv_name = (TextView) convertView.findViewById(R.id.tv_name) ;
-        TextView tv_contents = (TextView) convertView.findViewById(R.id.tv_contents) ;
+        TextView tv_date = (TextView) convertView.findViewById(R.id.tv_time) ;
+        //TextView tv_routine = (TextView) convertView.findViewById(R.id.tv_routine);
+        TextView tv_rank = (TextView) convertView.findViewById(R.id.tv_rank);
+
+
 
         /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
         mainListItem item = getItem(position);
 
         /* 각 위젯에 세팅된 아이템을 뿌려준다 */
         tv_name.setText(item.getName());
-        tv_contents.setText(item.getContents());
+        tv_date.setText(item.getTime());
+        //tv_routine.setText(item.getRoutine());
+        tv_rank.setText(item.getRank());
 
-        /* (위젯에 대한 이벤트리스너를 지정하고 싶다면 여기에 작성하면된다..)  */
+        //setting color behind task text
+        Spannable span = (Spannable) tv_name.getText();
+        span.setSpan(
+                new BackgroundColorSpan(ContextCompat.getColor(convertView.getContext(),R.color.colorGroup1))
+                ,0
+                , tv_name.length()
+                ,Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
 
+        /* (위젯에 대한 이벤트리스너를 지정하고 싶다면 여기에 작성하면된다..) */
+        //done taking
+        if(cb_done.isChecked()){
+            span.setSpan(
+                    new BackgroundColorSpan(ContextCompat.getColor(convertView.getContext(),R.color.colorInactive))
+                    ,0
+                    , tv_name.length()
+                    ,Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+            tv_name.setPaintFlags(tv_name.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+            tv_rank.setPaintFlags(tv_rank.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+        }
 
         return convertView;
     }
 
     /* 아이템 데이터 추가를 위한 함수. 자신이 원하는대로 작성 */
-    public void addItem(String name, String contents) {
+    public void addItem(String rank, String name, String time /*,CheckBox done,String routine*/) {
 
         mainListItem mItem = new mainListItem();
 
         /* MyItem에 아이템을 setting한다. */
+        mItem.setRank(rank);
         mItem.setName(name);
-        mItem.setContents(contents);
+        mItem.setTime(time);
+        //mItem.setDone(done);
+        //mItem.setRoutine(routine);
 
         /* mItems에 MyItem을 추가한다. */
         mItems.add(mItem);

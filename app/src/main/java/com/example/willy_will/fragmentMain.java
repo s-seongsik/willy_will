@@ -62,10 +62,12 @@ public class fragmentMain extends Fragment {
     // setValue n Adapter
     private void refreshMainList(ListView mainListView){
         int num = getArguments().getInt(EXTRA_INT);
+        String rank = getArguments().getString((EXTRA_STRING));
         String title = getArguments().getString(EXTRA_STRING);
+        //String routine = R.string.routine_true;
 
         mainListAdapter mainListAdapter = (mainListAdapter) getArguments().getSerializable(EXTRA_ADAPTER);
-        mainListAdapter.addItem(title, "num is" + num);
+        mainListAdapter.addItem(rank,title, "num is" + num);
         mainListView.setAdapter(mainListAdapter);
     }
 
@@ -74,7 +76,7 @@ public class fragmentMain extends Fragment {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             /*
-            remain thiing
+            remain thing
             1. get listView item info
             2. set info in acrivityDetail Intent
             3. display
