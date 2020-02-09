@@ -15,16 +15,25 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import adapter.viewPagerAdapter;
 
 public class activityBase extends AppCompatActivity{
+
+    private Spinner sp_group;
+    ArrayList<String> spgroupList;
+    ArrayAdapter<String> spgroupAdapter;
 
     fragmentCalander fragmentcalander;
     fragmentMain fragmentmain;
@@ -52,6 +61,33 @@ public class activityBase extends AppCompatActivity{
         tv_date.setText(dateString);
 
         //~setDate
+
+        //set sp_group (fix later)
+        spgroupList = new ArrayList<>();
+        spgroupList.add("그룹1");
+        spgroupList.add("그룹2");
+        spgroupList.add("그룹3");
+        spgroupList.add("그룹4");
+
+        spgroupAdapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_spinner_dropdown_item,
+                spgroupList);
+
+        sp_group = (Spinner)findViewById(R.id.sp_group);
+        sp_group.setAdapter(spgroupAdapter);
+        sp_group.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int i, long id) {
+                Toast.makeText(getApplicationContext(),"선택된 아이템 : "+sp_group.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+        //~Set sp_group
+
 
         // set fab event Listener
         FloatingActionButton fab = findViewById(R.id.fabItemAdd);

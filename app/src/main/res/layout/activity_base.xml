@@ -26,9 +26,11 @@
                     android:layout_width="156dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center|start"
+                    android:gravity="start"
+                    android:layout_marginTop="10dp"
                     android:text="TextView"
                     android:textStyle="bold"
+                    android:textSize="30dp"
                     android:textColor="@color/colorString"/>
 
                 <Button
@@ -57,7 +59,7 @@
 
             <Spinner
                 android:id="@+id/sp_group"
-                android:layout_width="match_parent"
+                android:layout_width="127dp"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
