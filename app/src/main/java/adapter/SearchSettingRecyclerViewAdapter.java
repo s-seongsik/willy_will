@@ -100,4 +100,5 @@ public class SearchSettingRecyclerViewAdapter extends RecyclerView.Adapter<Searc
     public int getItemCount() {
         return dset.size();
     }
+
 }

@@ -18,14 +18,56 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!-- [2020-02-07] Created by Shin Minyong -->
+    <!-- [2020-02-10] Modified by Shin Minyong -->
 
-    <!-- Pop-up Style -->
+    <!-- Bottom Bar Style -->
+    <style name="BottomBarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/bottom_bar_height</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
+    </style>
+    <!-- ~Bottom Bar Style -->
+
+    <!-- Pop-up Theme & Style -->
+    <style name="PopupTheme" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@drawable/shape_white_rounded_rectangle</item>
+    </style>
     <style name="PopupStyle">
         <item name="android:layout_width">@dimen/popup_width</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <!-- ~Pop-up Style -->
+    <style name="PopupTitleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/popup_title_height</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/almost_black</item>
+        <item name="android:textSize">@dimen/popup_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="PopupBottomLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="PopupOkayCancelButtonsStyle">
+        <item name="android:layout_width">@dimen/match_constraint</item>
+        <item name="android:layout_height">@dimen/icon_button_size</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="PopupCancelStyle" parent="@style/PopupOkayCancelButtonsStyle">
+        <item name="android:background">@drawable/ripple_cancel_button</item>
+        <item name="android:src">@drawable/ic_rounded_close_24px</item>
+    </style>
+    <style name="PopupOkayStyle" parent="@style/PopupOkayCancelButtonsStyle">
+        <item name="android:background">@drawable/ripple_okay_button</item>
+        <item name="android:src">@drawable/ic_rounded_check_24px</item>
+    </style>
+    <style name="PopupBottomVerticalBarStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/icon_button_size</item>
+        <item name="android:src">@android:drawable/status_bar_item_app_background</item>
+    </style>
+    <!-- ~Pop-up Theme & Style -->
 
     <!-- Icon Button Style -->
     <style name="IconButtonStyle">
@@ -43,6 +85,6 @@
     </style>
     <!-- ~Button Style -->
 
-    <!-- ~[2020-02-07] Created by Shin Minyong -->
+    <!-- ~[2020-02-10] Modified by Shin Minyong -->
 
 </resources>

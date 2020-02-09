@@ -30,7 +30,8 @@
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".activitySearchSetting"
-            android:theme="@android:style/Theme.Dialog"></activity>
+            android:theme="@style/PopupTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <!-- set detail Activity -->
         <activity
             android:name=".activityDetail"

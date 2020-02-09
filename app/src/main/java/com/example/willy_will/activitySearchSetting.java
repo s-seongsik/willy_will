@@ -2,6 +2,7 @@ package com.example.willy_will;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,7 +31,7 @@ public class activitySearchSetting extends Activity {
         // Remove title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // ~Remove title bar
-        setContentView(R.layout.activity_search_setting);
+        setContentView(R.layout.activity_group_search_setting);
 
         // Set data of item
         ArrayList<String> list = new ArrayList<>();
@@ -47,6 +48,17 @@ public class activitySearchSetting extends Activity {
         // ↓↓↓↓↓↓↓↓↓↓ ERROR ↓↓↓↓↓↓↓↓↓↓
         //recyclerView.setAdapter(recyclerViewAdapter);
         // ~Set RecyclerView
+    }
+
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-10
+     * Created By: Shin Minyong
+     * Function: Cancel search setting
+     */
+    public void cancelSetting(View view) {
+        this.finish();
     }
 
     /**
