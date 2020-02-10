@@ -75,6 +75,7 @@ public class activityBase extends AppCompatActivity{
 
         sp_group = (Spinner)findViewById(R.id.sp_group);
         sp_group.setAdapter(spgroupAdapter);
+        sp_group.setSelection(0,false);
         sp_group.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
