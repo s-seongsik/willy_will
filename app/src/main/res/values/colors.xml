@@ -8,4 +8,10 @@
     <color name="colorInactive">#B24D4D4D</color>
     <color name="colorGroup1">#ADF44336</color>
     <color name="colorString">#000000</color>
+
+    <!-- [2020-02-07] Created by Shin Minyong -->
+    <color name="almost_black">#333</color>
+    <color name="dark_gray">#666</color>
+    <color name="light_gray">#ccc</color>
+    <!-- ~[2020-02-07] Created by Shin Minyong -->
 </resources>

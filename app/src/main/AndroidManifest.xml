@@ -11,9 +11,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activityBase"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="keyboardHidden|orientation|screenSize">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,16 +23,19 @@
         <!-- set addItem Activity -->
         <activity
             android:name=".activityItemAdd"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <!-- set searchItem Activity -->
         <activity
             android:name=".activityItemSearch"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name=".activitySearchSetting"
+            android:theme="@style/PopupTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <!-- set detail Activity -->
         <activity
             android:name=".activityDetail"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
-
+            android:configChanges="keyboardHidden|orientation|screenSize" />
     </application>
 
 </manifest>

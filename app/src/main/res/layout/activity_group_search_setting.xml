@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PopupStyle"
+    android:orientation="vertical"
+    tools:context=".activitySearchSetting">
+
+    <TextView
+        style="@style/PopupTitleStyle"
+        android:text="@string/group_search_setting_title" />
+
+    <ImageView style="@style/BottomBarStyle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/group_list_view"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- temp -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent" />
+    <!-- ~temp -->
+
+    <ImageView style="@style/BottomBarStyle" />
+
+    <LinearLayout style="@style/PopupBottomLayoutStyle">
+
+        <ImageButton
+            android:id="@+id/group_search_setting_cancel"
+            style="@style/PopupCancelStyle"
+            android:onClick="cancelSetting" />
+
+        <ImageView style="@style/PopupBottomVerticalBarStyle" />
+
+        <ImageButton
+            android:id="@+id/group_search_setting_okay"
+            style="@style/PopupOkayStyle" />
+
+    </LinearLayout>
+
+</LinearLayout>

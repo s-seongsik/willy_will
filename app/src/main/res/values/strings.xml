@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">willy_will</string>
     <string name="action_settings">Settings</string>
+    <string name="search_hint">할 일 이름을 검색하십시오.</string>
+    <string name="group_search_setting_title">그룹</string>
+    <string name="complete_repeat_search_setting_title">완료/반복</string>
+    <string name="period_search_setting_title">기간</string>
+    <string name="radius_search_setting_title">거리</string>
     <!-- dialog Text -->
 
     <!-- value -->
