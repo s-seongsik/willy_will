@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Search Setting -->
+    <integer name="group_search_setting_code">1</integer>
+    <integer name="complete_repeat_search_setting_code">2</integer>
+    <integer name="period_search_setting_code">3</integer>
+    <integer name="radius_search_setting_code">4</integer>
+    <!-- ~Search Setting -->
+</resources>

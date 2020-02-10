@@ -102,18 +102,18 @@ public class activityBase extends AppCompatActivity{
         });
         // ~set fab event Listener
 
-        // viewPager
+        // viewPagerbtnSearchClick
         ViewPager viewPager = findViewById(R.id.calanderViewPager);
         viewPager.setAdapter(new viewPagerAdapter(getSupportFragmentManager()));
         // ~ viewPager
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
+    }*/
 
     public void btnSearchClick(View view){
         Intent intent = new Intent(activityBase.this , activityItemSearch.class);
