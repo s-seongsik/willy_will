@@ -5,18 +5,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
+import androidx.recyclerview.selection.SelectionPredicates;
+import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.selection.StableIdKeyProvider;
+import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import adapter.SearchSettingRecyclerViewAdapter;
+import adapter.RecyclerItemDetailsLookup;
+import adapter.RecyclerViewAdapter;
 
 public class activitySearchSetting extends Activity {
 
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter recyclerViewAdapter;
-    private RecyclerView.LayoutManager recyclerViewLayoutManager;
+    private RecyclerView recyclerView = null;
+    private RecyclerView.LayoutManager layoutManager = null;
+    private RecyclerViewAdapter adapter = null;
+    private SelectionTracker<Long> tracker = null;
 
     /**
      * Last Modified: 2020-02-09
@@ -40,13 +46,27 @@ public class activitySearchSetting extends Activity {
         list.add("세 번째 그룹");
         // ~Set data of item
         // Set RecyclerView
-        recyclerView = (RecyclerView) findViewById(R.id.group_list_view);
+        recyclerView = findViewById(R.id.group_list_view);
         recyclerView.setHasFixedSize(true);
-        recyclerViewLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(recyclerViewLayoutManager);
-        recyclerViewAdapter = new SearchSettingRecyclerViewAdapter(list);
-        // ↓↓↓↓↓↓↓↓↓↓ ERROR ↓↓↓↓↓↓↓↓↓↓
-        //recyclerView.setAdapter(recyclerViewAdapter);
+        // set LayoutManager
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        // set Adapter
+        final int TYPE = getResources().getInteger(R.integer.textview_type);
+        adapter = new RecyclerViewAdapter(TYPE, list);
+        recyclerView.setAdapter(adapter);
+        // set Tracker
+        tracker = new SelectionTracker.Builder<>(
+                "groupSearchSettingSelection",
+                recyclerView,
+                new StableIdKeyProvider(recyclerView),
+                new RecyclerItemDetailsLookup(recyclerView),
+                StorageStrategy.createLongStorage()
+        ).withSelectionPredicate(
+                // Select multiple items
+                SelectionPredicates.<Long>createSelectAnything()
+        ).build();
+        adapter.setTracker(tracker);
         // ~Set RecyclerView
     }
 
