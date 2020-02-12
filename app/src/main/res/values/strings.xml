@@ -6,6 +6,7 @@
     <string name="complete_repeat_search_setting_title">완료/반복</string>
     <string name="period_search_setting_title">기간</string>
     <string name="radius_search_setting_title">거리</string>
+    <string name="selection_id_group_search_setting">groupSearchSettingSelection</string>
     <!-- dialog Text -->
 
     <!-- value -->

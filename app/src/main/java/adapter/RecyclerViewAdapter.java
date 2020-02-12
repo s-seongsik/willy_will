@@ -15,12 +15,11 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHolder> {
 
-    private ArrayList<T> dset = null;
-    private int type = 0;
+    private Context context = null;
 
     private SelectionTracker<Long> trckr = null;
-
-    private Context context = null;
+    private ArrayList<T> dset = null;
+    private int t = 0;
 
     /**
      * Last Modified: -
@@ -30,13 +29,22 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
      * Function: Provide a suitable constructor (depends on the kind of dataset)
      * @param dataset
      */
-    public RecyclerViewAdapter(int code, ArrayList<T> dataset) {
-        type = code;
+    public RecyclerViewAdapter(int type, ArrayList<T> dataset) {
+        t = type;
         dset = dataset;
 
         setHasStableIds(true);
     }
 
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-12
+     * Created By: Shin Minyong
+     * Function: Set Tracker
+     * If Tracker is set inside the constructor, an error occurs
+     * @param tracker
+     */
     public void setTracker(SelectionTracker tracker) {
         trckr = tracker;
     }
@@ -57,7 +65,7 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
         context = parent.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.recycleritem_textview, parent, false);
-        RecyclerViewHolder holder = new RecyclerViewHolder(type, view, context);
+        RecyclerViewHolder holder = new RecyclerViewHolder(t, view, context);
         return holder;
     }
 
@@ -74,13 +82,22 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         T data = dset.get(position);
         if(trckr != null) {
-            holder.bind(type, data, trckr.isSelected(new Long(position)));
+            holder.bind(t, data, trckr.isSelected(Long.valueOf(position)));
         }
     }
 
+    /**
+     * Last Modified: 2020-02-12
+     * Last Modified By: Shin Minyong
+     * Created: -
+     * Created By: -
+     * Function: Get the position in Long type
+     * @param position
+     * @return
+     */
     @Override
     public long getItemId(int position) {
-        return super.getItemId(position);
+        return Long.valueOf(position);
     }
 
     /**

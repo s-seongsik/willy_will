@@ -1,4 +1,4 @@
-package adapter;
+package com.example.willy_will;
 
 import android.view.MotionEvent;
 import android.view.View;
@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.widget.RecyclerView;
+
+import adapter.RecyclerViewHolder;
 
 public class RecyclerItemDetailsLookup extends ItemDetailsLookup<Long> {
 

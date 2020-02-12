@@ -15,8 +15,21 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
     private int t;
     private Context cntxt;
 
+    // Items
     private TextView textView;
+    // ~Items
 
+    /**
+     * Last Modified: 2020-02-12
+     * Last Modified By: Shin Minyong
+     * Created: 2020-02-11
+     * Created By: Shin Minyong
+     * Function: Initialization (including Item View)
+     * @param type
+     * @param view
+     * @param context
+     * @param <T>
+     */
     public <T> RecyclerViewHolder(int type, View view, final Context context) {
         super(view);
         cntxt = context;
@@ -32,6 +45,14 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
         }
     }
 
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-12
+     * Created By: Shin Minyong
+     * Function: Get Item Details (To build Tracker)
+     * @return details
+     */
     public ItemDetailsLookup.ItemDetails<Long> getItemDetails() {
         ItemDetailsLookup.ItemDetails<Long> details = new ItemDetailsLookup.ItemDetails<Long>() {
             @Override
@@ -49,6 +70,17 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
         return details;
     }
 
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-12
+     * Created By: Shin Minyong
+     * Function: Bind data to the item
+     * @param type
+     * @param data
+     * @param isActivated
+     * @param <T>
+     */
     public <T> void bind(int type, T data, boolean isActivated) {
         // to-do item
         if(t == cntxt.getResources().getInteger(R.integer.to_do_item_type)) {
