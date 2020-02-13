@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Search Setting -->
+    <!-- RecyclerView Item Type -->
+    <integer name="to_do_item_type">1</integer>
+    <integer name="textview_type">2</integer>
+    <!-- ~RecyclerView Item Type -->
+
+    <!-- Search Setting Code -->
     <integer name="group_search_setting_code">1</integer>
-    <integer name="complete_repeat_search_setting_code">2</integer>
-    <integer name="period_search_setting_code">3</integer>
-    <integer name="radius_search_setting_code">4</integer>
-    <!-- ~Search Setting -->
+    <!-- ~Search Setting Code -->
 </resources>

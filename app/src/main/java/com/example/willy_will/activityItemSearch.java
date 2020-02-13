@@ -57,6 +57,7 @@ public class activityItemSearch extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        // Group Search Setting
         if(requestCode == getResources().getInteger(R.integer.group_search_setting_code)) {
             if(resultCode == Activity.RESULT_OK) {
                 // Success to receive data

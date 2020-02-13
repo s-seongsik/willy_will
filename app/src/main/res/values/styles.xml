@@ -26,6 +26,11 @@
         <item name="android:layout_height">@dimen/bottom_bar_height</item>
         <item name="android:background">@android:drawable/bottom_bar</item>
     </style>
+    <style name="ThickBottomBarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/thick_bottom_bar_height</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
+    </style>
     <!-- ~Bottom Bar Style -->
 
     <!-- Pop-up Theme & Style -->
@@ -38,7 +43,8 @@
     </style>
     <style name="PopupTitleStyle">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/popup_title_height</item>
+        <item name="android:layout_height">@dimen/icon_button_size</item>
+        <item name="android:layout_marginVertical">1dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/almost_black</item>
         <item name="android:textSize">@dimen/popup_title_text_size</item>

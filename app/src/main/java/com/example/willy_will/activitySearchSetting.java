@@ -4,22 +4,28 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
+import androidx.recyclerview.selection.SelectionPredicates;
+import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.selection.StableIdKeyProvider;
+import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import adapter.SearchSettingRecyclerViewAdapter;
+import adapter.RecyclerViewAdapter;
 
 public class activitySearchSetting extends Activity {
 
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter recyclerViewAdapter;
-    private RecyclerView.LayoutManager recyclerViewLayoutManager;
+    private RecyclerView recyclerView = null;
+    private RecyclerView.LayoutManager layoutManager = null;
+    private RecyclerViewAdapter adapter = null;
+    private SelectionTracker<Long> tracker = null;
 
     /**
-     * Last Modified: 2020-02-09
+     * Last Modified: 2020-02-12
      * Last Modified By: Shin Minyong
      * Created: -
      * Created By: -
@@ -35,18 +41,47 @@ public class activitySearchSetting extends Activity {
 
         // Set data of item
         ArrayList<String> list = new ArrayList<>();
+        list.add("전체");
         list.add("첫 번째 그룹");
         list.add("두 번째 그룹");
         list.add("세 번째 그룹");
         // ~Set data of item
         // Set RecyclerView
-        recyclerView = (RecyclerView) findViewById(R.id.group_list_view);
+        recyclerView = findViewById(R.id.group_list_view);
         recyclerView.setHasFixedSize(true);
-        recyclerViewLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(recyclerViewLayoutManager);
-        recyclerViewAdapter = new SearchSettingRecyclerViewAdapter(list);
-        // ↓↓↓↓↓↓↓↓↓↓ ERROR ↓↓↓↓↓↓↓↓↓↓
-        //recyclerView.setAdapter(recyclerViewAdapter);
+        // set LayoutManager
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        // set Adapter
+        final int TYPE = getResources().getInteger(R.integer.textview_type);
+        adapter = new RecyclerViewAdapter(TYPE, list);
+        recyclerView.setAdapter(adapter);
+        // set Tracker
+        tracker = new SelectionTracker.Builder<>(
+                getResources().getString(R.string.selection_id_group_search_setting),
+                recyclerView,
+                new StableIdKeyProvider(recyclerView),
+                new RecyclerItemDetailsLookup(recyclerView),
+                StorageStrategy.createLongStorage()
+        ).withSelectionPredicate(
+                // Select multiple items
+                SelectionPredicates.<Long>createSelectAnything()
+        ).build();
+        adapter.setTracker(tracker);
+        tracker.addObserver(new SelectionTracker.SelectionObserver() {
+            /**
+             * Last Modified: 2020-02-12
+             * Last Modified By: Shin Minyong
+             * Created: -
+             * Created By: -
+             * Function: Initialization (including Item View)
+             */
+            @Override
+            public void onSelectionChanged() {
+                super.onSelectionChanged();
+                Toast.makeText(getApplicationContext(), "아이템 누름!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
         // ~Set RecyclerView
     }
 
