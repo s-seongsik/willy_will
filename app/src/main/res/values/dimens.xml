@@ -31,4 +31,11 @@
     <!-- ~Button -->
 
     <!-- ~[2020-02-07] Created by Shin Minyong -->
+
+    <!-- [2020-02-13] Created by Lee Jaeeun -->
+    <!-- MainIconButton -->
+    <dimen name="main_icon_width">30dp</dimen>
+    <dimen name="main_icon_height">30dp</dimen>
+
+    <!-- ~[2020-02-13] Created by Lee Jaeeun -->
 </resources>

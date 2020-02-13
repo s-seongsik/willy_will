@@ -14,7 +14,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/basic_padding"
+            android:paddingTop="@dimen/basic_padding"
+            android:paddingBottom="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -23,43 +26,46 @@
 
                 <TextView
                     android:id="@+id/tv_date"
-                    android:layout_width="156dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="start"
-                    android:layout_marginTop="10dp"
-                    android:text="TextView"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
-                    android:textColor="@color/colorString"/>
-
-                <Button
-                    android:id="@+id/btnSearch"
-                    android:layout_width="wrap_content"
+                    android:layout_width="224dp"
                     android:layout_height="wrap_content"
-                    android:onClick="btnSearchClick"
-                    android:text="btnSearch" />
+                    android:layout_marginEnd="50dp"
+                    android:gravity="start"
+                    android:text="TextView"
+                    android:textColor="@color/colorString"
+                    android:textSize="50dp"
+                    android:textStyle="bold" />
 
-                <Button
+                <ImageButton
+                    android:id="@+id/btnSearch"
+                    android:layout_width="@dimen/main_icon_width"
+                    android:layout_height="@dimen/main_icon_height"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/button_margin"
+                    android:background="@drawable/bt_search"
+                    android:onClick="btnSearchClick" />
+
+                <ImageButton
                     android:id="@+id/btnCalendar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:onClick="btnCalendarClick"
-                    android:text="btnCalendar" />
+                    android:layout_width="@dimen/main_icon_width"
+                    android:layout_height="@dimen/main_icon_height"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/button_margin"
+                    android:background="@drawable/bt_calendar"
+                    android:onClick="btnCalendarClick" />
 
-                <Button
+                <ImageButton
                     android:id="@+id/btnSetting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:onClick="btnSearchClick"
-                    android:text="btnSetting" />
+                    android:layout_width="@dimen/main_icon_width"
+                    android:layout_height="@dimen/main_icon_height"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="@dimen/button_margin"
+                    android:background="@drawable/bt_setting"
+                    android:onClick="btnSearchClick" />
             </LinearLayout>
 
             <Spinner
                 android:id="@+id/sp_group"
-                android:layout_width="127dp"
+                android:layout_width="224dp"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
@@ -95,13 +101,14 @@
 
     <!-- Fab -->
     <include layout="@layout/content_base" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabItemAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:backgroundTint="@color/colorBasic"
-        app:srcCompat="@drawable/add"/>
+        android:src="@drawable/bt_plus"
+        app:backgroundTint="@color/colorBasic"/>
     <!-- ~Fab -->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

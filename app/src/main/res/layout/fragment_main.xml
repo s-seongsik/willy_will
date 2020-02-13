@@ -2,12 +2,15 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
         <ListView
+            android:id="@+id/mainItemList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id = "@+id/mainItemList"
-            android:divider="@null"/>
+            android:layout_marginHorizontal="@dimen/basic_margin"
+            android:divider="@null" />
 </LinearLayout>
