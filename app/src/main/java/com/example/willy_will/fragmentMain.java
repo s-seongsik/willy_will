@@ -8,8 +8,21 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.selection.SelectionPredicates;
+import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.selection.StableIdKeyProvider;
+import androidx.recyclerview.selection.StorageStrategy;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+import adapter.RecyclerViewAdapter;
 import adapter.mainListAdapter;
+import adapter.mainListItem;
 
 public class fragmentMain extends Fragment {
     // dont fix it
@@ -18,6 +31,11 @@ public class fragmentMain extends Fragment {
     // example extra string
     private final static String EXTRA_INT = "someInt";
     private final static String EXTRA_STRING = "someTitle";
+
+    private RecyclerView recyclerView = null;
+    private RecyclerView.LayoutManager layoutManager = null;
+    private RecyclerViewAdapter adapter = null;
+    private SelectionTracker<Long> tracker = null; // 선택했는지?
 
     // omission database object
     public static final fragmentMain newInstance(int page, String title, BaseAdapter adapter) {
@@ -47,11 +65,58 @@ public class fragmentMain extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+        ArrayList<mainListItem> list = new ArrayList<>();
+        list.add(new mainListItem());
+
+        // Set RecyclerView
+        recyclerView = view.findViewById(R.id.mainItemList);
+        recyclerView.setHasFixedSize(true); //안정적...고정사이즈
+        // set LayoutManager
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        // set Adapter
+        final int TYPE = getResources().getInteger(R.integer.to_do_item_type);
+        adapter = new RecyclerViewAdapter(TYPE, list);//itemlist
+        recyclerView.setAdapter(adapter);
+        // set Tracker
+        tracker = new SelectionTracker.Builder<>(
+                "example",
+                recyclerView,
+                new StableIdKeyProvider(recyclerView),
+                new RecyclerItemDetailsLookup(recyclerView),
+                StorageStrategy.createLongStorage()
+        ).withSelectionPredicate(
+                // Select multiple items
+                SelectionPredicates.<Long>createSelectSingleAnything()
+        ).build(); // 하나만 선택
+        adapter.setTracker(tracker);
+        tracker.addObserver(new SelectionTracker.SelectionObserver() {
+            /**
+             * Last Modified: 2020-02-12
+             * Last Modified By: Shin Minyong
+             * Created: -
+             * Created By: -
+             * Function: Initialization (including Item View)
+             * */
+
+            @Override //선택에 변화가 있을 떄 사용함
+            public void onSelectionChanged() {
+                super.onSelectionChanged();
+                Intent intent = new Intent(getContext(), activityDetail.class);
+                startActivity(intent);
+            }
+        });
+        // ~Set RecyclerView
+
+        /*
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
         ListView mainListView = ((ListView)view.findViewById(R.id.mainItemList));
         mainListView.setOnItemClickListener(mOnItemClickListner);
 
-        refreshMainList(mainListView);
-        return view;
+
+        refreshMainList(mainListView);*/
+        return recyclerView;
+
     }
 
     @Override
@@ -81,6 +146,7 @@ public class fragmentMain extends Fragment {
             2. set info in acrivityDetail Intent
             3. display
              */
+            Toast.makeText(getContext(),"ㅇㅇㅇ",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getContext(), activityDetail.class);
             startActivity(intent);
         }

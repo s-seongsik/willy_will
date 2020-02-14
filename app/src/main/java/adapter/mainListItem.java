@@ -9,7 +9,7 @@ public class mainListItem {
     private String name;
     private String time;
     private String routine;
-    private CheckBox done;
+    private boolean done; //checkbox용
 
     public String getName() {
         return name;
@@ -43,7 +43,7 @@ public class mainListItem {
         this.rank = rank;
     }
 
-    public CheckBox getDone() { return done;}
+    public boolean getDone() { return done;}
 
     public void setDone() {this.done = done;}
 }

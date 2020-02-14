@@ -2,6 +2,7 @@ package adapter;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -17,6 +18,11 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
     // Items
     private TextView textView;
+    private TextView tv_rank;
+    private TextView tv_name;
+    private TextView tv_routine;
+    private TextView tv_time;
+    private CheckBox cb_done;
     // ~Items
 
     /**
@@ -38,6 +44,12 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
         // to-do item
         if(type == context.getResources().getInteger(R.integer.to_do_item_type)) {
             // toDoItem = view.findViewById(R.id....)
+            tv_time = view.findViewById(R.id.tv_time);
+            tv_rank = view.findViewById(R.id.tv_rank);
+            tv_name = view.findViewById(R.id.tv_name);
+            tv_routine = view.findViewById(R.id.tv_routine);
+            cb_done = view.findViewById(R.id.cb_done);
+
         }
         // textview item
         else if(type == context.getResources().getInteger(R.integer.textview_type)) {
@@ -75,7 +87,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
      * Last Modified By: -
      * Created: 2020-02-12
      * Created By: Shin Minyong
-     * Function: Bind data to the item
+     * Function: Bind data to the item (adapter)
      * @param type
      * @param data
      * @param isActivated
@@ -84,7 +96,14 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
     public <T> void bind(int type, T data, boolean isActivated) {
         // to-do item
         if(t == cntxt.getResources().getInteger(R.integer.to_do_item_type)) {
-            // ...
+            mainListItem mitem = (mainListItem) data;
+            tv_time.setText(mitem.getTime());
+            tv_rank.setText(mitem.getRank());
+            tv_name.setText(mitem.getName());
+            tv_routine.setText(mitem.getRoutine());
+            cb_done.setActivated(mitem.getDone());
+
+            itemView.setActivated(isActivated);
         }
         // textview item
         else if(t == cntxt.getResources().getInteger(R.integer.textview_type)) {

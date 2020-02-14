@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.selection.SelectionTracker;
@@ -64,7 +65,16 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.recycleritem_textview, parent, false);
+
+        View view = null;
+        if(t == context.getResources().getInteger(R.integer.to_do_item_type)) {
+            view = layoutInflater.inflate(R.layout.listitem, parent, false);
+        }
+        // textview item
+        else if(t == context.getResources().getInteger(R.integer.textview_type)) {
+            view = layoutInflater.inflate(R.layout.recycleritem_textview, parent, false);
+        }
+
         RecyclerViewHolder holder = new RecyclerViewHolder(t, view, context);
         return holder;
     }
