@@ -37,5 +37,10 @@
             android:name=".activityDetail"
             android:configChanges="keyboardHidden|orientation|screenSize" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+    </uses-permission>
+    <meta-data android:name="com.kakao.sdk.AppKey" android:value="02bcc5ccac3144389ff97078106a8721"/>
 
 </manifest>
