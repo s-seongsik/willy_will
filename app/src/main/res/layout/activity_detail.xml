@@ -410,11 +410,15 @@
                     android:text="서울 강남구 강남대로 지하 396"
                     android:textSize="16sp" />
 
-                <android.media.tv.TvView
-                    android:id="@+id/mapView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_weight="0" />
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="vertical" android:layout_width="match_parent"
+                    android:layout_height="200dp">
+                    <RelativeLayout
+                        android:id="@+id/map_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                    ...
+                </RelativeLayout>
 
             </LinearLayout>
 
