@@ -91,6 +91,17 @@
     </style>
     <!-- ~Button Style -->
 
+    <!-- Text List Item Style -->
+    <style name="TextListItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/text_list_item_height</item>
+        <item name="android:paddingHorizontal">@dimen/basic_padding</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text_list_item_text_size</item>
+        <item name="android:textColor">@color/almost_black</item>
+        <item name="android:background">@drawable/recycleritem</item>
+    </style>
+
     <!-- ~[2020-02-10] Modified by Shin Minyong -->
 
 </resources>

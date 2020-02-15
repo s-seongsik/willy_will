@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PopupStyle"
+    android:orientation="vertical"
+    tools:context=".activityCompleteRepeatSearchSetting">
+
+    <TextView
+        style="@style/PopupTitleStyle"
+        android:text="@string/complete_repeat" />
+
+    <ImageView style="@style/ThickBottomBarStyle" />
+
+    <TextView
+        android:id="@+id/all_cmplt"
+        style="@style/TextListItemStyle"
+        android:text="@string/all" />
+
+    <ImageView style="@style/BottomBarStyle" />
+
+    <TextView
+        android:id="@+id/incomplete"
+        style="@style/TextListItemStyle"
+        android:text="@string/incomplete" />
+
+    <ImageView style="@style/BottomBarStyle" />
+
+    <TextView
+        android:id="@+id/complete"
+        style="@style/TextListItemStyle"
+        android:text="@string/complete" />
+
+    <ImageView style="@style/ThickBottomBarStyle" />
+
+    <TextView
+        android:id="@+id/including_repeat"
+        style="@style/TextListItemStyle"
+        android:text="@string/including_repeat" />
+
+    <ImageView style="@style/ThickBottomBarStyle" />
+
+    <LinearLayout style="@style/PopupBottomLayoutStyle">
+
+        <ImageButton
+            android:id="@+id/complete_repeat_search_setting_cancel"
+            style="@style/PopupCancelStyle"
+            android:onClick="cancelSetting" />
+
+        <ImageView style="@style/PopupBottomVerticalBarStyle" />
+
+        <ImageButton
+            android:id="@+id/complete_repeat_search_setting_okay"
+            style="@style/PopupOkayStyle" />
+
+    </LinearLayout>
+
+</LinearLayout>

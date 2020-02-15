@@ -6,12 +6,7 @@
 
     <TextView
         android:id="@+id/recycleritem_text"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/icon_button_size"
-        android:gravity="center"
-        android:textSize="26sp"
-        android:textColor="@color/almost_black"
-        android:background="@drawable/recycleritem" />
+        style="@style/TextListItemStyle" />
 
     <ImageView style="@style/BottomBarStyle" />
 

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 import adapter.RecyclerViewAdapter;
 
-public class activitySearchSetting extends Activity {
+public class activityGroupSearchSetting extends Activity {
 
     private RecyclerView recyclerView = null;
     private RecyclerView.LayoutManager layoutManager = null;
