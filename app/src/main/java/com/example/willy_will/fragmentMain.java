@@ -32,6 +32,7 @@ public class fragmentMain extends Fragment {
     private final static String EXTRA_INT = "someInt";
     private final static String EXTRA_STRING = "someTitle";
 
+    //Recycler View
     private RecyclerView recyclerView = null;
     private RecyclerView.LayoutManager layoutManager = null;
     private RecyclerViewAdapter adapter = null;
@@ -123,32 +124,4 @@ public class fragmentMain extends Fragment {
     public void onResume() {
         super.onResume();
     }
-
-    // setValue n Adapter
-    private void refreshMainList(ListView mainListView){
-        int num = getArguments().getInt(EXTRA_INT);
-        String rank = getArguments().getString((EXTRA_STRING));
-        String title = getArguments().getString(EXTRA_STRING);
-        //String routine = R.string.routine_true;
-
-        mainListAdapter mainListAdapter = (mainListAdapter) getArguments().getSerializable(EXTRA_ADAPTER);
-        mainListAdapter.addItem(rank,title, "num is" + num);
-        mainListView.setAdapter(mainListAdapter);
-    }
-
-    // list event listner
-    private AdapterView.OnItemClickListener mOnItemClickListner = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            /*
-            remain thing
-            1. get listView item info
-            2. set info in acrivityDetail Intent
-            3. display
-             */
-            Toast.makeText(getContext(),"ㅇㅇㅇ",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getContext(), activityDetail.class);
-            startActivity(intent);
-        }
-    }; //~ listener
 }
