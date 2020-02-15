@@ -107,15 +107,7 @@ public class fragmentMain extends Fragment {
                 startActivity(intent);
             }
         });
-        // ~Set RecyclerView
 
-        /*
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        ListView mainListView = ((ListView)view.findViewById(R.id.mainItemList));
-        mainListView.setOnItemClickListener(mOnItemClickListner);
-
-
-        refreshMainList(mainListView);*/
         return recyclerView;
 
     }
