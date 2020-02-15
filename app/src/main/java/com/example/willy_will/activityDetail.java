@@ -4,18 +4,22 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
-
-
-
+import static java.time.DayOfWeek.*;
+import static java.time.temporal.TemporalAdjusters.*;
+import net.daum.mf.map.api.MapView;
 
 
 public class activityDetail extends Activity {
     ImageView importance;
-    TextView itemName, groupName, startDate, endDate, doneDate, roof,achievementRate;
+    TextView itemName, groupName, startDate, endDate, doneDate, roof,achievementRate,sun;
     RelativeLayout achievementRateArea, doneDateArea;
     int importanceValue;
     Date date;
@@ -24,12 +28,21 @@ public class activityDetail extends Activity {
     int rate;
     Intent intent;
     String[]  days = {"일","월","화","수","목","금","토"};
+    ImageButton back_button;
+    MapView mapView;
+    ViewGroup mapViewContainer;
+    ArrayList<TextView> list = new ArrayList<>();
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+
+        //list.indexOf(findViewById(R.id.textView));
+
 
         importance = findViewById(R.id.importance);
         itemName = findViewById(R.id.itemName);
@@ -41,6 +54,10 @@ public class activityDetail extends Activity {
         achievementRateArea = findViewById(R.id.achievementRateArea);
         doneDateArea = findViewById(R.id.doneDateArea);
         achievementRate = findViewById(R.id.achievementRate);
+        back_button = findViewById(R.id.back_button);
+        mapViewContainer = findViewById(R.id.map_view);
+        sun = findViewById(R.id.sun);
+       // roofDay2[1] = findViewById(R.id.mon);
 
         //itemId 가져와서 데이터 뿌려주기
         intent = getIntent();
@@ -92,7 +109,7 @@ public class activityDetail extends Activity {
             doneDateArea.setVisibility(View.GONE);
         }else{
             doneDateArea.setVisibility(View.GONE);
-            for(int i=0;i<roofstr.length;i++){
+            for(int i=0;i<roofstr.length-1;i++){
                 if(roofstr[i].equals("1")){
                     roofDay += days[i] + " ";
                     rate++;
@@ -106,7 +123,25 @@ public class activityDetail extends Activity {
         achievementRate.setText(Math.round((rate/7.0)*100) +"%");
 
 
+        LocalDate today = LocalDate.now();
+        String tmp = today.with(previousOrSame(SUNDAY))+"";
+        today.with(nextOrSame(SATURDAY));
+        //오늘 날짜를 기준으로 일주일 안에 해당하는 아이템들을 가져온
+       // Toast.makeText(this,tmp,Toast.LENGTH_LONG).show();
+        //roofDay2[0].setBackgroundResource(R.drawable.gravity1);
 
 
-   }
+
+        //구글맵
+
+
+        mapView = new MapView(this);
+        mapViewContainer.addView(mapView);
+
+
+
+
+    }
+
+
 }
