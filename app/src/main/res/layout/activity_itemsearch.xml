@@ -52,31 +52,34 @@
             style="@style/ButtonStyle"
             android:background="@drawable/rounded_rectangle_button"
             android:onClick="bringUpGroupSearchSetting"
-            android:text="@string/group_search_setting_title" />
+            android:text="@string/group" />
 
         <Button
             android:id="@+id/complete_repeat_search_setting_button"
             style="@style/ButtonStyle"
             android:background="@drawable/rounded_rectangle_button"
-            android:text="@string/complete_repeat_search_setting_title" />
+            android:onClick="bringUpCompleteRepeatSearchSetting"
+            android:text="@string/complete_repeat" />
 
         <Button
             android:id="@+id/period_search_setting_button"
             style="@style/ButtonStyle"
             android:background="@drawable/rounded_rectangle_button"
-            android:text="@string/period_search_setting_title" />
+            android:onClick="bringUpPeriodSearchSetting"
+            android:text="@string/period" />
 
         <Button
             android:id="@+id/radius_search_setting_button"
             style="@style/ButtonStyle"
             android:background="@drawable/rounded_rectangle_button"
-            android:text="@string/radius_search_setting_title" />
+            android:onClick="bringUpRadiusSearchSetting"
+            android:text="@string/radius" />
 
         <ImageButton
             android:id="@+id/revert_search_setting_button"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/button_height"
             android:layout_height="@dimen/button_height"
-            android:layout_marginLeft="@dimen/button_margin"
+            android:layout_marginStart="@dimen/button_margin"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:foreground="@android:drawable/ic_menu_revert" />
 

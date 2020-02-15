@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.willy_will">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <meta-data
+        android:name="com.kakao.sdk.AppKey"
+        android:value="02bcc5ccac3144389ff97078106a8721" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,18 +36,22 @@
             android:name=".activityItemSearch"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
-            android:name=".activitySearchSetting"
-            android:theme="@style/PopupTheme"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
+            android:name=".activityGroupSearchSetting"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/PopupTheme" />
+        <activity android:name=".activityCompleteRepeatSearchSetting"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/PopupTheme" />
+        <activity android:name=".activityPeriodSearchSetting"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/PopupTheme" />
+        <activity android:name=".activityRadiusSearchSetting"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/PopupTheme" />
         <!-- set detail Activity -->
         <activity
             android:name=".activityDetail"
             android:configChanges="keyboardHidden|orientation|screenSize" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET">
-    </uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
-    </uses-permission>
-    <meta-data android:name="com.kakao.sdk.AppKey" android:value="02bcc5ccac3144389ff97078106a8721"/>
 
 </manifest>

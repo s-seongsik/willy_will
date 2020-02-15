@@ -1,7 +1,6 @@
 package com.example.willy_will;
 
 import android.app.Activity;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 
 import adapter.RecyclerViewAdapter;
 
-public class activitySearchSetting extends Activity {
+public class activityGroupSearchSetting extends Activity {
 
     private RecyclerView recyclerView = null;
     private RecyclerView.LayoutManager layoutManager = null;
@@ -39,7 +38,7 @@ public class activitySearchSetting extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // ~Remove title bar
         setContentView(R.layout.activity_group_search_setting);
-        
+
         // Set data of item
         ArrayList<String> list = new ArrayList<>();
         list.add("전체");

@@ -1,7 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
 
-    <!-- [2020-02-07] Created by Shin Minyong -->
+    <!-- [2020-02-15] Modified by Shin Minyong -->
 
     <!-- Common -->
     <dimen name="match_constraint">0dp</dimen>
@@ -9,6 +9,8 @@
     <dimen name="basic_margin">16dp</dimen>
     <dimen name="bottom_bar_height">1dp</dimen>
     <dimen name="thick_bottom_bar_height">2dp</dimen>
+    <dimen name="text_list_item_height">48dp</dimen>
+    <dimen name="text_list_item_text_size">26sp</dimen>
     <!-- ~Common -->
 
     <!-- Pop-up -->
@@ -30,7 +32,7 @@
     <dimen name="button_margin">2dp</dimen>
     <!-- ~Button -->
 
-    <!-- ~[2020-02-07] Created by Shin Minyong -->
+    <!-- ~[2020-02-15] Modified by Shin Minyong -->
 
     <!-- [2020-02-13] Created by Lee Jaeeun -->
     <!-- MainIconButton -->

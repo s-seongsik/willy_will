@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/PopupStyle"
+    android:orientation="vertical"
     tools:context=".activityRadiusSearchSetting">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        style="@style/PopupTitleStyle"
+        android:text="@string/radius" />
+
+    <ImageView style="@style/ThickBottomBarStyle" />
+
+    <TextView
+        android:id="@+id/all_rds"
+        style="@style/TextListItemStyle"
+        android:text="@string/all" />
+
+    <ImageView style="@style/BottomBarStyle" />
+
+    <TextView
+        android:id="@+id/within_1km"
+        style="@style/TextListItemStyle"
+        android:text="@string/within_1km" />
+
+    <ImageView style="@style/BottomBarStyle" />
+
+    <TextView
+        android:id="@+id/within_5km"
+        style="@style/TextListItemStyle"
+        android:text="@string/within_5km" />
+
+    <ImageView style="@style/BottomBarStyle" />
+
+    <TextView
+        android:id="@+id/within_10km"
+        style="@style/TextListItemStyle"
+        android:text="@string/within_10km" />
+
+    <ImageView style="@style/ThickBottomBarStyle" />
+
+    <LinearLayout style="@style/PopupBottomLayoutStyle">
+
+        <ImageButton
+            android:id="@+id/radius_search_setting_cancel"
+            style="@style/PopupCancelStyle"
+            android:onClick="cancelSetting" />
+
+        <ImageView style="@style/PopupBottomVerticalBarStyle" />
+
+        <ImageButton
+            android:id="@+id/radius_search_setting_okay"
+            style="@style/PopupOkayStyle" />
+
+    </LinearLayout>
+
+</LinearLayout>

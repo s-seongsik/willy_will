@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/PopupStyle"
     android:orientation="vertical"
-    tools:context=".activitySearchSetting">
+    tools:context=".activityGroupSearchSetting">
 
     <TextView
         style="@style/PopupTitleStyle"
-        android:text="@string/group_search_setting_title" />
+        android:text="@string/group" />
 
     <ImageView style="@style/ThickBottomBarStyle" />
 
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="160dp" />
 
-    <ImageView style="@style/BottomBarStyle" />
+    <ImageView style="@style/ThickBottomBarStyle" />
 
     <LinearLayout style="@style/PopupBottomLayoutStyle">
 
