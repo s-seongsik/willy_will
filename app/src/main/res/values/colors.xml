@@ -2,7 +2,7 @@
 <resources>
 
     <!-- [2020-02-15] Created by Lee Jaeeun -->
-    <color name="colorBasic">#007fbf</color>
+    <color name="colorPrimary">#007fbf</color>
     <color name="colorInactive">#00FFFFFF</color>
     <color name="colorGroup1">#80FF3C3C</color>
     <color name="colorGroup2">#80FF9800</color>
