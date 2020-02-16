@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import com.willy.will.R;
 
-import net.daum.android.map.MapView;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,7 +31,7 @@ public class activityDetail extends Activity {
     Intent intent;
     String[]  days = {"일","월","화","수","목","금","토"};
     ImageButton back_button;
-    MapView mapView;
+    //MapView mapView;
     ViewGroup mapViewContainer;
     ArrayList<TextView> list = new ArrayList<>();
 
@@ -61,7 +59,7 @@ public class activityDetail extends Activity {
         back_button = findViewById(R.id.back_button);
         mapViewContainer = findViewById(R.id.map_view);
         sun = findViewById(R.id.sun);
-        // roofDay2[1] = findViewById(R.id.mon);
+       // roofDay2[1] = findViewById(R.id.mon);
 
         //itemId 가져와서 데이터 뿌려주기
         intent = getIntent();
@@ -126,23 +124,28 @@ public class activityDetail extends Activity {
         roof.setText(roofDay);
         achievementRate.setText(Math.round((rate/7.0)*100) +"%");
 
-/*
+
         LocalDate today = LocalDate.now();
         String tmp = today.with(previousOrSame(SUNDAY))+"";
         today.with(nextOrSame(SATURDAY));
         //오늘 날짜를 기준으로 일주일 안에 해당하는 아이템들을 가져온
        // Toast.makeText(this,tmp,Toast.LENGTH_LONG).show();
         //roofDay2[0].setBackgroundResource(R.drawable.gravity1);
-*/
 
 
-        //카카오맵
+
+        //구글맵
+
+/*
         mapView = new MapView(this);
         mapViewContainer.addView(mapView);
+        *?
+ */
 
 
 
 
     }
+
 
 }
