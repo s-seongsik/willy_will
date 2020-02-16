@@ -132,13 +132,13 @@ public class activityDetail extends Activity {
 
 
 
-        //카카오맵
+        //구글맵
 
-/*
+
         mapView = new MapView(this);
         mapViewContainer.addView(mapView);
 
-*/
+
 
 
     }

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00FFFFFF">
-
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -13,29 +12,33 @@
         android:layout_weight="0"
         android:orientation="horizontal"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/detailView">
+        android:paddingRight="20dp">
 
         <ImageButton
             android:id="@+id/back_button"
             style="@style/IconButtonStyle"
             android:layout_marginRight="@dimen/basic_margin"
             android:foreground="?attr/homeAsUpIndicator"
-            android:onClick="backToMain"/>
+            android:onClick="backToMain"
+            app:layout_constraintEnd_toStartOf="@id/item_search_edit_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             style="@style/IconButtonStyle"
             android:layout_marginRight="@dimen/basic_margin"
             android:foreground="?attr/homeAsUpIndicator"
-            android:onClick="backToMain" />
+            android:onClick="backToMain"
+            app:layout_constraintEnd_toStartOf="@id/item_search_edit_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
 
     <ScrollView
-        android:id="@+id/detailView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/topBar">
+        android:layout_height="match_parent"
+        android:paddingTop="60dp">
 
         <LinearLayout
             android:layout_width="match_parent"
