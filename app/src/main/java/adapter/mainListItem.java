@@ -1,5 +1,8 @@
-package com.willy.will.main.model;
+package adapter;
 
+
+import android.graphics.drawable.Drawable;
+import android.widget.CheckBox;
 
 public class mainListItem {
     private String rank;

@@ -1,4 +1,4 @@
-package com.willy.will.detail.view;
+package com.example.willy_will;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,9 +9,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.willy.will.R;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;

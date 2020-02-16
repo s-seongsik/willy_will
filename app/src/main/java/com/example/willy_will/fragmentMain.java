@@ -1,11 +1,14 @@
-package com.willy.will.main.view;
+package com.example.willy_will;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.selection.SelectionPredicates;
@@ -15,15 +18,11 @@ import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.willy.will.R;
-import com.willy.will.detail.view.activityDetail;
-
 import java.util.ArrayList;
 
-import com.willy.will.adapter.RecyclerItemDetailsLookup;
-import com.willy.will.adapter.RecyclerViewAdapter;
-import com.willy.will.adapter.mainListAdapter;
-import com.willy.will.main.model.mainListItem;
+import adapter.RecyclerViewAdapter;
+import adapter.mainListAdapter;
+import adapter.mainListItem;
 
 public class fragmentMain extends Fragment {
     // dont fix it

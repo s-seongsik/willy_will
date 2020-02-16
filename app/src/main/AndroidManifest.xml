@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.willy.will">
+    package="com.example.willy_will">
 
 
     <uses-permission android:name="android.permission.INTERNET">
@@ -19,7 +19,7 @@
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="02bcc5ccac3144389ff97078106a8721"/>
 
         <activity
-            android:name="com.willy.will.main.view.activityBase"
+            android:name=".activityBase"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
@@ -31,28 +31,28 @@
         </activity>
         <!-- set addItem Activity -->
         <activity
-            android:name="com.willy.will.add.view.activityItemAdd"
+            android:name=".activityItemAdd"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <!-- set searchItem Activity -->
         <activity
-            android:name="com.willy.will.search.view.SearchActivity"
+            android:name=".activityItemSearch"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
-            android:name="com.willy.will.search.view.GroupSearchSettingActivity"
+            android:name=".activityGroupSearchSetting"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/PopupTheme" />
-        <activity android:name="com.willy.will.search.view.CompleteRepeatSearchSettingActivity"
+        <activity android:name=".activityCompleteRepeatSearchSetting"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/PopupTheme" />
-        <activity android:name="com.willy.will.search.view.PeriodSearchSettingActivity"
+        <activity android:name=".activityPeriodSearchSetting"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/PopupTheme" />
-        <activity android:name="com.willy.will.search.view.RadiusSearchSettingActivity"
+        <activity android:name=".activityRadiusSearchSetting"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/PopupTheme" />
         <!-- set detail Activity -->
         <activity
-            android:name="com.willy.will.detail.view.activityDetail"
+            android:name=".activityDetail"
             android:configChanges="keyboardHidden|orientation|screenSize" />
     </application>
 

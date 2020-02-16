@@ -1,21 +1,23 @@
-package com.willy.will.main.view;
+package com.example.willy_will;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.willy.will.R;
-import com.willy.will.add.view.activityItemAdd;
-import com.willy.will.calander.view.fragmentCalander;
-import com.willy.will.search.view.SearchActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.willy.will.adapter.viewPagerAdapter;
+import adapter.viewPagerAdapter;
 
 public class activityBase extends AppCompatActivity{
 
@@ -114,7 +116,7 @@ public class activityBase extends AppCompatActivity{
     }*/
 
     public void btnSearchClick(View view){
-        Intent intent = new Intent(activityBase.this , SearchActivity.class);
+        Intent intent = new Intent(activityBase.this , activityItemSearch.class);
         startActivity(intent);
     }
 
@@ -140,7 +142,7 @@ public class activityBase extends AppCompatActivity{
         //
         if (id == R.id.itemSearch){
             // show search activity
-            Intent intent = new Intent(activityBase.this , SearchActivity.class);
+            Intent intent = new Intent(activityBase.this , activityItemSearch.class);
             startActivity(intent);
         }
 

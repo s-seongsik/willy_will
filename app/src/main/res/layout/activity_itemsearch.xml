@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/basic_margin"
-    tools:context=".search.view.SearchActivity">
+    tools:context=".activityItemSearch">
 
     <ImageButton
         android:id="@+id/back_button"

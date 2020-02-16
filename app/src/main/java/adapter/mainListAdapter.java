@@ -1,7 +1,12 @@
-package com.willy.will.adapter;
+package adapter;
 
+import android.app.Application;
+import android.app.Service;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +17,9 @@ import android.text.Spannable;
 import android.text.style.BackgroundColorSpan;
 import androidx.core.content.ContextCompat;
 
-import com.willy.will.R;
-import com.willy.will.main.model.mainListItem;
+import com.example.willy_will.R;
+
+import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.ArrayList;

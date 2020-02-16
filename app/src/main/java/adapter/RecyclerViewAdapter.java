@@ -1,15 +1,16 @@
-package com.willy.will.adapter;
+package adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.willy.will.R;
+import com.example.willy_will.R;
 
 import java.util.ArrayList;
 

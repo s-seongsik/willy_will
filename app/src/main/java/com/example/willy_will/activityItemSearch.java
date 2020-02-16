@@ -1,4 +1,4 @@
-package com.willy.will.search.view;
+package com.example.willy_will;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,9 +9,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.willy.will.R;
-
-public class SearchActivity extends AppCompatActivity {
+public class activityItemSearch extends AppCompatActivity {
 
     private String extraNameCode = null;
     private Resources resources = null;
@@ -48,7 +46,7 @@ public class SearchActivity extends AppCompatActivity {
      * @param view
      */
     public void bringUpGroupSearchSetting(View view) {
-        Intent intent = new Intent(this, GroupSearchSettingActivity.class);
+        Intent intent = new Intent(this, activityGroupSearchSetting.class);
         code = resources.getInteger(R.integer.group_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
@@ -64,7 +62,7 @@ public class SearchActivity extends AppCompatActivity {
      * @param view
      */
     public void bringUpCompleteRepeatSearchSetting(View view) {
-        Intent intent = new Intent(this, CompleteRepeatSearchSettingActivity.class);
+        Intent intent = new Intent(this, activityCompleteRepeatSearchSetting.class);
         code = resources.getInteger(R.integer.complete_repeat_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
@@ -80,7 +78,7 @@ public class SearchActivity extends AppCompatActivity {
      * @param view
      */
     public void bringUpPeriodSearchSetting(View view) {
-        Intent intent = new Intent(this, PeriodSearchSettingActivity.class);
+        Intent intent = new Intent(this, activityPeriodSearchSetting.class);
         code = resources.getInteger(R.integer.period_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
@@ -96,7 +94,7 @@ public class SearchActivity extends AppCompatActivity {
      * @param view
      */
     public void bringUpRadiusSearchSetting(View view) {
-        Intent intent = new Intent(this, RadiusSearchSettingActivity.class);
+        Intent intent = new Intent(this, activityRadiusSearchSetting.class);
         code = resources.getInteger(R.integer.radius_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
