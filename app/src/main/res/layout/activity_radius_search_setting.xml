@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/PopupStyle"
     android:orientation="vertical"
-    tools:context=".search.view.activityRadiusSearchSetting">
+    tools:context=".search.view.RadiusSearchSettingActivity">
 
     <TextView
         style="@style/PopupTitleStyle"

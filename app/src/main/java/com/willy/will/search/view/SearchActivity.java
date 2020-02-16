@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.willy.will.R;
 
-public class activityItemSearch extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity {
 
     private String extraNameCode = null;
     private Resources resources = null;
@@ -48,7 +48,7 @@ public class activityItemSearch extends AppCompatActivity {
      * @param view
      */
     public void bringUpGroupSearchSetting(View view) {
-        Intent intent = new Intent(this, activityGroupSearchSetting.class);
+        Intent intent = new Intent(this, GroupSearchSettingActivity.class);
         code = resources.getInteger(R.integer.group_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
@@ -64,7 +64,7 @@ public class activityItemSearch extends AppCompatActivity {
      * @param view
      */
     public void bringUpCompleteRepeatSearchSetting(View view) {
-        Intent intent = new Intent(this, activityCompleteRepeatSearchSetting.class);
+        Intent intent = new Intent(this, CompleteRepeatSearchSettingActivity.class);
         code = resources.getInteger(R.integer.complete_repeat_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
@@ -80,7 +80,7 @@ public class activityItemSearch extends AppCompatActivity {
      * @param view
      */
     public void bringUpPeriodSearchSetting(View view) {
-        Intent intent = new Intent(this, activityPeriodSearchSetting.class);
+        Intent intent = new Intent(this, PeriodSearchSettingActivity.class);
         code = resources.getInteger(R.integer.period_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
@@ -96,7 +96,7 @@ public class activityItemSearch extends AppCompatActivity {
      * @param view
      */
     public void bringUpRadiusSearchSetting(View view) {
-        Intent intent = new Intent(this, activityRadiusSearchSetting.class);
+        Intent intent = new Intent(this, RadiusSearchSettingActivity.class);
         code = resources.getInteger(R.integer.radius_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);

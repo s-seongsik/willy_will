@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import com.willy.will.adapter.RecyclerItemDetailsLookup;
 import com.willy.will.adapter.RecyclerViewAdapter;
 
-public class activityGroupSearchSetting extends Activity {
+public class GroupSearchSettingActivity extends Activity {
 
     private RecyclerView recyclerView = null;
     private RecyclerView.LayoutManager layoutManager = null;

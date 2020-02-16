@@ -7,7 +7,7 @@ import android.view.Window;
 
 import com.willy.will.R;
 
-public class activityRadiusSearchSetting extends Activity {
+public class PeriodSearchSettingActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class activityRadiusSearchSetting extends Activity {
         // Remove title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // ~Remove title bar
-        setContentView(R.layout.activity_radius_search_setting);
+        setContentView(R.layout.activity_period_search_setting);
     }
 
     /**

@@ -7,7 +7,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.willy.will.R;
 import com.willy.will.add.view.activityItemAdd;
 import com.willy.will.calander.view.fragmentCalander;
-import com.willy.will.search.view.activityItemSearch;
+import com.willy.will.search.view.SearchActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -114,7 +114,7 @@ public class activityBase extends AppCompatActivity{
     }*/
 
     public void btnSearchClick(View view){
-        Intent intent = new Intent(activityBase.this , activityItemSearch.class);
+        Intent intent = new Intent(activityBase.this , SearchActivity.class);
         startActivity(intent);
     }
 
@@ -140,7 +140,7 @@ public class activityBase extends AppCompatActivity{
         //
         if (id == R.id.itemSearch){
             // show search activity
-            Intent intent = new Intent(activityBase.this , activityItemSearch.class);
+            Intent intent = new Intent(activityBase.this , SearchActivity.class);
             startActivity(intent);
         }
 
