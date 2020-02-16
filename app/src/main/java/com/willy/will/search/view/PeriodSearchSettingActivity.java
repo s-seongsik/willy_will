@@ -1,11 +1,13 @@
-package com.example.willy_will;
+package com.willy.will.search.view;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-public class activityCompleteRepeatSearchSetting extends Activity {
+import com.willy.will.R;
+
+public class PeriodSearchSettingActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,7 +15,7 @@ public class activityCompleteRepeatSearchSetting extends Activity {
         // Remove title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // ~Remove title bar
-        setContentView(R.layout.activity_complete_repeat_search_setting);
+        setContentView(R.layout.activity_period_search_setting);
     }
 
     /**
