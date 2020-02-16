@@ -1,9 +1,11 @@
-package com.example.willy_will;
+package com.willy.will.add.view;
 
 import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+
+import com.willy.will.R;
 
 public class activityItemAdd extends Activity {
     @Override

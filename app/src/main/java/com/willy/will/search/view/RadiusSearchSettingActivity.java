@@ -1,11 +1,13 @@
-package com.example.willy_will;
+package com.willy.will.search.view;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-public class activityRadiusSearchSetting extends Activity {
+import com.willy.will.R;
+
+public class RadiusSearchSettingActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

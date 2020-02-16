@@ -1,4 +1,4 @@
-package adapter;
+package com.willy.will.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -9,7 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.willy_will.R;
+import com.willy.will.R;
+import com.willy.will.main.model.mainListItem;
 
 public class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
@@ -87,7 +88,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
      * Last Modified By: -
      * Created: 2020-02-12
      * Created By: Shin Minyong
-     * Function: Bind data to the item (adapter)
+     * Function: Bind data to the item (com.willy.will.adapter)
      * @param type
      * @param data
      * @param isActivated

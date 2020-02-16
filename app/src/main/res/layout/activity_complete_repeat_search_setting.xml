@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/PopupStyle"
     android:orientation="vertical"
-    tools:context=".activityCompleteRepeatSearchSetting">
+    tools:context=".search.view.CompleteRepeatSearchSettingActivity">
 
     <TextView
         style="@style/PopupTitleStyle"

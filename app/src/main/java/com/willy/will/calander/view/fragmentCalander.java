@@ -1,16 +1,13 @@
-package com.example.willy_will;
+package com.willy.will.calander.view;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import adapter.mainListAdapter;
+import com.willy.will.R;
 
 public class fragmentCalander extends Fragment {
     // example extra string

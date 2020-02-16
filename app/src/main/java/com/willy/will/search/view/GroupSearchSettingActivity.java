@@ -1,4 +1,4 @@
-package com.example.willy_will;
+package com.willy.will.search.view;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,11 +13,14 @@ import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.willy.will.R;
+
 import java.util.ArrayList;
 
-import adapter.RecyclerViewAdapter;
+import com.willy.will.adapter.RecyclerItemDetailsLookup;
+import com.willy.will.adapter.RecyclerViewAdapter;
 
-public class activityGroupSearchSetting extends Activity {
+public class GroupSearchSettingActivity extends Activity {
 
     private RecyclerView recyclerView = null;
     private RecyclerView.LayoutManager layoutManager = null;
