@@ -31,7 +31,7 @@
     <ImageButton
         android:id="@+id/search_button"
         style="@style/IconButtonStyle"
-        android:foreground="@android:drawable/ic_menu_search"
+        android:foreground="@drawable/ic_search_24px"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/item_search_edit_text" />
@@ -81,7 +81,7 @@
             android:layout_height="@dimen/button_height"
             android:layout_marginStart="@dimen/button_margin"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:foreground="@android:drawable/ic_menu_revert" />
+            android:foreground="@drawable/ic_replay_24px" />
 
     </LinearLayout>
 

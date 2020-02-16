@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/PopupStyle"
-    android:orientation="vertical"
-    tools:context=".search.view.CompleteRepeatSearchSettingActivity">
+    android:orientation="vertical">
 
     <TextView
         style="@style/PopupTitleStyle"
@@ -13,28 +11,28 @@
 
     <TextView
         android:id="@+id/all_cmplt"
-        style="@style/TextListItemStyle"
+        style="@style/TextRecyclerItemStyle"
         android:text="@string/all" />
 
     <ImageView style="@style/BottomBarStyle" />
 
     <TextView
         android:id="@+id/incomplete"
-        style="@style/TextListItemStyle"
+        style="@style/TextRecyclerItemStyle"
         android:text="@string/incomplete" />
 
     <ImageView style="@style/BottomBarStyle" />
 
     <TextView
         android:id="@+id/complete"
-        style="@style/TextListItemStyle"
+        style="@style/TextRecyclerItemStyle"
         android:text="@string/complete" />
 
     <ImageView style="@style/ThickBottomBarStyle" />
 
     <TextView
         android:id="@+id/including_repeat"
-        style="@style/TextListItemStyle"
+        style="@style/TextRecyclerItemStyle"
         android:text="@string/including_repeat" />
 
     <ImageView style="@style/ThickBottomBarStyle" />

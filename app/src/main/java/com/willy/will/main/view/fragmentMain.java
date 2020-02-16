@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.willy.will.R;
+import com.willy.will.adapter.RecyclerViewSetter;
 import com.willy.will.detail.view.activityDetail;
 
 import java.util.ArrayList;
@@ -71,13 +72,19 @@ public class fragmentMain extends Fragment {
         list.add(new mainListItem());
 
         // Set RecyclerView
-        recyclerView = view.findViewById(R.id.mainItemList);
+        // ↓↓↓↓↓↓↓↓↓↓ RecyclerViewAdapter 매개변수 고치는 바람에 부득이하게 수정함
+        recyclerView = new RecyclerViewSetter(
+                R.id.mainItemList, view,
+                R.integer.to_do_recycler_item_type, list,
+                R.string.selection_id_main, false
+        ).setRecyclerView();
+        /*recyclerView = view.findViewById(R.id.mainItemList);
         recyclerView.setHasFixedSize(true); //안정적...고정사이즈
         // set LayoutManager
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         // set Adapter
-        final int TYPE = getResources().getInteger(R.integer.to_do_item_type);
+        final int TYPE = getResources().getInteger(R.integer.to_do_recycler_item_type);
         adapter = new RecyclerViewAdapter(TYPE, list);//itemlist
         recyclerView.setAdapter(adapter);
         // set Tracker
@@ -93,13 +100,13 @@ public class fragmentMain extends Fragment {
         ).build(); // 하나만 선택
         adapter.setTracker(tracker);
         tracker.addObserver(new SelectionTracker.SelectionObserver() {
-            /**
+            *//**
              * Last Modified: 2020-02-12
              * Last Modified By: Shin Minyong
              * Created: -
              * Created By: -
              * Function: Initialization (including Item View)
-             * */
+             * *//*
 
             @Override //선택에 변화가 있을 떄 사용함
             public void onSelectionChanged() {
@@ -107,7 +114,8 @@ public class fragmentMain extends Fragment {
                 Intent intent = new Intent(getContext(), activityDetail.class);
                 startActivity(intent);
             }
-        });
+        });*/
+        // ↑↑↑↑↑↑↑↑↑↑ RecyclerViewAdapter 매개변수 고치는 바람에 부득이하게 수정함
 
         return recyclerView;
 
