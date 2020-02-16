@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import static java.time.DayOfWeek.*;
 import static java.time.temporal.TemporalAdjusters.*;
+import net.daum.mf.map.api.MapView;
 
 
 public class activityDetail extends Activity {
@@ -28,7 +29,7 @@ public class activityDetail extends Activity {
     Intent intent;
     String[]  days = {"일","월","화","수","목","금","토"};
     ImageButton back_button;
-    //MapView mapView;
+    MapView mapView;
     ViewGroup mapViewContainer;
     ArrayList<TextView> list = new ArrayList<>();
 
@@ -133,11 +134,9 @@ public class activityDetail extends Activity {
 
         //구글맵
 
-/*
+
         mapView = new MapView(this);
         mapViewContainer.addView(mapView);
-        *?
- */
 
 
 

@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- [2020-02-15] Created by Lee Jaeeun -->
-    <color name="colorPrimary">#007fbf</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#00FFFFFF</color>
+    <color name="colorAccent2">#D89063</color>
+    <color name="colorBasic">#007fbf</color>
     <color name="colorInactive">#00FFFFFF</color>
-    <color name="colorGroup1">#80FF3C3C</color>
-    <color name="colorGroup2">#80FF9800</color>
-    <color name="colorGroup3">#80FFEB3B</color>
-    <color name="colorGroup4">#80009688</color>
-    <color name="colorGroup5">#804CAF50</color>
-    <color name="colorGroup7">#802196F3</color>
-    <color name="colorGroup8">#803F51B5</color>
-    <color name="colorGroup9">#80673AB7</color>
-    <color name="colorGroup10">#80FF9CE1</color>
+    <color name="colorGroup1">#ADF44336</color>
     <color name="colorString">#000000</color>
-    <!-- ~[2020-02-15] Created by Lee Jaeeun -->
 
     <!-- [2020-02-07] Created by Shin Minyong -->
     <color name="almost_black">#333</color>

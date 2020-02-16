@@ -109,6 +109,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/bt_plus"
-        app:backgroundTint="@color/colorPrimary"/>
+        app:backgroundTint="@color/colorBasic"/>
     <!-- ~Fab -->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
