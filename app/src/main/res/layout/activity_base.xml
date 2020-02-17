@@ -41,7 +41,7 @@
                     android:layout_height="@dimen/main_icon_height"
                     android:layout_gravity="bottom"
                     android:layout_margin="@dimen/button_margin"
-                    android:background="@drawable/bt_search"
+                    android:background="@drawable/ic_search_24px"
                     android:onClick="btnSearchClick" />
 
                 <ImageButton
@@ -50,7 +50,7 @@
                     android:layout_height="@dimen/main_icon_height"
                     android:layout_gravity="bottom"
                     android:layout_margin="@dimen/button_margin"
-                    android:background="@drawable/bt_calendar"
+                    android:background="@drawable/ic_date_range_24px"
                     android:onClick="btnCalendarClick" />
 
                 <ImageButton
@@ -59,7 +59,7 @@
                     android:layout_height="@dimen/main_icon_height"
                     android:layout_gravity="bottom|end"
                     android:layout_margin="@dimen/button_margin"
-                    android:background="@drawable/bt_setting"
+                    android:background="@drawable/ic_settings_24px"
                     android:onClick="btnSearchClick" />
             </LinearLayout>
 
@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/bt_plus"
+        android:src="@drawable/ic_add_24px"
         app:backgroundTint="@color/colorPrimary"/>
     <!-- ~Fab -->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

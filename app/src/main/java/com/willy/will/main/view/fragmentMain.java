@@ -36,9 +36,6 @@ public class fragmentMain extends Fragment {
 
     //Recycler View
     private RecyclerView recyclerView = null;
-    private RecyclerView.LayoutManager layoutManager = null;
-    private RecyclerViewAdapter adapter = null;
-    private SelectionTracker<Long> tracker = null; // 선택했는지?
 
     // omission database object
     public static final fragmentMain newInstance(int page, String title, BaseAdapter adapter) {
