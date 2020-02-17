@@ -53,6 +53,8 @@ public class activityDetail extends Activity {
     ArrayList<TextView> list = new ArrayList<TextView>();
     */
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,21 +128,14 @@ public class activityDetail extends Activity {
         }else if(tmpRoof.equals("1111111")){ //매일
             doneDateArea.setVisibility(View.GONE);
             roofDay += "매일";
-        }else{
-            //tmpRoofDay.setVisibility(View.GONE);
-
-            for(int i=0;i<tmpRoofDay.length-1;i++){
-                /*
-                if(tmpRoofDay[i] == null){
-                    result += "n;ll";
-                }else if(tmpRoofDay[i].equals("1")){
-                    roofDay += days[i] + " ";
+        }else {
+            doneDateArea.setVisibility(View.GONE);
+            for (int i = 1; i < tmpRoofDay.length; i++) {
+                if (tmpRoofDay[i].equals("1")) {
+                    roofDay += days[i-1] + " ";
                     rate++;
                 }
-
-                 */
             }
-
         }
         roof.setText(roofDay);
         achievementRate.setText(Math.round((rate/7.0)*100) +"%");
@@ -153,12 +148,12 @@ public class activityDetail extends Activity {
 
         //7. kakao map
 
-
+/*
         MapView mapView = new MapView(this);
         ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
         mapViewContainer.addView(mapView);
 
-
+*/
 
     }
 
