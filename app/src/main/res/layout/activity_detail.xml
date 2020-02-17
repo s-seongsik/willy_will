@@ -4,454 +4,312 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00FFFFFF">
-    <LinearLayout
-        android:id="@+id/topBar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_weight="0"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+    android:background="#00FFFFFF"
+    tools:context=".detail.view.activityDetail">
 
-        <ImageButton
-            android:id="@+id/back_button"
-            style="@style/IconButtonStyle"
-            android:layout_marginRight="@dimen/basic_margin"
-            android:foreground="?attr/homeAsUpIndicator"
-            android:onClick="backToMain"
-            app:layout_constraintEnd_toStartOf="@id/item_search_edit_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/back_button"
+        style="@style/DetailButtonStyle"
+        android:foreground="?attr/homeAsUpIndicator"
+        android:onClick="backToMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            style="@style/IconButtonStyle"
-            android:layout_marginRight="@dimen/basic_margin"
-            android:foreground="?attr/homeAsUpIndicator"
-            android:onClick="backToMain"
-            app:layout_constraintEnd_toStartOf="@id/item_search_edit_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/search_button"
+        android:foreground="@drawable/bt_edit"
+        style="@style/DetailButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="60dp">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back_button">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="138dp">
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
 
             <LinearLayout
                 android:id="@+id/itemArea"
+                style="@style/DetailListStyle"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_weight="0"
+                android:layout_height="@dimen/detail_list_thick_height"
+                android:background="@drawable/layout_bar"
                 android:orientation="horizontal"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                app:layout_constraintBottom_toTopOf="@+id/GroupArea"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent">
 
                 <ImageView
                     android:id="@+id/importance"
-                    android:layout_width="25dp"
+                    android:layout_width="20dp"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
                     android:layout_marginRight="10dp"
-                    android:foregroundGravity="center"
-                    android:visibility="visible"
-                    app:srcCompat="@drawable/gravity1" />
+                    android:src="@drawable/gravity1" />
 
                 <TextView
                     android:id="@+id/itemName"
-                    android:layout_width="350dp"
-                    android:layout_height="match_parent"
-                    android:foregroundGravity="right"
-                    android:gravity="center_vertical"
-                    android:text="프로그래머스_정렬 문제 풀기"
-                    android:textSize="16dp"
-                    app:layout_constraintEnd_toEndOf="parent" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="#DBDBDB" />
-
-            <RelativeLayout
-                android:id="@+id/groupArea"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_weight="0"
-                tools:ignore="MissingConstraints">
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="그룹"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:text="프로그래머스_정렬 문제 풀기" />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/GroupArea"
+                style="@style/DetailListStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_list_thick_height"
+                android:background="@drawable/layout_bar"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/dateArea"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemArea">
+
+                <TextView
+                    style="@style/DetailTitleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/group" />
 
                 <ImageView
                     android:id="@+id/groupColor"
-                    android:layout_width="15dp"
+                    android:layout_width="20dp"
                     android:layout_height="match_parent"
                     android:layout_alignLeft="@id/groupName"
-                    android:layout_alignParentLeft="false"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="0"
-                    app:srcCompat="@drawable/colorsample" />
+                    android:visibility="visible"
+                    android:src="@drawable/group_color"/>
 
                 <TextView
                     android:id="@+id/groupName"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_alignParentTop="false"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="0dp"
-                    android:layout_weight="0"
                     android:gravity="center_vertical"
                     android:paddingLeft="25dp"
-                    android:paddingRight="20dp"
-                    android:text="취업준비"
-                    android:textSize="16sp"
-                    android:textStyle="normal" />
+                    android:text="취업준비" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="0"
-                    android:background="#DBDBDB" />
             </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/dateArea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/layout_bar"
                 android:orientation="vertical"
-                tools:ignore="MissingConstraints">
+                app:layout_constraintBottom_toTopOf="@+id/dateArea"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemArea">
 
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_weight="0"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="날짜" />
 
                 <RelativeLayout
+                    android:id="@+id/startDateArea"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#DBDBDB" />
-
+                    android:layout_height="@dimen/detail_list_thick_height"
+                    android:background="@drawable/layout_border"
+                    style="@style/DetailListStyle">
                     <TextView
+                        style="@style/DetailTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="0"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="20dp"
-                        android:text="시작 날짜"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:text="@string/start_date" />
 
                     <TextView
                         android:id="@+id/startDate"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_alignParentTop="false"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="0dp"
-                        android:layout_weight="0"
                         android:gravity="center_vertical"
-                        android:paddingRight="20dp"
-                        android:text="2020-01-31"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
+                        android:text="2020-01-31" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/endDateArea"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#DBDBDB" />
+                    android:layout_height="@dimen/detail_list_thick_height"
+                    android:background="@drawable/layout_border"
+                    style="@style/DetailListStyle">
 
                     <TextView
+                        style="@style/DetailTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="0"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="20dp"
-                        android:text="종료 날짜"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:text="@string/end_date" />
 
                     <TextView
                         android:id="@+id/endDate"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_alignParentTop="false"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="0dp"
-                        android:layout_weight="0"
                         android:gravity="center_vertical"
-                        android:paddingRight="20dp"
-                        android:text="2020-01-31"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
+                        android:text="2020-01-31" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/doneDateArea"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#DBDBDB" />
+                    android:layout_height="@dimen/detail_list_thick_height"
+                    android:background="@drawable/layout_border"
+                    style="@style/DetailListStyle">
 
                     <TextView
+                        style="@style/DetailTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="0"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="20dp"
-                        android:text="완료 날짜"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:text="@string/done_date" />
 
                     <TextView
                         android:id="@+id/doneDate"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_alignParentTop="false"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="0dp"
-                        android:layout_weight="0"
                         android:gravity="center_vertical"
-                        android:paddingRight="20dp"
-                        android:text="2020-01-31"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
+                        android:text="2020-01-31" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
+                    style="@style/DetailListStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    tools:visibility="visible">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#DBDBDB" />
+                    android:layout_height="@dimen/detail_list_thick_height"
+                    android:background="@drawable/layout_border">
 
                     <TextView
+                        style="@style/DetailTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="0"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="20dp"
-                        android:text="반복"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:text="@string/roof" />
 
                     <TextView
                         android:id="@+id/roof"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_alignParentTop="false"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="0dp"
-                        android:layout_weight="0"
                         android:gravity="center_vertical"
-                        android:paddingRight="20dp"
-                        android:text="월 화 수 목 금 토"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
-                </RelativeLayout>
+                        android:text="2020-01-31" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="0"
-                    android:background="#DBDBDB" />
+                </RelativeLayout>
 
             </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/achievementRateArea"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="-16dp"
-                tools:layout_editor_absoluteY="529dp"
-                tools:visibility="visible">
+                android:layout_height="135dp"
+                android:background="@drawable/layout_bar"
+                style="@style/DetailListStyle"
+                app:layout_constraintTop_toBottomOf="@id/dateArea"
+                app:layout_constraintBottom_toTopOf="@+id/locationArea"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:layout_weight="0"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="20dp"
-                    android:text="주간 달성율"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:layout_height="@dimen/detail_list_thick_height"
+                    android:text="@string/week_achievement_rate"
+                    style="@style/DetailTitleStyle"/>
 
                 <TextView
                     android:id="@+id/achievementRate"
                     android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:layout_alignParentTop="false"
+                    android:layout_height="@dimen/detail_list_thick_height"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="0dp"
-                    android:layout_weight="0"
-                    android:gravity="center_vertical"
-                    android:paddingRight="20dp"
-                    android:text="80%"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    style="@style/DetailTitleStyle"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:orientation="horizontal"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp">
-
-                    <TextView
-                        android:id="@+id/sun"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:text="일"
-                        android:textSize="16sp" />
+                    android:paddingBottom="@dimen/detail_list_padding">
 
                     <TextView
                         android:id="@+id/mon"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:text="월"
-                        android:textSize="16sp"/>
+                        android:text="@string/monday"
+                        style="@style/DetailDayStyle"/>
 
                     <TextView
-                        android:id="@+id/tue"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/achievement_false"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:text="화"
-                        android:textSize="16sp" />
+                        android:id="@+id/the"
+                        android:text="@string/tuesday"
+                        style="@style/DetailDayStyle"/>
 
                     <TextView
-                        android:id="@+id/web"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:text="수"
-                        android:textSize="16sp" />
+                        android:id="@+id/wed"
+                        android:text="@string/wednesday"
+                        style="@style/DetailDayStyle"/>
 
                     <TextView
                         android:id="@+id/thu"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:text="목"
-                        android:textSize="16sp" />
+                        android:text="@string/thursday"
+                        style="@style/DetailDayStyle"/>
 
                     <TextView
                         android:id="@+id/fri"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/achievement_true"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:text="금"
-                        android:textSize="16sp" />
+                        android:text="@string/friday"
+                        android:background="@drawable/achievement_false"
+                        style="@style/DetailDayStyle"/>
 
                     <TextView
                         android:id="@+id/sat"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:text="토"
-                        android:textSize="16sp" />
+                        android:text="@string/saturday"
+                        style="@style/DetailDayStyle"/>
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="0"
-                    android:background="#DBDBDB" />
+
             </RelativeLayout>
 
 
             <LinearLayout
                 android:id="@+id/locationArea"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="667dp">
+                style="@style/DetailListStyle"
+                app:layout_constraintTop_toBottomOf="@id/achievementRateArea"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_weight="0"
-                    android:gravity="center_vertical"
-                    android:text="위치"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:layout_height="@dimen/detail_list_thick_height"
+                    android:text="@string/location"
+                    style="@style/DetailTitleStyle" />
 
                 <TextView
                     android:id="@+id/address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_weight="0"
-                    android:gravity="center_vertical"
-                    android:text="서울 강남구 강남대로 지하 396"
-                    android:textSize="16sp" />
+                    android:text="서울 강남구 강남대로 지하 396" />
 
                 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:orientation="vertical" android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
                     <RelativeLayout
                         android:id="@+id/map_view"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
+                        android:layout_height="200dp" />
                 </RelativeLayout>
 
-            </LinearLayout>
+            </LinearLayout> <!-- end locationArea-->
 
         </LinearLayout>
     </ScrollView>
