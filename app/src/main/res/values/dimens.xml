@@ -44,4 +44,13 @@
     <dimen name="main_icon_height">30dp</dimen>
 
     <!-- ~[2020-02-13] Created by Lee Jaeeun -->
+
+    <!-- [2020-02-17] Modified by Kim Mikyung -->
+    <dimen name="detail_icon_margin">15dp</dimen>
+    <dimen name="detail_list_padding">20dp</dimen>
+    <dimen name="detail_list_thick_height">64dp</dimen>
+    <dimen name="detail_list_thin_height">58dp</dimen>
+    <dimen name="detail_title_style">18dp</dimen>
+
+    <!-- ~[2020-02-17] Modified by Kim Mikyung -->
 </resources>

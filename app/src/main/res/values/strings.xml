@@ -14,6 +14,19 @@
     <string name="within_1km">여기서 1km 이내</string>
     <string name="within_5km">여기서 5km 이내</string>
     <string name="within_10km">여기서 10km 이내</string>
+    <string name="start_date">시작 날짜</string>
+    <string name="end_date">종료 날짜</string>
+    <string name="done_date">완료 날짜</string>
+    <string name="roof">반복</string>
+    <string name="week_achievement_rate">주간 달성</string>
+    <string name="sunday">일</string>
+    <string name="monday">월</string>
+    <string name="tuesday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
+    <string name="location">위치</string>
     <!-- ~dialog Text -->
 
     <!-- value -->

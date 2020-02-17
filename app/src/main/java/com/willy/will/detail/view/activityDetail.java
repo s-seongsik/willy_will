@@ -9,8 +9,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import com.willy.will.R;
+
+import net.daum.mf.map.api.MapView;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,7 +24,20 @@ import static java.time.temporal.TemporalAdjusters.*;
 
 
 public class activityDetail extends Activity {
+
     ImageView importance;
+    TextView itemName, groupName, startDate, endDate, doneDate, roof,achievementRate;
+    RelativeLayout achievementRateArea, startDateArea, endDateArea, doneDateArea;
+    String roofDay = "";
+    String[] days = {"일","월","화","수","목","금","토"};
+    int rate = 0;
+
+    int tmpImportance;
+    String tmpItemName, tmpGroupName, tmpRoof;
+    String[] tmpRoofDay;
+    Date tmpDate;
+
+    /*
     TextView itemName, groupName, startDate, endDate, doneDate, roof,achievementRate,sun;
     RelativeLayout achievementRateArea, doneDateArea;
     int importanceValue;
@@ -31,9 +48,10 @@ public class activityDetail extends Activity {
     Intent intent;
     String[]  days = {"일","월","화","수","목","금","토"};
     ImageButton back_button;
-    //MapView mapView;
+    MapView mapView;
     ViewGroup mapViewContainer;
-    ArrayList<TextView> list = new ArrayList<>();
+    ArrayList<TextView> list = new ArrayList<TextView>();
+    */
 
 
 
@@ -42,110 +60,107 @@ public class activityDetail extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-
-        //list.indexOf(findViewById(R.id.textView));
-
-
+        // findViewById
         importance = findViewById(R.id.importance);
         itemName = findViewById(R.id.itemName);
         groupName = findViewById(R.id.groupName);
         startDate = findViewById(R.id.startDate);
         endDate = findViewById(R.id.endDate);
         doneDate = findViewById(R.id.doneDate);
-        roof = findViewById(R.id.roof);
-        achievementRateArea = findViewById(R.id.achievementRateArea);
-        doneDateArea = findViewById(R.id.doneDateArea);
         achievementRate = findViewById(R.id.achievementRate);
-        back_button = findViewById(R.id.back_button);
-        mapViewContainer = findViewById(R.id.map_view);
-        sun = findViewById(R.id.sun);
-       // roofDay2[1] = findViewById(R.id.mon);
-
-        //itemId 가져와서 데이터 뿌려주기
-        intent = getIntent();
-        int itemId = intent.getIntExtra("itemId",-1);
-
-        //itemId(현재는 그냥 변수에 값 넣어서 테스트 중..)
-        date = new Date();
-        roofstr = "0111111".split("");
-        roofDay = "";
+        achievementRateArea = findViewById(R.id.achievementRateArea);
+        startDateArea = findViewById(R.id.startDateArea);
+        endDateArea = findViewById(R.id.endDateArea);
+        doneDateArea = findViewById(R.id.doneDateArea);
+        roof = findViewById(R.id.roof);
 
 
-        // 할일 이름
-        itemName.setText(itemId+"안녕");
-        groupName.setText("안녕");
-        startDate.setText(date + "");
-        endDate.setText(date + "");
-        doneDate.setText(date + "");
+
+        // db data
+            //intent = getIntent();
+            //int itemId = intent.getIntExtra("itemId",-1);
+        tmpImportance = 0;
+        tmpItemName = "취뽀 프로젝트";
+        tmpGroupName = "willy";
+        tmpDate = new Date();
+        tmpRoof = "1010101";
+        tmpRoofDay = tmpRoof.split("");
 
 
 
 
-
-
-        //초기화
-        rate = 0;
-
-
-
-
-        // 중요도
-        if(importanceValue==1) {
+        // 1. set importance
+        if(tmpImportance==1) {
             importance.setImageResource(R.drawable.gravity1);
-        }else if(importanceValue==2){
+        }else if(tmpImportance==2){
             importance.setImageResource(R.drawable.gravity1);
-        }else if(importanceValue==3){
+        }else if(tmpImportance==3){
             importance.setImageResource(R.drawable.gravity1);
         }else {
             importance.setVisibility(View.GONE);
         }
 
 
+        //2. set itemName, groupname
+        itemName.setText(tmpItemName);
+        itemName.setText(tmpGroupName);
 
 
+        //******** 3. set groupColor
 
-        if(roofstr.equals("0000000")){
+
+        //4 set date
+        SimpleDateFormat dateFomat = new SimpleDateFormat("yyyy-MM-dd");
+        startDate.setText(dateFomat.format(tmpDate));
+        endDate.setText(dateFomat.format(tmpDate));
+        doneDate.setText(dateFomat.format(tmpDate));
+
+        String result = "";
+
+        //5. set roofDate
+        //tmpRoof = "0000000";
+        //tmpRoofDay = tmpRoof.split("");
+        if(tmpRoof.equals("0000000")){ // 안함
+            startDateArea.setVisibility(View.GONE);
+            endDateArea.setVisibility(View.GONE);
             achievementRateArea.setVisibility(View.GONE);
-        }else if(roofstr.equals("1111111")){
+            roofDay += "안함";
+        }else if(tmpRoof.equals("1111111")){ //매일
+            doneDateArea.setVisibility(View.GONE);
             roofDay += "매일";
+        }else {
             doneDateArea.setVisibility(View.GONE);
-        }else{
-            doneDateArea.setVisibility(View.GONE);
-            for(int i=0;i<roofstr.length-1;i++){
-                if(roofstr[i].equals("1")){
-                    roofDay += days[i] + " ";
+            for (int i = 1; i < tmpRoofDay.length; i++) {
+                if (tmpRoofDay[i].equals("1")) {
+                    roofDay += days[i-1] + " ";
                     rate++;
                 }
             }
         }
-
-
-
         roof.setText(roofDay);
         achievementRate.setText(Math.round((rate/7.0)*100) +"%");
 
 
-        LocalDate today = LocalDate.now();
-        String tmp = today.with(previousOrSame(SUNDAY))+"";
-        today.with(nextOrSame(SATURDAY));
-        //오늘 날짜를 기준으로 일주일 안에 해당하는 아이템들을 가져온
-       // Toast.makeText(this,tmp,Toast.LENGTH_LONG).show();
-        //roofDay2[0].setBackgroundResource(R.drawable.gravity1);
+
+        //6. set week achievement
 
 
 
-        //구글맵
+        //7. kakao map
 
 /*
-        mapView = new MapView(this);
+        MapView mapView = new MapView(this);
+        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
         mapViewContainer.addView(mapView);
-        *?
- */
 
+*/
 
+    }
 
-
+    public void backToMain(View view) {
+        this.finish();
     }
 
 
 }
+
