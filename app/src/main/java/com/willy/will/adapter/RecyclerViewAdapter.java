@@ -1,6 +1,7 @@
 package com.willy.will.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.willy.will.R;
-
 import java.util.ArrayList;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHolder> {
 
-    private Context context = null;
-
     private SelectionTracker<Long> trckr = null;
+
+    private RecyclerViewSetter setter = null;
     private ArrayList<T> dset = null;
     private int t = 0;
 
@@ -29,9 +30,10 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
      * Function: Provide a suitable constructor (depends on the kind of dataset)
      * @param dataset
      */
-    public RecyclerViewAdapter(int type, ArrayList<T> dataset) {
+    public RecyclerViewAdapter(int type, ArrayList<T> dataset, RecyclerViewSetter recyclerViewSetter) {
         t = type;
         dset = dataset;
+        setter = recyclerViewSetter;
 
         setHasStableIds(true);
     }
@@ -50,7 +52,7 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
     }
 
     /**
-     * Last Modified: 2020-02-09
+     * Last Modified: 2020-02-17
      * Last Modified By: Shin Minyong
      * Created: -
      * Created By: -
@@ -62,19 +64,13 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context = parent.getContext();
+        Context context = parent.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
-        View view = null;
-        if(t == context.getResources().getInteger(R.integer.to_do_item_type)) {
-            view = layoutInflater.inflate(R.layout.listitem, parent, false);
-        }
-        // textview item
-        else if(t == context.getResources().getInteger(R.integer.textview_type)) {
-            view = layoutInflater.inflate(R.layout.recycleritem_textview, parent, false);
-        }
+        int layoutId = setter.getLayoutId(t);
+        View view = layoutInflater.inflate(layoutId, parent, false);
 
-        RecyclerViewHolder holder = new RecyclerViewHolder(t, view, context);
+        RecyclerViewHolder holder = new RecyclerViewHolder(t, view);
         return holder;
     }
 

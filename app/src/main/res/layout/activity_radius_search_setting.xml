@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/PopupStyle"
-    android:orientation="vertical"
-    tools:context=".search.view.RadiusSearchSettingActivity">
+    android:orientation="vertical">
 
     <TextView
         style="@style/PopupTitleStyle"
@@ -13,28 +11,28 @@
 
     <TextView
         android:id="@+id/all_rds"
-        style="@style/TextListItemStyle"
+        style="@style/TextRecyclerItemStyle"
         android:text="@string/all" />
 
     <ImageView style="@style/BottomBarStyle" />
 
     <TextView
         android:id="@+id/within_1km"
-        style="@style/TextListItemStyle"
+        style="@style/TextRecyclerItemStyle"
         android:text="@string/within_1km" />
 
     <ImageView style="@style/BottomBarStyle" />
 
     <TextView
         android:id="@+id/within_5km"
-        style="@style/TextListItemStyle"
+        style="@style/TextRecyclerItemStyle"
         android:text="@string/within_5km" />
 
     <ImageView style="@style/BottomBarStyle" />
 
     <TextView
         android:id="@+id/within_10km"
-        style="@style/TextListItemStyle"
+        style="@style/TextRecyclerItemStyle"
         android:text="@string/within_10km" />
 
     <ImageView style="@style/ThickBottomBarStyle" />
