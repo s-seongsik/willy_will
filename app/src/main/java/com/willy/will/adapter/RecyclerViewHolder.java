@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemDetailsLookup;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.willy.will.R;
@@ -23,11 +24,11 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
     // View of Item
     private TextView textOnlyView;
 
-    private TextView tv_rank;
-    private TextView tv_name;
-    private TextView tv_routine;
-    private TextView tv_time;
-    private CheckBox cb_done;
+    private TextView tvRank;
+    private TextView tvName;
+    private TextView tvRoutine;
+    private TextView tvTime;
+    private CheckBox cbDone;
     // ~View of Item
 
     /**
@@ -50,11 +51,11 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
         // To-do
         if(type == TO_DO_CODE) {
-            tv_time = view.findViewById(R.id.tv_time);
-            tv_rank = view.findViewById(R.id.tv_rank);
-            tv_name = view.findViewById(R.id.tv_name);
-            tv_routine = view.findViewById(R.id.tv_routine);
-            cb_done = view.findViewById(R.id.cb_done);
+            tvTime = view.findViewById(R.id.tv_time);
+            tvRank = view.findViewById(R.id.tv_rank);
+            tvName = view.findViewById(R.id.tv_name);
+            tvRoutine = view.findViewById(R.id.tv_routine);
+            cbDone = view.findViewById(R.id.cb_done);
 
         }
         // Text-only
@@ -103,11 +104,11 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
         // To-do
         if(type == TO_DO_CODE) {
             mainListItem mitem = (mainListItem) data;
-            tv_time.setText(mitem.getTime());
-            tv_rank.setText(mitem.getRank());
-            tv_name.setText(mitem.getName());
-            tv_routine.setText(mitem.getRoutine());
-            cb_done.setActivated(mitem.getDone());
+            tvTime.setText(mitem.getTime());
+            tvRank.setText(mitem.getRank());
+            tvName.setText(mitem.getName());
+            tvRoutine.setText(mitem.getRoutine());
+            cbDone.setActivated(mitem.getDone());
         }
         // Text-only
         else if(type == TEXT_CODE) {
@@ -117,4 +118,6 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
         itemView.setSelected(isSelected);
     }
+
+
 }

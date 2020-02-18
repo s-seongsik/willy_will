@@ -9,6 +9,7 @@ import androidx.recyclerview.selection.SelectionPredicates;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.StableIdKeyProvider;
 import androidx.recyclerview.selection.StorageStrategy;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -75,8 +76,8 @@ public class RecyclerViewSetter {
     }
 
     /**
-     * Last Modified: -
-     * Last Modified By: -
+     * Last Modified: - 2020-02-18
+     * Last Modified By: - Lee Jaeeun
      * Created: 2020-02-17
      * Created By: Shin Minyong
      * Function: Set RecyclerView
@@ -93,7 +94,7 @@ public class RecyclerViewSetter {
 
         // set Adapter
         final int TYPE = resources.getInteger(tId);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(TYPE, list, this);
+        final RecyclerViewAdapter adapter = new RecyclerViewAdapter(TYPE, list, this);
         recyclerView.setAdapter(adapter);
 
         // set Tracker
@@ -121,7 +122,35 @@ public class RecyclerViewSetter {
                     changeTextItem();
                 }
             }
+            
         });
+
+        //swipe for delete
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT /*| ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP*/) {
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                Toast.makeText(parentView.getContext(), "on Move", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                Toast.makeText(parentView.getContext(), "on Swiped ", Toast.LENGTH_SHORT).show();
+                //Remove swiped item from list and notify the RecyclerView
+                int position = viewHolder.getAdapterPosition();
+                list.remove(position);
+                adapter.notifyDataSetChanged();
+
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+        //~swipe for delete
+
+
 
         return recyclerView;
     }
