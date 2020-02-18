@@ -42,7 +42,7 @@
             android:name="com.willy.will.search.view.GroupSearchSettingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/PopupTheme" />
-        <activity android:name="com.willy.will.search.view.CompleteRepeatSearchSettingActivity"
+        <activity android:name="com.willy.will.search.view.DoneRepeatSearchSettingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/PopupTheme" />
         <activity android:name="com.willy.will.search.view.PeriodSearchSettingActivity"

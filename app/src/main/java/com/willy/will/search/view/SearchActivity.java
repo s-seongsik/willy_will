@@ -59,13 +59,13 @@ public class SearchActivity extends AppCompatActivity {
      * Last Modified By: -
      * Created: 2020-02-15
      * Created By: Shin Minyong
-     * Function: Bring up SearchSettingActivity (Complete Or Repeat Setting for Search)
-     * Called when the user taps the complete_repeat_search_setting_button
+     * Function: Bring up SearchSettingActivity (Done and Repeat Setting for Search)
+     * Called when the user taps the done_repeat_search_setting_button
      * @param view
      */
-    public void bringUpCompleteRepeatSearchSetting(View view) {
-        Intent intent = new Intent(this, CompleteRepeatSearchSettingActivity.class);
-        code = resources.getInteger(R.integer.complete_repeat_search_setting_code);
+    public void bringUpDoneRepeatSearchSetting(View view) {
+        Intent intent = new Intent(this, DoneRepeatSearchSettingActivity.class);
+        code = resources.getInteger(R.integer.done_repeat_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
     }
@@ -122,8 +122,8 @@ public class SearchActivity extends AppCompatActivity {
             if (requestCode == getResources().getInteger(R.integer.group_search_setting_code)) {
                 //
             }
-            // Complete Or Repeat Search Setting
-            else if (requestCode == getResources().getInteger(R.integer.complete_repeat_search_setting_code)) {
+            // Done and Repeat Search Setting
+            else if (requestCode == getResources().getInteger(R.integer.done_repeat_search_setting_code)) {
                 //
             }
             // Period Search Setting

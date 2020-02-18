@@ -29,9 +29,9 @@
     <string name="search_hint">할 일 이름을 검색하십시오.</string>
     <string name="all">전체</string>
 
-    <string name="complete_repeat">완료/반복</string>
-    <string name="incomplete">미완료</string>
-    <string name="complete">완료</string>
+    <string name="done_repeat">완료/반복</string>
+    <string name="undone">미완료</string>
+    <string name="done">완료</string>
     <string name="including_repeat">반복 포함</string>
 
     <string name="period">기간</string>
@@ -46,7 +46,7 @@
     <!-- selection id for recycler view -->
     <string name="selection_id_main">selectionIdMain</string>
     <string name="selection_id_group_search_setting">groupSearchSettingSelection</string>
-    <string name="selection_id_complete_search_setting">completeSearchSettingSelection</string>
+    <string name="selection_id_done_search_setting">doneSearchSettingSelection</string>
     <string name="selection_id_distance_search_setting">distanceSearchSettingSelection</string>
     <!-- ~selection id for recycler view -->
 

@@ -22,7 +22,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
     private Resources resources = null;
     private int TO_DO_CODE = 0;
     private int GROUP_CODE = 0;
-    private int COMPLETE_CODE = 0;
+    private int DONE_CODE = 0;
     private int DISTANCE_CODE = 0;
     // ~Common (also written in RecyclerViewSetter)
 
@@ -53,7 +53,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
         // Set codes by type (also written in RecyclerViewSetter:RecyclerViewSetter)
         TO_DO_CODE = resources.getInteger(R.integer.to_do_recycler_item_type);
         GROUP_CODE = resources.getInteger(R.integer.group_search_setting_recycler_item_type);
-        COMPLETE_CODE = resources.getInteger(R.integer.complete_search_setting_recycler_item_type);
+        DONE_CODE = resources.getInteger(R.integer.done_search_setting_recycler_item_type);
         DISTANCE_CODE = resources.getInteger(R.integer.distance_search_setting_recycler_item_type);
         // ~Set codes by type (also written in RecyclerViewSetter:RecyclerViewSetter)
 
@@ -66,8 +66,8 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
             cbDone = view.findViewById(R.id.cb_done);
 
         }
-        // Text-only (Group, Complete, Distance)
-        else if(type == GROUP_CODE || type == COMPLETE_CODE || type == DISTANCE_CODE) {
+        // Text-only (Group, Done, Distance)
+        else if(type == GROUP_CODE || type == DONE_CODE || type == DISTANCE_CODE) {
             textOnlyView = view.findViewById(R.id.text_recycler_item);
         }
         // ERROR: Wrong type
@@ -127,8 +127,8 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
             Group group = (Group) data;
             textOnlyView.setText(group.getName());
         }
-        // Complete
-        else if(type == COMPLETE_CODE) {
+        // Done
+        else if(type == DONE_CODE) {
             String text = (String) data;
             textOnlyView.setText(text);
         }

@@ -5,12 +5,12 @@
 
     <TextView
         style="@style/PopupTitleStyle"
-        android:text="@string/complete_repeat" />
+        android:text="@string/done_repeat" />
 
     <ImageView style="@style/ThickBottomBarStyle" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/complete_search_setting_recycler_view"
+        android:id="@+id/done_search_setting_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:overScrollMode="never" />

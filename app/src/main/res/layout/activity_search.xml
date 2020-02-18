@@ -52,10 +52,10 @@
             android:text="@string/group" />
 
         <Button
-            android:id="@+id/complete_repeat_search_setting_button"
+            android:id="@+id/done_repeat_search_setting_button"
             style="@style/ButtonStyle"
-            android:onClick="bringUpCompleteRepeatSearchSetting"
-            android:text="@string/complete_repeat" />
+            android:onClick="bringUpDoneRepeatSearchSetting"
+            android:text="@string/done_repeat" />
 
         <Button
             android:id="@+id/period_search_setting_button"

@@ -27,7 +27,7 @@ public class RecyclerViewSetter {
     // Common (also written in RecyclerViewHolder)
     private int TO_DO_CODE = 0;
     private int GROUP_CODE = 0;
-    private int COMPLETE_CODE = 0;
+    private int DONE_CODE = 0;
     private int DISTANCE_CODE = 0;
     // ~Common (also written in RecyclerViewHolder)
 
@@ -82,7 +82,7 @@ public class RecyclerViewSetter {
         // Set codes by type (also written in RecyclerViewHolder:RecyclerViewHolder)
         TO_DO_CODE = resources.getInteger(R.integer.to_do_recycler_item_type);
         GROUP_CODE = resources.getInteger(R.integer.group_search_setting_recycler_item_type);
-        COMPLETE_CODE = resources.getInteger(R.integer.complete_search_setting_recycler_item_type);
+        DONE_CODE = resources.getInteger(R.integer.done_search_setting_recycler_item_type);
         DISTANCE_CODE = resources.getInteger(R.integer.distance_search_setting_recycler_item_type);
         // ~Set codes by type (also written in RecyclerViewHolder:RecyclerViewHolder)
     }
@@ -134,9 +134,9 @@ public class RecyclerViewSetter {
                 else if(TYPE == GROUP_CODE) {
                     changeGroupItem();
                 }
-                // Complete
-                else if(TYPE == COMPLETE_CODE) {
-                    changeCompleteItem();
+                // Done
+                else if(TYPE == DONE_CODE) {
+                    changeDoneItem();
                 }
                 // Distance
                 else if(TYPE == DISTANCE_CODE) {
@@ -211,10 +211,10 @@ public class RecyclerViewSetter {
      * Last Modified By: -
      * Created: 2020-02-19
      * Created By: Shin Minyong
-     * Function: Change Complete Item
-     * Change Complete Item of Complete Or Repeat Search Setting View on selection changed
+     * Function: Change Done Item
+     * Change Done Item of done and Repeat Search Setting View on selection changed
      */
-    private void changeCompleteItem() {
+    private void changeDoneItem() {
         //
     }
 
@@ -247,8 +247,8 @@ public class RecyclerViewSetter {
         if(type == TO_DO_CODE) {
             id = R.layout.listitem;
         }
-        // Text-only (Group, Complete, Distance)
-        else if(type == GROUP_CODE || type == COMPLETE_CODE || type == DISTANCE_CODE) {
+        // Text-only (Group, Done, Distance)
+        else if(type == GROUP_CODE || type == DONE_CODE || type == DISTANCE_CODE) {
             id = R.layout.recycleritem_text_only;
         }
         // ERROR: Wrong type

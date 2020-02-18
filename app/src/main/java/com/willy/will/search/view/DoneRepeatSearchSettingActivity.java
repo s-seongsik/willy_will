@@ -14,7 +14,7 @@ import com.willy.will.search.model.PopupActivity;
 
 import java.util.ArrayList;
 
-public class CompleteRepeatSearchSettingActivity extends PopupActivity {
+public class DoneRepeatSearchSettingActivity extends PopupActivity {
 
     private RecyclerView recyclerView = null;
 
@@ -25,8 +25,8 @@ public class CompleteRepeatSearchSettingActivity extends PopupActivity {
      * Created By: Shin Minyong
      * Function: Initialization (including layout ID)
      */
-    public CompleteRepeatSearchSettingActivity() {
-        super(R.layout.activity_complete_repeat_search_setting);
+    public DoneRepeatSearchSettingActivity() {
+        super(R.layout.activity_done_repeat_search_setting);
     }
 
     /**
@@ -44,15 +44,15 @@ public class CompleteRepeatSearchSettingActivity extends PopupActivity {
         ArrayList<String> list = new ArrayList<>();
         Resources resources = App.getContext().getResources();
         list.add(resources.getString(R.string.all));
-        list.add(resources.getString(R.string.incomplete));
-        list.add(resources.getString(R.string.complete));
+        list.add(resources.getString(R.string.undone));
+        list.add(resources.getString(R.string.done));
         // ~Set data of item
 
         // Set RecyclerView
         recyclerView = new RecyclerViewSetter(
-                R.id.complete_search_setting_recycler_view, getWindow().getDecorView(),
-                R.integer.complete_search_setting_recycler_item_type, list,
-                R.string.selection_id_complete_search_setting, false
+                R.id.done_search_setting_recycler_view, getWindow().getDecorView(),
+                R.integer.done_search_setting_recycler_item_type, list,
+                R.string.selection_id_done_search_setting, false
         ).setRecyclerView();
         // ~Set RecyclerView
 
