@@ -32,10 +32,10 @@ public class PeriodSearchSettingActivity extends PopupActivity {
         super.onCreate(savedInstanceState);
 
         // temp
-        Button completeStartButton = findViewById(R.id.start_of_complete_button);
-        Button completeEndButton = findViewById(R.id.end_of_complete_button);
-        completeStartButton.setEnabled(false);
-        completeEndButton.setEnabled(false);
+        Button doneStartButton = findViewById(R.id.start_of_complete_button);
+        Button doneEndButton = findViewById(R.id.end_of_complete_button);
+        doneStartButton.setEnabled(false);
+        doneEndButton.setEnabled(false);
         // ~temp
     }
 

@@ -5,26 +5,15 @@
     <string name="group">그룹</string>
     <string name="start_date">시작 날짜</string>
     <string name="end_date">종료 날짜</string>
-    <string name="complete_date">완료 날짜</string>
+    <string name="done_date">완료 날짜</string>
+    <string name="roof">반복</string>
     <!-- ~common -->
 
     <!-- setting -->
     <string name="action_settings">Settings</string>
     <!-- ~setting -->
 
-    <!-- search -->
-    <string name="search_hint">할 일 이름을 검색하십시오.</string>
-    <string name="all">전체</string>
-
-    <string name="complete_repeat">완료/반복</string>
-    <string name="incomplete">미완료</string>
-    <string name="complete">완료</string>
-    <string name="including_repeat">반복 포함</string>
-    
-    <string name="start_date">시작 날짜</string>
-    <string name="end_date">종료 날짜</string>
-    <string name="done_date">완료 날짜</string>
-    <string name="roof">반복</string>
+    <!-- detail -->
     <string name="week_achievement_rate">주간 달성</string>
     <string name="sunday">일</string>
     <string name="monday">월</string>
@@ -34,7 +23,16 @@
     <string name="friday">금</string>
     <string name="saturday">토</string>
     <string name="location">위치</string>
-    <!-- ~dialog Text -->
+    <!-- ~detail -->
+
+    <!-- search -->
+    <string name="search_hint">할 일 이름을 검색하십시오.</string>
+    <string name="all">전체</string>
+
+    <string name="complete_repeat">완료/반복</string>
+    <string name="incomplete">미완료</string>
+    <string name="complete">완료</string>
+    <string name="including_repeat">반복 포함</string>
 
     <string name="period">기간</string>
     <string name="tilde">~</string>

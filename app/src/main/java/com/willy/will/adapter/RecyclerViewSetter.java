@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.selection.SelectionPredicates;
 import androidx.recyclerview.selection.SelectionTracker;
@@ -38,6 +39,8 @@ public class RecyclerViewSetter {
     private int tId = 0;
     private int recyclerId = 0;
     private int selectId = 0;
+
+    private SelectionTracker tracker = null;
     // ~For Setting RecyclerView
 
     /**
@@ -108,7 +111,7 @@ public class RecyclerViewSetter {
         recyclerView.setAdapter(adapter);
 
         // set Tracker
-        SelectionTracker tracker = new SelectionTracker.Builder(
+        tracker = new SelectionTracker.Builder(
                 resources.getString(selectId),
                 recyclerView,
                 new StableIdKeyProvider(recyclerView),
