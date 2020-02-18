@@ -1,7 +1,8 @@
 package com.willy.will.search.view;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 
 import com.willy.will.R;
 import com.willy.will.search.model.PopupActivity;
@@ -29,6 +30,18 @@ public class PeriodSearchSettingActivity extends PopupActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // temp
+        Button completeStartButton = findViewById(R.id.start_of_complete_button);
+        Button completeEndButton = findViewById(R.id.end_of_complete_button);
+        completeStartButton.setEnabled(false);
+        completeEndButton.setEnabled(false);
+        // ~temp
+    }
+
+    @Override
+    protected boolean setResults(Intent intent) {
+        return false;
     }
 
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/PopupStyle"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".search.view.GroupSearchSettingActivity">
 
     <TextView
         style="@style/PopupTitleStyle"
@@ -9,27 +11,20 @@
 
     <ImageView style="@style/ThickBottomBarStyle" />
 
+    <TextView
+        android:id="@+id/selecting_all"
+        style="@style/TextRecyclerItemStyle"
+        android:onClick="onSelectAll"
+        android:text="@string/all" />
+
+    <ImageView style="@style/BottomBarStyle" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/group_recycler_view"
+        android:id="@+id/group_search_setting_recycler_view"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/group_recycler_view_height" />
+        android:layout_height="@dimen/group_search_setting_recycler_view_max_height" />
 
-    <ImageView style="@style/ThickBottomBarStyle" />
-
-    <LinearLayout style="@style/PopupBottomLayoutStyle">
-
-        <ImageButton
-            android:id="@+id/group_search_setting_cancel"
-            style="@style/PopupCancelStyle"
-            android:onClick="cancelSetting" />
-
-        <ImageView style="@style/PopupBottomVerticalBarStyle" />
-
-        <ImageButton
-            android:id="@+id/group_search_setting_okay"
-            style="@style/PopupOkayStyle" />
-
-    </LinearLayout>
+    <include layout="@layout/layout_popup_bottom" />
 
 </LinearLayout>

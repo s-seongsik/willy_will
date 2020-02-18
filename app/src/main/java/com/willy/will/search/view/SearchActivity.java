@@ -20,7 +20,7 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_itemsearch);
+        setContentView(R.layout.activity_search);
         resources = getResources();
         extraNameCode = resources.getString(R.string.requestCode);
     }
@@ -91,19 +91,19 @@ public class SearchActivity extends AppCompatActivity {
      * Last Modified By: -
      * Created: 2020-02-15
      * Created By: Shin Minyong
-     * Function: Bring up SearchSettingActivity (Radius Setting for Search)
-     * Called when the user taps the radius_search_setting_button
+     * Function: Bring up SearchSettingActivity (Distance Setting for Search)
+     * Called when the user taps the distance_search_setting_button
      * @param view
      */
-    public void bringUpRadiusSearchSetting(View view) {
-        Intent intent = new Intent(this, RadiusSearchSettingActivity.class);
-        code = resources.getInteger(R.integer.radius_search_setting_code);
+    public void bringUpDistanceSearchSetting(View view) {
+        Intent intent = new Intent(this, DistanceSearchSettingActivity.class);
+        code = resources.getInteger(R.integer.distance_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
     }
 
     /**
-     * Last Modified: 2020-02-15
+     * Last Modified: 2020-02-19
      * Last Modified By: Shin Minyong
      * Created: 2020-02-08
      * Created By: Shin Minyong
@@ -116,28 +116,23 @@ public class SearchActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Group Search Setting
-        if(requestCode == getResources().getInteger(R.integer.group_search_setting_code)) {
-            if(resultCode == Activity.RESULT_OK) {
-                // Success to receive data
+        // Success to receive data
+        if(resultCode == Activity.RESULT_FIRST_USER) {
+            // Group Search Setting
+            if (requestCode == getResources().getInteger(R.integer.group_search_setting_code)) {
+                //
             }
-        }
-        // Complete Or Repeat Search Setting
-        else if(requestCode == getResources().getInteger(R.integer.complete_repeat_search_setting_code)) {
-            if(resultCode == Activity.RESULT_OK) {
-                // Success to receive data
+            // Complete Or Repeat Search Setting
+            else if (requestCode == getResources().getInteger(R.integer.complete_repeat_search_setting_code)) {
+                //
             }
-        }
-        // Period Search Setting
-        else if(requestCode == getResources().getInteger(R.integer.period_search_setting_code)) {
-            if(resultCode == Activity.RESULT_OK) {
-                // Success to receive data
+            // Period Search Setting
+            else if (requestCode == getResources().getInteger(R.integer.period_search_setting_code)) {
+                //
             }
-        }
-        // Radius Search Setting
-        else if(requestCode == getResources().getInteger(R.integer.radius_search_setting_code)) {
-            if(resultCode == Activity.RESULT_OK) {
-                // Success to receive data
+            // Distance Search Setting
+            else if (requestCode == getResources().getInteger(R.integer.distance_search_setting_code)) {
+                //
             }
         }
     }

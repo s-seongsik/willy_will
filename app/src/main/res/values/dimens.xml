@@ -1,8 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
 
-    <!-- [2020-02-15] Modified by Shin Minyong -->
-
     <!-- Common -->
     <dimen name="match_constraint">0dp</dimen>
     <dimen name="basic_padding">16dp</dimen>
@@ -32,11 +30,10 @@
     <dimen name="button_margin">2dp</dimen>
     <!-- ~Button -->
 
-    <!-- Group Recycler View -->
-    <dimen name="group_recycler_view_height">195dp</dimen>
-    <!-- ~Group Recycler View -->
-
-    <!-- ~[2020-02-15] Modified by Shin Minyong -->
+    <!-- Search Setting Recycler View -->
+    <dimen name="search_setting_contents_view_height">195dp</dimen>
+    <dimen name="group_search_setting_recycler_view_max_height">146dp</dimen>
+    <!-- ~Search Setting Recycler View -->
 
     <!-- [2020-02-13] Created by Lee Jaeeun -->
     <!-- MainIconButton -->

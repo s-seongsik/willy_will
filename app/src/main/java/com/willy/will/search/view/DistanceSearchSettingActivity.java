@@ -1,7 +1,6 @@
 package com.willy.will.search.view;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,12 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.willy.will.R;
 import com.willy.will.adapter.RecyclerViewAdapter;
 import com.willy.will.adapter.RecyclerViewSetter;
-import com.willy.will.common.controller.App;
+import com.willy.will.search.model.Distance;
+import com.willy.will.search.model.DistanceSet;
 import com.willy.will.search.model.PopupActivity;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class CompleteRepeatSearchSettingActivity extends PopupActivity {
+public class DistanceSearchSettingActivity extends PopupActivity {
 
     private RecyclerView recyclerView = null;
 
@@ -25,8 +26,8 @@ public class CompleteRepeatSearchSettingActivity extends PopupActivity {
      * Created By: Shin Minyong
      * Function: Initialization (including layout ID)
      */
-    public CompleteRepeatSearchSettingActivity() {
-        super(R.layout.activity_complete_repeat_search_setting);
+    public DistanceSearchSettingActivity() {
+        super(R.layout.activity_distance_search_setting);
     }
 
     /**
@@ -41,18 +42,22 @@ public class CompleteRepeatSearchSettingActivity extends PopupActivity {
         super.onCreate(savedInstanceState);
 
         // Set data of item
-        ArrayList<String> list = new ArrayList<>();
-        Resources resources = App.getContext().getResources();
-        list.add(resources.getString(R.string.all));
-        list.add(resources.getString(R.string.incomplete));
-        list.add(resources.getString(R.string.complete));
+        ArrayList<Distance> list = new ArrayList<>();
+        Iterator<Distance> iterator = DistanceSet.distances.iterator();
+        Distance distance = null;
+        while(iterator.hasNext()) {
+            distance = iterator.next();
+            if(distance.isUse()) {
+                list.add(distance);
+            }
+        }
         // ~Set data of item
 
         // Set RecyclerView
         recyclerView = new RecyclerViewSetter(
-                R.id.complete_search_setting_recycler_view, getWindow().getDecorView(),
-                R.integer.complete_search_setting_recycler_item_type, list,
-                R.string.selection_id_complete_search_setting, false
+                R.id.distance_search_setting_recycler_view, getWindow().getDecorView(),
+                R.integer.distance_search_setting_recycler_item_type, list,
+                R.string.selection_id_distance_search_setting, false
         ).setRecyclerView();
         // ~Set RecyclerView
 

@@ -2,13 +2,41 @@
 <resources>
     <!-- RecyclerView Item Type -->
     <integer name="to_do_recycler_item_type">1</integer>
-    <integer name="text_recycler_item_type">2</integer>
+    <integer name="group_search_setting_recycler_item_type">2</integer>
+    <integer name="complete_search_setting_recycler_item_type">3</integer>
+    <integer name="distance_search_setting_recycler_item_type">4</integer>
     <!-- ~RecyclerView Item Type -->
 
     <!-- Search Setting Code -->
     <integer name="group_search_setting_code">1</integer>
     <integer name="complete_repeat_search_setting_code">2</integer>
     <integer name="period_search_setting_code">3</integer>
-    <integer name="radius_search_setting_code">4</integer>
+    <integer name="distance_search_setting_code">4</integer>
     <!-- ~Search Setting Code -->
+
+    <!-- Length for Distance Set -->
+    <integer name="equivalence_to_long">1000</integer>
+    <integer-array name="length_list">
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>10000</item>
+    </integer-array>
+    <integer-array name="length_use_list">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+        <item>0</item>
+        <item>1</item>
+        <item>1</item>
+    </integer-array>
+    <!-- ~Length for Distance Set -->
 </resources>

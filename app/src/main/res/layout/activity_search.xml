@@ -9,9 +9,7 @@
 
     <ImageButton
         android:id="@+id/back_button"
-        style="@style/IconButtonStyle"
-        android:layout_marginRight="@dimen/basic_margin"
-        android:foreground="?attr/homeAsUpIndicator"
+        style="@style/BackButtonStyle"
         android:onClick="backToMain"
         app:layout_constraintEnd_toStartOf="@id/item_search_edit_text"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,30 +48,26 @@
         <Button
             android:id="@+id/group_search_setting_button"
             style="@style/ButtonStyle"
-            android:background="@drawable/rounded_rectangle_button"
             android:onClick="bringUpGroupSearchSetting"
             android:text="@string/group" />
 
         <Button
             android:id="@+id/complete_repeat_search_setting_button"
             style="@style/ButtonStyle"
-            android:background="@drawable/rounded_rectangle_button"
             android:onClick="bringUpCompleteRepeatSearchSetting"
             android:text="@string/complete_repeat" />
 
         <Button
             android:id="@+id/period_search_setting_button"
             style="@style/ButtonStyle"
-            android:background="@drawable/rounded_rectangle_button"
             android:onClick="bringUpPeriodSearchSetting"
             android:text="@string/period" />
 
         <Button
-            android:id="@+id/radius_search_setting_button"
+            android:id="@+id/distance_search_setting_button"
             style="@style/ButtonStyle"
-            android:background="@drawable/rounded_rectangle_button"
-            android:onClick="bringUpRadiusSearchSetting"
-            android:text="@string/radius" />
+            android:onClick="bringUpDistanceSearchSetting"
+            android:text="@string/distance" />
 
         <ImageButton
             android:id="@+id/revert_search_setting_button"
