@@ -122,7 +122,7 @@ public class RecyclerViewSetter {
                     changeTextItem();
                 }
             }
-            
+
         });
 
         //swipe for delete
