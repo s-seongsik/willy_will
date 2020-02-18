@@ -16,9 +16,7 @@
 
         <ImageButton
             android:id="@+id/back_button"
-            style="@style/IconButtonStyle"
-            android:layout_marginRight="@dimen/basic_margin"
-            android:foreground="?attr/homeAsUpIndicator"
+            style="@style/BackButtonStyle"
             android:onClick="backToMain"
             app:layout_constraintEnd_toStartOf="@id/item_search_edit_text"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,11 +1,12 @@
 package com.willy.will.search.model;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-public class PopupActivity extends Activity {
+public abstract class PopupActivity extends Activity {
 
     private int layId = 0;
 
@@ -39,22 +40,41 @@ public class PopupActivity extends Activity {
     }
 
     /**
-     * Last Modified: -
-     * Last Modified By: -
+     * Last Modified: 2020-02-19
+     * Last Modified By: Shin Minyong
      * Created: 2020-02-10
      * Created By: Shin Minyong
      * Function: Cancel search setting
+     * @param view
      */
     public void cancelSetting(View view) {
+        setResult(RESULT_CANCELED);
         this.finish();
     }
 
     /**
-     * https://ghj1001020.tistory.com/9
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-19
+     * Created By: Shin Minyong
+     * Function: Cancel search setting
+     * @param view
      */
+    public void submitSetting(View view) {
+        Intent intent = new Intent();
+        if(setResults(intent)) {
+            setResult(RESULT_FIRST_USER, intent);
+        }
+        else {
+            setResult(RESULT_CANCELED, intent);
+        }
+        this.finish();
+    }
+
+    protected abstract boolean setResults(Intent intent) ;
 
     /**
-     * https://developer.android.com/guide/topics/ui/layout/recyclerview#java
+     * https://ghj1001020.tistory.com/9
      */
 
 }

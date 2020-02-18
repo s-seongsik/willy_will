@@ -1,7 +1,6 @@
 package com.willy.will.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,6 @@ import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHolder> {
 
@@ -39,20 +36,23 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
     }
 
     /**
-     * Last Modified: -
-     * Last Modified By: -
+     * Last Modified: 2020-02-18
+     * Last Modified By: Shin Minyong
      * Created: 2020-02-12
      * Created By: Shin Minyong
-     * Function: Set Tracker
+     * Function: Tracker Setter, Getter
      * If Tracker is set inside the constructor, an error occurs
      * @param tracker
      */
     public void setTracker(SelectionTracker tracker) {
         trckr = tracker;
     }
+    public SelectionTracker getTracker() {
+        return this.trckr;
+    }
 
     /**
-     * Last Modified: 2020-02-17
+     * Last Modified: 2020-02-18
      * Last Modified By: Shin Minyong
      * Created: -
      * Created By: -
@@ -65,6 +65,7 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
+
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
         int layoutId = setter.getLayoutId(t);
@@ -75,7 +76,7 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHol
     }
 
     /**
-     * Last Modified: 2020-02-09
+     * Last Modified: 2020-02-18
      * Last Modified By: Shin Minyong
      * Created: -
      * Created By: -
