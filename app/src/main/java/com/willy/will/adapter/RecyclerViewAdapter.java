@@ -1,18 +1,17 @@
 package com.willy.will.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewHolder> {
 

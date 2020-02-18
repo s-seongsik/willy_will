@@ -17,7 +17,7 @@
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/basic_padding"
             android:paddingTop="@dimen/basic_padding"
-            android:paddingBottom="10dp">
+            android:paddingBottom="@dimen/basic_padding">
 
             <RelativeLayout
                 android:layout_width="match_parent"

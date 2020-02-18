@@ -128,7 +128,6 @@ public class RecyclerViewSetter {
         //swipe for delete
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT /*| ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP*/) {
-
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 Toast.makeText(parentView.getContext(), "on Move", Toast.LENGTH_SHORT).show();
@@ -142,7 +141,6 @@ public class RecyclerViewSetter {
                 int position = viewHolder.getAdapterPosition();
                 list.remove(position);
                 adapter.notifyDataSetChanged();
-
             }
         };
 
@@ -150,19 +148,17 @@ public class RecyclerViewSetter {
         itemTouchHelper.attachToRecyclerView(recyclerView);
         //~swipe for delete
 
-
-
         return recyclerView;
     }
 
-    /**
-     * Last Modified: -
-     * Last Modified By: -
-     * Created: 2020-02-17
-     * Created By: Shin Minyong
-     * Function: Change To-do Item
-     * Change To-do Item of Main View or Search View on selection changed
-     */
+                /**
+                 * Last Modified: -
+                 * Last Modified By: -
+                 * Created: 2020-02-17
+                 * Created By: Shin Minyong
+                 * Function: Change To-do Item
+                 * Change To-do Item of Main View or Search View on selection changed
+                 */
     private void changeToDoItem() {
         Intent intent = new Intent(parentView.getContext(), activityDetail.class);
         parentView.getContext().startActivity(intent);
