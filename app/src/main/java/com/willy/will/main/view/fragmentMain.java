@@ -1,6 +1,8 @@
 package com.willy.will.main.view;
 
+import android.animation.ArgbEvaluator;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +24,35 @@ public class fragmentMain extends Fragment {
     // dont fix it
     private final static String EXTRA_ADAPTER = "BaseAdpater";
 
+    //fragment var
+    private static final String ARG_NO = "ARG_NO";
+
     // example extra string
+    /*
     private final static String EXTRA_INT = "someInt";
     private final static String EXTRA_STRING = "someTitle";
+    */
 
     //Recycler View
     private RecyclerView recyclerView = null;
 
+
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-19
+     * Created By: Lee Jaeeun
+     * Function: setting fragment
+     */
+    public static fragmentMain getInstance(int no){
+        fragmentMain fragment = new fragmentMain();
+        Bundle args = new Bundle();
+        args.putInt(ARG_NO,no);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    /*
     // omission database object
     public static final fragmentMain newInstance(int page, String title, BaseAdapter adapter) {
         // example of communication
@@ -45,11 +69,16 @@ public class fragmentMain extends Fragment {
         return fragment;
         // ~example
     }
+     */
 
     // Store instance variables based on arguments passed
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int no = getArguments().getInt(ARG_NO,5);
+
+        String text = no + "번째 프래그먼트";
+        Log.d("MyFragment", "onCreate " + text);
     }
 
     // Inflate the view for the fragment based on layout XML
@@ -58,20 +87,9 @@ public class fragmentMain extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ArrayList<mainListItem> list = new ArrayList<>();
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-        list.add(new mainListItem());
-
-
-
+        for(int i=0; i<20;i++){
+            list.add(new mainListItem());
+        }
 
         // Set RecyclerView
         // ↓↓↓↓↓↓↓↓↓↓ RecyclerViewAdapter 매개변수 고치는 바람에 부득이하게 수정함
