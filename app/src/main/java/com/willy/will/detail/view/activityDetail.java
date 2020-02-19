@@ -126,22 +126,26 @@ public class activityDetail extends Activity {
 */
 
         //7. kakao map
+
         MapView mapView = new MapView(this);
+
         ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
         mapViewContainer.addView(mapView);
 
         mapView.setMapCenterPoint(markerPoint, true);
-        mapView.zoomIn(true);
-        mapView.zoomOut(true);
+        //mapView.setZoomLevel(7, true);
+        //mapView.zoomIn(true);
+        //mapView.zoomOut(true);
 
         MapPOIItem marker = new MapPOIItem();
         marker.setItemName("Default Marker");
         marker.setTag(0);
         marker.setMapPoint(markerPoint);
-        marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
-        marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
+        //marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
+        //marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
 
         mapView.addPOIItem(marker);
+
 
 
         /*
