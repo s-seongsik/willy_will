@@ -72,7 +72,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
         }
         // ERROR: Wrong type
         else {
-            Log.e("RecyclerViewHolder", "initializing: Wrong type");
+            Log.e("RecyclerViewHolder", "Initializing: Wrong type");
         }
     }
 

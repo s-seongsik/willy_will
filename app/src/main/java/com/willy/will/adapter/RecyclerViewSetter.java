@@ -253,7 +253,7 @@ public class RecyclerViewSetter {
         }
         // ERROR: Wrong type
         else {
-            Log.e("RecyclerViewHolder", "initializing: Wrong type");
+            Log.e("RecyclerViewHolder", "Getting Layout ID: Wrong type");
         }
 
         return id;

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,9 +33,17 @@ public class SearchActivity extends AppCompatActivity {
      * Created By: Shin Minyong
      * Function: Back to BaseActivity (Main View)
      * Called when the user taps the back_button
+     * Check focusing
      * @param view
      */
     public void backToMain(View view) {
+        // Check focusing
+        View focusedView = getCurrentFocus();
+        if(focusedView != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        // ~Check focusing
         this.finish();
     }
 
