@@ -9,7 +9,9 @@ import com.willy.will.add.view.activityItemAdd;
 import com.willy.will.calander.view.fragmentCalander;
 import com.willy.will.search.view.SearchActivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
@@ -29,9 +31,17 @@ import com.willy.will.adapter.viewPagerAdapter;
 
 public class activityBase extends AppCompatActivity{
 
+    //var for spinner
     private Spinner sp_group;
     ArrayList<String> spgroupList;
     ArrayAdapter<String> spgroupAdapter;
+    //~var for spinner
+
+    //var for navigation drawer
+    private DrawerLayout drawer;
+    private View drawerView;
+
+    //~var for navigation drawer
 
     fragmentCalander fragmentcalander;
     fragmentMain fragmentmain;
@@ -49,6 +59,12 @@ public class activityBase extends AppCompatActivity{
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         */
+
+        //set navigation Drawer
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerView = (View) findViewById(R.id.nav_view);
+        drawer.setDrawerListener(naviListener);
+        //~set navigation Drawer
 
         //setDate
         TextView tv_date = (TextView) findViewById(R.id.tv_date);
@@ -106,6 +122,35 @@ public class activityBase extends AppCompatActivity{
         // ~ viewPager
     }
 
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-19
+     * Created By: Lee Jaeeun
+     * Function: Setting action for drawer menu
+     */
+    DrawerLayout.DrawerListener naviListener = new DrawerLayout.DrawerListener() {
+        @Override
+        public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+        }
+
+        @Override
+        public void onDrawerOpened(@NonNull View drawerView) {
+            drawer.openDrawer(drawerView);
+        }
+
+        @Override
+        public void onDrawerClosed(@NonNull View drawerView) {
+
+        }
+
+        @Override
+        public void onDrawerStateChanged(int newState) {
+
+        }
+    };
+
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -119,10 +164,30 @@ public class activityBase extends AppCompatActivity{
     }
 
 
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: -
+     * Created By: Lee Jaeeun
+     * Function: Move to CalendarView
+     * @param view
+     */
     public void btnCalendarClick(View view) {
         FragmentTransaction fragment = getSupportFragmentManager().beginTransaction();
         fragment.replace(R.id.calanderViewPager,fragmentcalander);
         fragment.commit();
+    }
+
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-19
+     * Created By: Lee Jaeeun
+     * Function: Open navigation drawer
+     * @param view
+     */
+    public void btnSettingClick(View view){
+        naviListener.onDrawerOpened(drawerView);
     }
 
 

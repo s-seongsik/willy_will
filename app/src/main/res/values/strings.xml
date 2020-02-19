@@ -40,6 +40,14 @@
     <string name="distance">거리</string>
     <string name="distance_text">여기서 %1$d%2$s 이내</string>
     <!-- ~search -->
+
+    <!-- navigation drawer -->
+    <string name="group_setting">그룹관리</string>
+    <string name="task_setting">할일관리</string>
+    <string name="alarm_setting">알람관리</string>
+    <string name="copyright">© 2020 Willy All Rights Reserved</string>
+    <!-- ~navigation drawer -->
+
     <!-- #################### ~dialog Text #################### -->
 
     <!-- #################### value #################### -->
