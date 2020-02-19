@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -165,7 +166,7 @@ public class activityDetail extends Activity {
     }
 
     /**
-     * Last Modified: -
+     * Last Modified: 2020-02-20
      * Last Modified By: -
      * Created: 2020-02-17
      * Created By: Kim Mikyung
@@ -174,6 +175,13 @@ public class activityDetail extends Activity {
      * @param view
      */
     public void backToMain(View view) {
+        // Check focusing
+        View focusedView = getCurrentFocus();
+        if(focusedView != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        // ~Check focusing
         this.finish();
     }
 
