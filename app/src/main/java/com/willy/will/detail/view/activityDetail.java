@@ -1,26 +1,15 @@
 package com.willy.will.detail.view;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
 import com.willy.will.R;
-
 import net.daum.mf.map.api.MapView;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
-import static java.time.DayOfWeek.*;
-import static java.time.temporal.TemporalAdjusters.*;
 
 
 public class activityDetail extends Activity {
@@ -30,29 +19,10 @@ public class activityDetail extends Activity {
     RelativeLayout achievementRateArea, startDateArea, endDateArea, doneDateArea;
     String roofDay = "";
     String[] days = {"일","월","화","수","목","금","토"};
-    int rate = 0;
 
     int tmpImportance;
-    String tmpItemName, tmpGroupName, tmpRoof;
+    String tmpItemName, tmpGroupName, tmpRoof, tmpDate;
     String[] tmpRoofDay;
-    Date tmpDate;
-
-    /*
-    TextView itemName, groupName, startDate, endDate, doneDate, roof,achievementRate,sun;
-    RelativeLayout achievementRateArea, doneDateArea;
-    int importanceValue;
-    Date date;
-    String[] roofstr;
-    String roofDay;
-    int rate;
-    Intent intent;
-    String[]  days = {"일","월","화","수","목","금","토"};
-    ImageButton back_button;
-    MapView mapView;
-    ViewGroup mapViewContainer;
-    ArrayList<TextView> list = new ArrayList<TextView>();
-    */
-
 
 
     @Override
@@ -82,11 +52,8 @@ public class activityDetail extends Activity {
         tmpImportance = 0;
         tmpItemName = "취뽀 프로젝트";
         tmpGroupName = "willy";
-        tmpDate = new Date();
-        tmpRoof = "1010101";
-        tmpRoofDay = tmpRoof.split("");
-
-
+        tmpDate = "2019-03-03";
+        tmpRoof = "0111111";
 
 
         // 1. set importance
@@ -110,16 +77,12 @@ public class activityDetail extends Activity {
 
 
         //4 set date
-        SimpleDateFormat dateFomat = new SimpleDateFormat("yyyy-MM-dd");
-        startDate.setText(dateFomat.format(tmpDate));
-        endDate.setText(dateFomat.format(tmpDate));
-        doneDate.setText(dateFomat.format(tmpDate));
+        startDate.setText(tmpDate);
+        endDate.setText(tmpDate);
+        doneDate.setText(tmpDate);
 
-        String result = "";
 
         //5. set roofDate
-        //tmpRoof = "0000000";
-        //tmpRoofDay = tmpRoof.split("");
         if(tmpRoof.equals("0000000")){ // 안함
             startDateArea.setVisibility(View.GONE);
             endDateArea.setVisibility(View.GONE);
@@ -130,37 +93,50 @@ public class activityDetail extends Activity {
             roofDay += "매일";
         }else {
             doneDateArea.setVisibility(View.GONE);
-            for (int i = 1; i < tmpRoofDay.length; i++) {
-                if (tmpRoofDay[i].equals("1")) {
-                    roofDay += days[i-1] + " ";
-                    rate++;
+            for (int i = 0; i < tmpRoof.length(); i++) {
+                if (tmpRoof.charAt(i)-'0'==1) {
+                    roofDay += days[i] + " ";
                 }
             }
         }
         roof.setText(roofDay);
-        achievementRate.setText(Math.round((rate/7.0)*100) +"%");
-
 
 
         //6. set week achievement
-
-
-
-        //7. kakao map
-
 /*
-        MapView mapView = new MapView(this);
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
-        mapViewContainer.addView(mapView);
+        LocalDate today = LocalDate.now();
+        String tmp = today.with(previousOrSame(SUNDAY))+"";
+        today.with(nextOrSame(SATURDAY));
+        // Toast.makeText(this,tmp,Toast.LENGTH_LONG).show();
+        //roofDay2[0].setBackgroundResource(R.drawable.gravity1);
+        achievementRate.setText(Math.round((rate/7.0)*100) +"%");
 
 */
 
+        //7. kakao map
+        MapView mapView = new MapView(this);
+        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
+        mapViewContainer.addView(mapView);
+        /*
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature: info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        */
     }
+
 
     public void backToMain(View view) {
         this.finish();
     }
-
 
 }
 
