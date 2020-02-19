@@ -23,7 +23,7 @@ public class viewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0: default:
-                fragmentMain tmpfragmentMain = fragmentMain.newInstance(0, "Page # 1", new mainListAdapter());
+                fragmentMain tmpfragmentMain = fragmentMain.getInstance(0);
                 return tmpfragmentMain;
 
             case 1:

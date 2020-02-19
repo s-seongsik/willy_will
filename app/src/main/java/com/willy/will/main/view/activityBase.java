@@ -40,11 +40,13 @@ public class activityBase extends AppCompatActivity{
     //var for navigation drawer
     private DrawerLayout drawer;
     private View drawerView;
-
     //~var for navigation drawer
+
+    viewPagerAdapter viewAdapter;
 
     fragmentCalander fragmentcalander;
     fragmentMain fragmentmain;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +65,10 @@ public class activityBase extends AppCompatActivity{
         //set navigation Drawer
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerView = (View) findViewById(R.id.nav_view);
-        drawer.setDrawerListener(naviListener);
         //~set navigation Drawer
 
         //setDate
+
         TextView tv_date = (TextView) findViewById(R.id.tv_date);
         Date todaydate = Calendar.getInstance().getTime();
 
@@ -78,10 +80,9 @@ public class activityBase extends AppCompatActivity{
 
         //set sp_group (fix later)
         spgroupList = new ArrayList<>();
-        spgroupList.add("그룹1");
-        spgroupList.add("그룹2");
-        spgroupList.add("그룹3");
-        spgroupList.add("그룹4");
+        for(int i=0; i<5;i++){
+            spgroupList.add("그룹"+i);
+        }
 
         spgroupAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_dropdown_item,
@@ -94,7 +95,8 @@ public class activityBase extends AppCompatActivity{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int i, long id) {
-                Toast.makeText(getApplicationContext(),"선택된 아이템 : "+sp_group.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        "선택된 아이템 : "+sp_group.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
 
             }
             @Override
@@ -131,9 +133,7 @@ public class activityBase extends AppCompatActivity{
      */
     DrawerLayout.DrawerListener naviListener = new DrawerLayout.DrawerListener() {
         @Override
-        public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-
-        }
+        public void onDrawerSlide(@NonNull View drawerView, float slideOffset) { }
 
         @Override
         public void onDrawerOpened(@NonNull View drawerView) {
@@ -141,14 +141,10 @@ public class activityBase extends AppCompatActivity{
         }
 
         @Override
-        public void onDrawerClosed(@NonNull View drawerView) {
-
-        }
+        public void onDrawerClosed(@NonNull View drawerView) { }
 
         @Override
-        public void onDrawerStateChanged(int newState) {
-
-        }
+        public void onDrawerStateChanged(int newState) { }
     };
 
     /*@Override
