@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.willy.will.R;
+
+import net.daum.mf.map.api.MapPOIItem;
+import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 import java.util.ArrayList;
 
@@ -19,11 +22,19 @@ public class activityDetail extends Activity {
     RelativeLayout achievementRateArea, startDateArea, endDateArea, doneDateArea;
     String roofDay = "";
     String[] days = {"일","월","화","수","목","금","토"};
+    MapPoint markerPoint;
 
     int tmpImportance;
     String tmpItemName, tmpGroupName, tmpRoof, tmpDate;
     String[] tmpRoofDay;
 
+    /**
+     * Last Modified: 2020-02-19
+     * Last Modified By: Kim Mikyung
+     * Created: -
+     * Created By: -
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +65,7 @@ public class activityDetail extends Activity {
         tmpGroupName = "willy";
         tmpDate = "2019-03-03";
         tmpRoof = "0111111";
+        markerPoint = MapPoint.mapPointWithGeoCoord(37.4020737, 127.1086766);
 
 
         // 1. set importance
@@ -114,9 +126,28 @@ public class activityDetail extends Activity {
 */
 
         //7. kakao map
+
         MapView mapView = new MapView(this);
+
         ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
         mapViewContainer.addView(mapView);
+
+        mapView.setMapCenterPoint(markerPoint, true);
+        //mapView.setZoomLevel(7, true);
+        //mapView.zoomIn(true);
+        //mapView.zoomOut(true);
+
+        MapPOIItem marker = new MapPOIItem();
+        marker.setItemName("Default Marker");
+        marker.setTag(0);
+        marker.setMapPoint(markerPoint);
+        //marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
+        //marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
+
+        mapView.addPOIItem(marker);
+
+
+
         /*
         try {
             PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
@@ -133,7 +164,15 @@ public class activityDetail extends Activity {
         */
     }
 
-
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-17
+     * Created By: Kim Mikyung
+     * Function: Back to BaseActivity (Main View)
+     * Called when the user taps the back_button
+     * @param view
+     */
     public void backToMain(View view) {
         this.finish();
     }
