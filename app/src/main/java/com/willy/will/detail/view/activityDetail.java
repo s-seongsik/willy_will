@@ -24,6 +24,13 @@ public class activityDetail extends Activity {
     String tmpItemName, tmpGroupName, tmpRoof, tmpDate;
     String[] tmpRoofDay;
 
+    /**
+     * Last Modified: 2020-02-19
+     * Last Modified By: Kim Mikyung
+     * Created: -
+     * Created By: -
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +140,15 @@ public class activityDetail extends Activity {
         */
     }
 
-
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-17
+     * Created By: Kim Mikyung
+     * Function: Back to BaseActivity (Main View)
+     * Called when the user taps the back_button
+     * @param view
+     */
     public void backToMain(View view) {
         this.finish();
     }
