@@ -45,7 +45,7 @@
                     android:layout_alignParentLeft="true"
                     android:text="TextView"
                     android:textColor="@color/colorString"
-                    android:textSize="50dp"
+                    android:textSize="@dimen/main_date_text_size"
                     android:textStyle="bold" />
 
                 <ImageButton
@@ -95,7 +95,7 @@
 
             <Spinner
                 android:id="@+id/sp_group"
-                android:layout_width="224dp"
+                android:layout_width="@dimen/spinner_width"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
