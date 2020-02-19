@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/drawer_layout"
+    tools:context=".main.view.activityBase">
+
+    <include layout="@layout/nav_view"/>
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -77,7 +90,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_gravity="bottom|left"
                     android:background="@drawable/ic_settings_24px"
-                    android:onClick="btnSearchClick" />
+                    android:onClick="btnSettingClick" />
             </RelativeLayout>
 
             <Spinner
@@ -110,3 +123,4 @@
         app:backgroundTint="@color/colorPrimary"/>
     <!-- ~Fab -->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
