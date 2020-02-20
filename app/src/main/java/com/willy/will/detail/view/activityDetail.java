@@ -2,8 +2,10 @@ package com.willy.will.detail.view;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -12,17 +14,28 @@ import com.willy.will.R;
 import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 public class activityDetail extends Activity {
 
-    ImageView importance;
-    TextView itemName, groupName, startDate, endDate, doneDate, roof,achievementRate;
+    ImageView important;
+    TextView itemName, groupName, startDate, endDate, doneDate, roof,achievementRate, address;
     RelativeLayout achievementRateArea, startDateArea, endDateArea, doneDateArea;
     String roofDay = "";
     String[] days = {"일","월","화","수","목","금","토"};
     MapPoint markerPoint;
+    double latitude, longitude;
 
     int tmpImportance;
     String tmpItemName, tmpGroupName, tmpRoof, tmpDate;
@@ -42,7 +55,7 @@ public class activityDetail extends Activity {
         setContentView(R.layout.activity_detail);
 
         // findViewById
-        importance = findViewById(R.id.importance);
+        important = findViewById(R.id.important);
         itemName = findViewById(R.id.itemName);
         groupName = findViewById(R.id.groupName);
         startDate = findViewById(R.id.startDate);
@@ -54,29 +67,33 @@ public class activityDetail extends Activity {
         endDateArea = findViewById(R.id.endDateArea);
         doneDateArea = findViewById(R.id.doneDateArea);
         roof = findViewById(R.id.roof);
+        address = findViewById(R.id.address);
 
 
 
         // db data
             //intent = getIntent();
             //int itemId = intent.getIntExtra("itemId",-1);
-        tmpImportance = 0;
+        tmpImportance = 1;
         tmpItemName = "취뽀 프로젝트";
         tmpGroupName = "willy";
         tmpDate = "2019-03-03";
         tmpRoof = "0111111";
-        markerPoint = MapPoint.mapPointWithGeoCoord(37.4020737, 127.1086766);
+        latitude = 37.53737528;
+        longitude = 127.00557633;
+//(126.99597295767953, 35.97664845766847)
+        markerPoint = MapPoint.mapPointWithGeoCoord(latitude, longitude);
 
 
         // 1. set importance
         if(tmpImportance==1) {
-            importance.setImageResource(R.drawable.gravity1);
+            important.setImageResource(R.drawable.important1);
         }else if(tmpImportance==2){
-            importance.setImageResource(R.drawable.gravity1);
+            important.setImageResource(R.drawable.important2);
         }else if(tmpImportance==3){
-            importance.setImageResource(R.drawable.gravity1);
+            important.setImageResource(R.drawable.important3);
         }else {
-            importance.setVisibility(View.GONE);
+            important.setVisibility(View.GONE);
         }
 
 
@@ -94,7 +111,7 @@ public class activityDetail extends Activity {
         doneDate.setText(tmpDate);
 
 
-        //5. set roofDate
+        //5. set loofDate
         if(tmpRoof.equals("0000000")){ // 안함
             startDateArea.setVisibility(View.GONE);
             endDateArea.setVisibility(View.GONE);
@@ -125,8 +142,13 @@ public class activityDetail extends Activity {
 
 */
 
-        //7. kakao map
 
+
+        //6. get Address
+        getAddress(longitude, latitude);
+
+
+        //7. kakao map
         MapView mapView = new MapView(this);
 
         ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
@@ -134,38 +156,79 @@ public class activityDetail extends Activity {
 
         mapView.setMapCenterPoint(markerPoint, true);
         //mapView.setZoomLevel(7, true);
-        //mapView.zoomIn(true);
-        //mapView.zoomOut(true);
+        mapView.zoomIn(true);
+        mapView.zoomOut(true);
 
         MapPOIItem marker = new MapPOIItem();
         marker.setItemName("Default Marker");
         marker.setTag(0);
         marker.setMapPoint(markerPoint);
-        //marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
-        //marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
-
         mapView.addPOIItem(marker);
 
+        //****https://devtalk.kakao.com/t/topic/89668
 
-
-        /*
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
-            for (Signature signature: info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        */
     }
+
 
     /**
      * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-20
+     * Created By: Kim Mikyung
+     * Function: Convert longitude and latitude to address
+     * @param longitude, latitude
+     */
+    private void getAddress(final double longitude, final double latitude) {
+
+        new Thread(new Runnable() {
+            String json = null;
+
+            @Override
+            public void run() {
+                try {
+                    String apiURL = "https://dapi.kakao.com/v2/local/geo/coord2address.json?x="+ longitude + "&y=" + latitude +"&input_coord=WGS84"; // json
+                    URL url = new URL(apiURL);
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("GET");
+                    con.setRequestProperty("Authorization", "KakaoAK b5ef8f50c799f2e913df5481ce88bd18"); //header
+                    int responseCode = con.getResponseCode();
+                    BufferedReader br = null;
+
+                    if (responseCode == 200) { // 정상 호출
+                        Log.d(TAG, "getPointFromNaver: 정상호출");
+                        br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    }
+
+                    String inputLine;
+                    StringBuffer response = new StringBuffer();
+                    while ((inputLine = br.readLine()) != null) {
+                        response.append(inputLine);
+                    }
+                    br.close();
+
+                    json = response.toString();
+                    if (json == null) {
+                        return;
+                    }
+
+                    JSONObject jsonObject = new JSONObject(json);
+                    JSONArray resultsArray = jsonObject.getJSONArray("documents");
+                    JSONObject jsonObject1 = resultsArray.getJSONObject(0);
+                    JSONObject dataObject = (JSONObject) jsonObject1.get("road_address");
+                    String text1 = dataObject.getString("address_name");
+                    address.setText(text1);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+
+
+
+    /**
+     * Last Modified: 2020-02-20
      * Last Modified By: -
      * Created: 2020-02-17
      * Created By: Kim Mikyung
@@ -174,6 +237,13 @@ public class activityDetail extends Activity {
      * @param view
      */
     public void backToMain(View view) {
+        // Check focusing
+        View focusedView = getCurrentFocus();
+        if(focusedView != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        // ~Check focusing
         this.finish();
     }
 
