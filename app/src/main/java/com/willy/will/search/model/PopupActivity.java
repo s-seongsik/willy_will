@@ -57,7 +57,7 @@ public abstract class PopupActivity extends Activity {
      * Last Modified By: -
      * Created: 2020-02-19
      * Created By: Shin Minyong
-     * Function: Cancel search setting
+     * Function: Submit search setting
      * @param view
      */
     public void submitSetting(View view) {
@@ -71,6 +71,15 @@ public abstract class PopupActivity extends Activity {
         this.finish();
     }
 
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-19
+     * Created By: Shin Minyong
+     * Function: Set results of search setting
+     * @param intent
+     * @return whether setting succeeded
+     */
     protected abstract boolean setResults(Intent intent) ;
 
     /**

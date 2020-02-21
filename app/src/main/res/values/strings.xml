@@ -1,5 +1,6 @@
 <resources>
     <!-- #################### dialog Text #################### -->
+
     <!-- common -->
     <string name="app_name">WILL</string>
     <string name="group">그룹</string>
@@ -51,6 +52,7 @@
     <!-- #################### ~dialog Text #################### -->
 
     <!-- #################### value #################### -->
+
     <!-- selection id for recycler view -->
     <string name="selection_id_main">selectionIdMain</string>
     <string name="selection_id_group_search_setting">groupSearchSettingSelection</string>
@@ -62,9 +64,17 @@
     <string name="requestCode">requestCode</string>
     <!-- ~startActivityForResult -->
 
+    <!-- search setting -->
+    <string name="selectedGroups">selectedGroups</string>
+    <string name="selectedDone">selectedDone</string>
+    <string name="includedRepeat">includedRepeat</string>
+    <string name="selectedDistance">selectedDistance</string>
+    <!-- ~search setting -->
+
     <!-- distance -->
     <string name="unit_short">m</string>
     <string name="unit_long">km</string>
     <!-- ~distance -->
+
     <!-- #################### ~value #################### -->
 </resources>

@@ -11,12 +11,27 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.willy.will.R;
+import com.willy.will.common.model.Group;
+import com.willy.will.search.model.Distance;
+import com.willy.will.search.model.DistanceSet;
+
+import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
+
+    private String selectedGroupsKey = null;
+    private String selectedDoneKey = null;
+    private String includedRepeatKey = null;
+    private String selectedDistanceKey = null;
 
     private String extraNameCode = null;
     private Resources resources = null;
     private int code = 0;
+
+    private ArrayList<Group> selectedGroups = null;
+    private String selectedDone = null;
+    private boolean includedRepeat;
+    private Distance selectedDistance;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +39,13 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         resources = getResources();
         extraNameCode = resources.getString(R.string.requestCode);
+
+        initSearchSetting(getWindow().getDecorView());
+
+        selectedGroupsKey = resources.getString(R.string.selectedGroups);
+        selectedDoneKey = resources.getString(R.string.selectedDone);
+        includedRepeatKey = resources.getString(R.string.includedRepeat);
+        selectedDistanceKey = resources.getString(R.string.selectedDistance);
     }
 
     /**
@@ -58,6 +80,8 @@ public class SearchActivity extends AppCompatActivity {
      */
     public void bringUpGroupSearchSetting(View view) {
         Intent intent = new Intent(this, GroupSearchSettingActivity.class);
+        intent.putParcelableArrayListExtra(selectedGroupsKey, selectedGroups);
+
         code = resources.getInteger(R.integer.group_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
@@ -74,6 +98,9 @@ public class SearchActivity extends AppCompatActivity {
      */
     public void bringUpDoneRepeatSearchSetting(View view) {
         Intent intent = new Intent(this, DoneRepeatSearchSettingActivity.class);
+        intent.putExtra(selectedDoneKey, selectedDone);
+        intent.putExtra(includedRepeatKey, includedRepeat);
+
         code = resources.getInteger(R.integer.done_repeat_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
@@ -106,13 +133,32 @@ public class SearchActivity extends AppCompatActivity {
      */
     public void bringUpDistanceSearchSetting(View view) {
         Intent intent = new Intent(this, DistanceSearchSettingActivity.class);
+        intent.putExtra(selectedDistanceKey, selectedDistance);
+
         code = resources.getInteger(R.integer.distance_search_setting_code);
         intent.putExtra(extraNameCode, code);
         startActivityForResult(intent, code);
     }
 
     /**
-     * Last Modified: 2020-02-19
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-21
+     * Created By: Shin Minyong
+     * Function: Initialize Search Setting
+     * Called on Create and
+     * called when the user taps the revert_search_setting_button
+     * @param view
+     */
+    public void initSearchSetting(View view) {
+        selectedGroups = new ArrayList<>();
+        selectedDone = resources.getString(R.string.all);
+        includedRepeat = true;
+        selectedDistance = DistanceSet.distances.get(0);
+    }
+
+    /**
+     * Last Modified: 2020-02-21
      * Last Modified By: Shin Minyong
      * Created: 2020-02-08
      * Created By: Shin Minyong
@@ -125,15 +171,18 @@ public class SearchActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        Resources resources = getResources();
+
         // Success to receive data
         if(resultCode == Activity.RESULT_FIRST_USER) {
             // Group Search Setting
-            if (requestCode == getResources().getInteger(R.integer.group_search_setting_code)) {
-                //
+            if (requestCode == resources.getInteger(R.integer.group_search_setting_code)) {
+                selectedGroups = data.getParcelableArrayListExtra(selectedGroupsKey);
             }
             // Done and Repeat Search Setting
             else if (requestCode == getResources().getInteger(R.integer.done_repeat_search_setting_code)) {
-                //
+                selectedDone = data.getStringExtra(selectedDoneKey);
+                includedRepeat = data.getBooleanExtra(includedRepeatKey, true);
             }
             // Period Search Setting
             else if (requestCode == getResources().getInteger(R.integer.period_search_setting_code)) {
@@ -141,7 +190,7 @@ public class SearchActivity extends AppCompatActivity {
             }
             // Distance Search Setting
             else if (requestCode == getResources().getInteger(R.integer.distance_search_setting_code)) {
-                //
+                selectedDistance = data.getParcelableExtra(selectedDistanceKey);
             }
         }
     }

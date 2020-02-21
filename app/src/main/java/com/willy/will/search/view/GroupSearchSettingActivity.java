@@ -1,10 +1,15 @@
 package com.willy.will.search.view;
 
 import android.content.Intent;
+import android.icu.text.Edits;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.selection.Selection;
+import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.willy.will.R;
@@ -13,9 +18,16 @@ import com.willy.will.adapter.RecyclerViewSetter;
 import com.willy.will.common.model.Group;
 import com.willy.will.search.model.PopupActivity;
 
+import java.util.AbstractList;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GroupSearchSettingActivity extends PopupActivity {
+
+    private String selectedGroupsKey = null;
+
+    private ArrayList<Group> groupList = null;
+    private ArrayList<Group> selectedGroups = null;
 
     private TextView selectingAllView = null;
     private RecyclerView recyclerView = null;
@@ -32,7 +44,7 @@ public class GroupSearchSettingActivity extends PopupActivity {
     }
 
     /**
-     * Last Modified: 2020-02-17
+     * Last Modified: 2020-02-21
      * Last Modified By: Shin Minyong
      * Created: -
      * Created By: -
@@ -43,28 +55,60 @@ public class GroupSearchSettingActivity extends PopupActivity {
         super.onCreate(savedInstanceState);
 
         // Set data of item
-        ArrayList<Group> list = new ArrayList<>();
-        list.add(new Group(1, "첫 번째 그룹"));
-        list.add(new Group(2, "두 번째 그룹"));
-        list.add(new Group(3, "세 번째 그룹"));
-        list.add(new Group(4, "네 번째 그룹"));
-        list.add(new Group(5, "다섯 번째 그룹"));
+        groupList = new ArrayList<>();
+        groupList.add(new Group(1, "첫 번째 그룹"));
+        groupList.add(new Group(2, "두 번째 그룹"));
+        groupList.add(new Group(3, "세 번째 그룹"));
+        groupList.add(new Group(4, "네 번째 그룹"));
+        groupList.add(new Group(5, "다섯 번째 그룹"));
         // ~Set data of item
 
-        // Set selecting all TextView
+        // Set Views
         selectingAllView = findViewById(R.id.selecting_all);
-        selectingAllView.setSelected(true);
-        // ~Set selecting all TextView
 
-        // Set RecyclerView
         recyclerView = new RecyclerViewSetter(
                 R.id.group_search_setting_recycler_view, getWindow().getDecorView(),
-                R.integer.group_search_setting_recycler_item_type, list,
+                R.integer.group_search_setting_recycler_item_type, groupList,
                 R.string.selection_id_group_search_setting, true
         ).setRecyclerView();
-        // ~Set RecyclerView
+        // ~Set Views
+
+        // Set selected items
+        selectedGroupsKey = getResources().getString(R.string.selectedGroups);
+        selectedGroups = getIntent().getParcelableArrayListExtra(selectedGroupsKey);
+
+        SelectionTracker tracker = ((RecyclerViewAdapter) recyclerView.getAdapter()).getTracker();
+        if(selectedGroups.size() > 0) {
+            Iterator<Group> selectIter = selectedGroups.iterator();
+            Group selectGroup = null;
+            int i = 0;
+            int groupListSize = groupList.size();
+            Group group = null;
+            while(selectIter.hasNext()) {
+                selectGroup = selectIter.next();
+                for(; i < groupListSize; i++) {
+                    if(groupList.get(i).getId() == selectGroup.getId()) {
+                        tracker.select(Long.valueOf(i));
+                        break;
+                    }
+                }
+            }
+        }
+        else {
+            selectingAllView.setSelected(true);
+        }
+        // ~Set selected items
     }
 
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-17
+     * Created By: Shin Minyong
+     * Function: Select text view (selecting all groups)
+     * Called if the user selects text view (selecting all groups)
+     * @param view
+     */
     public void onSelectAll(View view) {
         if(selectingAllView.isSelected()) {
             selectingAllView.setSelected(false);
@@ -76,9 +120,38 @@ public class GroupSearchSettingActivity extends PopupActivity {
         }
     }
 
+    /**
+     * Last Modified: 2020-02-21
+     * Last Modified By: Shin Minyong
+     * Created: -
+     * Created By: -
+     * @param intent
+     * @return success
+     */
     @Override
     protected boolean setResults(Intent intent) {
-        return false;
+        boolean success = true;
+        ArrayList<Group> selectedGroups = new ArrayList<>();
+        try {
+            Selection selection = ((RecyclerViewAdapter) recyclerView.getAdapter()).getTracker().getSelection();
+            if (selection.size() > 0) {
+                Iterator selectIter = selection.iterator();
+                int selectedPosition = -1;
+                while (selectIter.hasNext()) {
+                    selectedPosition = Math.toIntExact((Long) selectIter.next());
+                    selectedGroups.add(groupList.get(selectedPosition));
+                }
+            }
+        }
+        catch (Exception e) {
+            success = false;
+            Log.e("GroupSearchSettingActivity", "Results: "+e.getMessage());
+            e.printStackTrace();
+        }
+        finally {
+            intent.putParcelableArrayListExtra(getResources().getString(R.string.selectedGroups), selectedGroups);
+            return success;
+        }
     }
 
 }
