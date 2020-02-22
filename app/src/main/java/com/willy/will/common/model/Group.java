@@ -1,31 +1,89 @@
+/**
+ * Last Modified: 2020-02-21
+ * Last Modified By: Shin Minyong
+ * Created: 2020-02-19
+ * Created By: Shin Minyong
+ */
 package com.willy.will.common.model;
 
-public class Group {
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    private int id = -1;
-    private String name = null;
+public class Group implements Parcelable {
+
+    private int groupId = -1;
+    private String groupName = null;
+    private String groupColor = null;
 
     // temp
-    public Group(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Group(int groupId, String groupName, String groupColor) {
+        this.groupId = groupId;
+        this.groupName = groupName;
+        this.groupColor = groupColor;
     }
     // ~temp
 
-    public int getId() {
-        return id;
+    protected Group(Parcel in) {
+        groupId = in.readInt();
+        groupName = in.readString();
+        groupColor = in.readString();
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getGroupId() {
+        return groupId;
     }
 
-    public String getName() {
-        return name;
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getGroupName() {
+        return groupName;
     }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public String getGroupColor() {
+        return groupColor;
+    }
+
+    public void setGroupColor(String groupColor) {
+        this.groupColor = groupColor;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    /**
+     * Last Modified: 2020-02-21
+     * Last Modified By: Shin Minyong
+     * Created: -
+     * Created By: -
+     * The writing order is important
+     * @param dest
+     * @param flags
+     */
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.groupId);
+        dest.writeString(this.groupName);
+        dest.writeString(this.groupColor);
+    }
+
+    public static final Creator<Group> CREATOR = new Creator<Group>() {
+        @Override
+        public Group createFromParcel(Parcel in) {
+            return new Group(in);
+        }
+
+        @Override
+        public Group[] newArray(int size) {
+            return new Group[size];
+        }
+    };
 
 }
