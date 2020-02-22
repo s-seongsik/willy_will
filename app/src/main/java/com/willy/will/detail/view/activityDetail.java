@@ -1,6 +1,7 @@
 package com.willy.will.detail.view;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +31,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class activityDetail extends Activity implements MapView.MapViewEventListener {
 
-    ImageView important;
+    ImageView important, groupColor;
     TextView itemName, groupName, startDate, endDate, doneDate, roof,achievementRate, address;
     RelativeLayout achievementRateArea, startDateArea, endDateArea, doneDateArea;
     String roofDay = "";
@@ -77,7 +78,7 @@ public class activityDetail extends Activity implements MapView.MapViewEventList
         address = findViewById(R.id.address);
         mapViewContainer = findViewById(R.id.map_view);
         scrollView = findViewById(R.id.scroll_view);
-
+        groupColor = findViewById(R.id.group_color);
 
 
         // db data
@@ -110,7 +111,9 @@ public class activityDetail extends Activity implements MapView.MapViewEventList
         itemName.setText(tmpGroupName);
 
 
-        //******** 3. set groupColor
+        //3. set groupColor
+        groupColor.getDrawable().setTint(Color.parseColor("#FF0000"));
+        //groupColor.getDrawable().setTint(Color.parseColor("@colors/colorGroup1"));
 
 
         //4 set date
