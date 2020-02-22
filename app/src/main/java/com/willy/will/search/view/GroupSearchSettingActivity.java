@@ -53,11 +53,11 @@ public class GroupSearchSettingActivity extends PopupActivity {
 
         // Set data of item
         groupList = new ArrayList<>();
-        groupList.add(new Group(1, "첫 번째 그룹"));
-        groupList.add(new Group(2, "두 번째 그룹"));
-        groupList.add(new Group(3, "세 번째 그룹"));
-        groupList.add(new Group(4, "네 번째 그룹"));
-        groupList.add(new Group(5, "다섯 번째 그룹"));
+        groupList.add(new Group(1, "첫 번째 그룹", "80FF3C3C"));
+        groupList.add(new Group(2, "두 번째 그룹", "80FF3C3C"));
+        groupList.add(new Group(3, "세 번째 그룹", "80FF3C3C"));
+        groupList.add(new Group(4, "네 번째 그룹", "80FF3C3C"));
+        groupList.add(new Group(5, "다섯 번째 그룹", "80FF3C3C"));
         // ~Set data of item
 
         // Set Views

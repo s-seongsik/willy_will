@@ -16,9 +16,10 @@ public class Group implements Parcelable {
     private String groupColor = null;
 
     // temp
-    public Group(int groupId, String groupName) {
+    public Group(int groupId, String groupName, String groupColor) {
         this.groupId = groupId;
         this.groupName = groupName;
+        this.groupColor = groupColor;
     }
     // ~temp
 
@@ -44,6 +45,14 @@ public class Group implements Parcelable {
         this.groupName = groupName;
     }
 
+    public String getGroupColor() {
+        return groupColor;
+    }
+
+    public void setGroupColor(String groupColor) {
+        this.groupColor = groupColor;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -62,6 +71,7 @@ public class Group implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.groupId);
         dest.writeString(this.groupName);
+        dest.writeString(this.groupColor);
     }
 
     public static final Creator<Group> CREATOR = new Creator<Group>() {

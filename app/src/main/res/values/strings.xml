@@ -60,6 +60,10 @@
 
     <!-- startActivityForResult -->
     <string name="requestCode">requestCode</string>
+    <string name="selectedGroups">selectedGroups</string>
+    <string name="selectedDone">selectedDone</string>
+    <string name="includedRepeat">includedRepeat</string>
+    <string name="selectedDistance">selectedDistance</string>
     <!-- ~startActivityForResult -->
 
     <!-- distance -->
