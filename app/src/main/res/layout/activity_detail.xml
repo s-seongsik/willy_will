@@ -24,15 +24,13 @@
 
 
 
-
-
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back_button">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,16 +42,16 @@
             app:layout_constraintTop_toBottomOf="parent">
 
             <LinearLayout
-                android:id="@+id/itemArea"
+                android:id="@+id/item_area"
                 style="@style/DetailListStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/detail_list_thick_height"
                 android:background="@drawable/layout_bar"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/GroupArea"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="parent">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/group_area">
 
                 <ImageView
                     android:id="@+id/important"
@@ -63,25 +61,25 @@
                     android:layout_marginRight="10dp"/>
 
                 <TextView
-                    android:id="@+id/itemName"
+                    android:id="@+id/item_name"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="프로그래머스_정렬 문제 풀기" />
+
             </LinearLayout>
 
-
             <RelativeLayout
-                android:id="@+id/GroupArea"
+                android:id="@+id/group_area"
                 style="@style/DetailListStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/detail_list_thick_height"
                 android:background="@drawable/layout_bar"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/dateArea"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/itemArea">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_area"
+                app:layout_constraintBottom_toTopOf="@+id/date_area">
 
                 <TextView
                     style="@style/DetailTitleStyle"
@@ -90,18 +88,19 @@
                     android:text="@string/group" />
 
                 <ImageView
-                    android:id="@+id/groupColor"
+                    android:id="@+id/group_color"
                     android:layout_width="20dp"
                     android:layout_height="match_parent"
-                    android:layout_alignLeft="@id/groupName"
+                    android:layout_alignLeft="@id/group_name"
                     android:layout_gravity="center_vertical"
                     android:visibility="visible"
                     android:src="@drawable/group_color"/>
 
                 <TextView
-                    android:id="@+id/groupName"
+                    android:id="@+id/group_name"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_alignParentRight="true"
                     android:gravity="center_vertical"
                     android:paddingLeft="25dp"
@@ -110,23 +109,23 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:id="@+id/dateArea"
+                android:id="@+id/date_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/layout_bar"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toTopOf="@+id/dateArea"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/itemArea">
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/group_area"
+                app:layout_constraintBottom_toTopOf="@+id/end_date_area">
 
                 <RelativeLayout
-                    android:id="@+id/startDateArea"
+                    android:id="@+id/start_date_area"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/detail_list_thick_height"
                     android:background="@drawable/layout_border"
                     style="@style/DetailListStyle">
+
                     <TextView
                         style="@style/DetailTitleStyle"
                         android:layout_width="wrap_content"
@@ -134,7 +133,7 @@
                         android:text="@string/start_date" />
 
                     <TextView
-                        android:id="@+id/startDate"
+                        android:id="@+id/start_date"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -144,11 +143,15 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/endDateArea"
+                    android:id="@+id/end_date_area"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/detail_list_thick_height"
                     android:background="@drawable/layout_border"
-                    style="@style/DetailListStyle">
+                    style="@style/DetailListStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/start_date_area"
+                    app:layout_constraintBottom_toTopOf="@+id/done_date_area">
 
                     <TextView
                         style="@style/DetailTitleStyle"
@@ -157,7 +160,7 @@
                         android:text="@string/end_date" />
 
                     <TextView
-                        android:id="@+id/endDate"
+                        android:id="@+id/end_date"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -166,11 +169,15 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/doneDateArea"
+                    android:id="@+id/done_date_area"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/detail_list_thick_height"
                     android:background="@drawable/layout_border"
-                    style="@style/DetailListStyle">
+                    style="@style/DetailListStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/end_date_area"
+                    app:layout_constraintBottom_toTopOf="@+id/loof_area">
 
                     <TextView
                         style="@style/DetailTitleStyle"
@@ -179,7 +186,7 @@
                         android:text="@string/done_date" />
 
                     <TextView
-                        android:id="@+id/doneDate"
+                        android:id="@+id/done_date"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -189,10 +196,13 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    style="@style/DetailListStyle"
+                    android:id="@+id/loof_area"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/detail_list_thick_height"
-                    android:background="@drawable/layout_border">
+                    style="@style/DetailListStyle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/done_date_area">
 
                     <TextView
                         style="@style/DetailTitleStyle"
@@ -201,7 +211,7 @@
                         android:text="@string/loop" />
 
                     <TextView
-                        android:id="@+id/roof"
+                        android:id="@+id/loof"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -213,15 +223,15 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:id="@+id/achievementRateArea"
+                android:id="@+id/achievement_rate_area"
                 android:layout_width="match_parent"
                 android:layout_height="135dp"
                 android:background="@drawable/layout_bar"
                 style="@style/DetailListStyle"
-                app:layout_constraintTop_toBottomOf="@id/dateArea"
-                app:layout_constraintBottom_toTopOf="@+id/locationArea"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/date_area"
+                app:layout_constraintBottom_toTopOf="@+id/location_area">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -230,7 +240,7 @@
                     style="@style/DetailTitleStyle"/>
 
                 <TextView
-                    android:id="@+id/achievementRate"
+                    android:id="@+id/achievement_rate"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/detail_list_thick_height"
                     android:layout_alignParentRight="true"
@@ -244,59 +254,56 @@
                     android:paddingBottom="@dimen/detail_list_padding">
 
                     <TextView
-                        android:id="@+id/sun"
+                        android:id="@+id/sunday"
                         android:text="@string/sunday"
                         style="@style/DetailDayStyle"/>
 
                     <TextView
-                        android:id="@+id/mon"
+                        android:id="@+id/monday"
                         android:text="@string/monday"
                         style="@style/DetailDayStyle"/>
 
                     <TextView
-                        android:id="@+id/the"
+                        android:id="@+id/tuesday"
                         android:text="@string/tuesday"
                         style="@style/DetailDayStyle"/>
 
                     <TextView
-                        android:id="@+id/wed"
+                        android:id="@+id/wednesday"
                         android:text="@string/wednesday"
                         style="@style/DetailDayStyle"/>
 
                     <TextView
-                        android:id="@+id/thu"
+                        android:id="@+id/thursday"
                         android:text="@string/thursday"
                         style="@style/DetailDayStyle"/>
 
                     <TextView
-                        android:id="@+id/fri"
+                        android:id="@+id/friday"
                         android:text="@string/friday"
                         android:background="@drawable/achievement_false"
                         style="@style/DetailDayStyle"/>
 
                     <TextView
-                        android:id="@+id/sat"
+                        android:id="@+id/saturday"
                         android:text="@string/saturday"
                         style="@style/DetailDayStyle"/>
-                </LinearLayout>
 
+                </LinearLayout>
 
             </RelativeLayout>
 
-
-
-
             <LinearLayout
-                android:id="@+id/locationArea"
+                android:id="@+id/location_area"
                 android:layout_width="match_parent"
-                android:layout_height="390dp"
+                android:layout_height="590dp"
                 android:orientation="vertical"
                 android:padding="@dimen/detail_list_padding"
                 style="@style/DetailListStyle"
-                app:layout_constraintTop_toBottomOf="@id/achievementRateArea"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/achievement_rate_area"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -313,19 +320,20 @@
                 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="400dp"
                     android:layout_marginTop="10dp">
                     <RelativeLayout
                         android:id="@+id/map_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="20dp"/>
+
                 </RelativeLayout>
 
             </LinearLayout> <!-- end locationArea-->
 
         </LinearLayout>
-    </ScrollView>
 
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.willy.will.detail.view;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import com.willy.will.R;
 
@@ -27,15 +29,21 @@ import java.util.ArrayList;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
-public class activityDetail extends Activity {
+public class activityDetail extends Activity implements MapView.MapViewEventListener {
 
-    ImageView important;
+    ImageView important, groupColor;
     TextView itemName, groupName, startDate, endDate, doneDate, roof,achievementRate, address;
     RelativeLayout achievementRateArea, startDateArea, endDateArea, doneDateArea;
     String roofDay = "";
+    String addressName, buildingName;
     String[] days = {"일","월","화","수","목","금","토"};
     MapPoint markerPoint;
+    ScrollView scrollView;
     double latitude, longitude;
+
+    MapView mapView;
+    ViewGroup mapViewContainer;
+    MapPOIItem marker;
 
     int tmpImportance;
     String tmpItemName, tmpGroupName, tmpRoof, tmpDate;
@@ -56,24 +64,26 @@ public class activityDetail extends Activity {
 
         // findViewById
         important = findViewById(R.id.important);
-        itemName = findViewById(R.id.itemName);
-        groupName = findViewById(R.id.groupName);
-        startDate = findViewById(R.id.startDate);
-        endDate = findViewById(R.id.endDate);
-        doneDate = findViewById(R.id.doneDate);
-        achievementRate = findViewById(R.id.achievementRate);
-        achievementRateArea = findViewById(R.id.achievementRateArea);
-        startDateArea = findViewById(R.id.startDateArea);
-        endDateArea = findViewById(R.id.endDateArea);
-        doneDateArea = findViewById(R.id.doneDateArea);
-        roof = findViewById(R.id.roof);
+        itemName = findViewById(R.id.item_name);
+        groupName = findViewById(R.id.group_name);
+        startDate = findViewById(R.id.start_date);
+        endDate = findViewById(R.id.end_date);
+        doneDate = findViewById(R.id.done_date);
+        achievementRate = findViewById(R.id.achievement_rate);
+        achievementRateArea = findViewById(R.id.achievement_rate_area);
+        startDateArea = findViewById(R.id.start_date_area);
+        endDateArea = findViewById(R.id.end_date_area);
+        doneDateArea = findViewById(R.id.done_date_area);
+        roof = findViewById(R.id.loof);
         address = findViewById(R.id.address);
-
+        mapViewContainer = findViewById(R.id.map_view);
+        scrollView = findViewById(R.id.scroll_view);
+        groupColor = findViewById(R.id.group_color);
 
 
         // db data
-            //intent = getIntent();
-            //int itemId = intent.getIntExtra("itemId",-1);
+        //intent = getIntent();
+        //int itemId = intent.getIntExtra("itemId",-1);
         tmpImportance = 1;
         tmpItemName = "취뽀 프로젝트";
         tmpGroupName = "willy";
@@ -81,7 +91,6 @@ public class activityDetail extends Activity {
         tmpRoof = "0111111";
         latitude = 37.53737528;
         longitude = 127.00557633;
-//(126.99597295767953, 35.97664845766847)
         markerPoint = MapPoint.mapPointWithGeoCoord(latitude, longitude);
 
 
@@ -102,7 +111,9 @@ public class activityDetail extends Activity {
         itemName.setText(tmpGroupName);
 
 
-        //******** 3. set groupColor
+        //3. set groupColor
+        groupColor.getDrawable().setTint(Color.parseColor("#FF0000"));
+        //groupColor.getDrawable().setTint(Color.parseColor("@colors/colorGroup1"));
 
 
         //4 set date
@@ -148,26 +159,39 @@ public class activityDetail extends Activity {
         getAddress(longitude, latitude);
 
 
-        //7. kakao map
-        MapView mapView = new MapView(this);
 
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
+        //7. kakao map
+        mapView = new MapView(this);
+        mapView.setMapViewEventListener(this);
         mapViewContainer.addView(mapView);
 
-        mapView.setMapCenterPoint(markerPoint, true);
-        //mapView.setZoomLevel(7, true);
-        mapView.zoomIn(true);
-        mapView.zoomOut(true);
-
-        MapPOIItem marker = new MapPOIItem();
-        marker.setItemName("Default Marker");
-        marker.setTag(0);
-        marker.setMapPoint(markerPoint);
-        mapView.addPOIItem(marker);
-
-        //****https://devtalk.kakao.com/t/topic/89668
 
     }
+
+
+
+
+    /**
+     * Last Modified: 2020-02-20
+     * Last Modified By: -
+     * Created: 2020-02-17
+     * Created By: Kim Mikyung
+     * Function: Back to BaseActivity (Main View)
+     * Called when the user taps the back_button
+     * @param view
+     */
+    public void backToMain(View view) {
+        // Check focusing
+        View focusedView = getCurrentFocus();
+        if(focusedView != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        // ~Check focusing
+        this.finish();
+    }
+
+
 
 
     /**
@@ -215,8 +239,17 @@ public class activityDetail extends Activity {
                     JSONArray resultsArray = jsonObject.getJSONArray("documents");
                     JSONObject jsonObject1 = resultsArray.getJSONObject(0);
                     JSONObject dataObject = (JSONObject) jsonObject1.get("road_address");
-                    String text1 = dataObject.getString("address_name");
-                    address.setText(text1);
+
+                    addressName = dataObject.getString("address_name");
+                    buildingName = dataObject.getString("building_name");
+
+                    address.setText(addressName);
+                    marker = new MapPOIItem();
+                    marker.setItemName(buildingName);
+                    marker.setMapPoint(markerPoint);
+                    marker.setShowDisclosureButtonOnCalloutBalloon(false);
+                    mapView.addPOIItem(marker);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -228,24 +261,64 @@ public class activityDetail extends Activity {
 
 
     /**
-     * Last Modified: 2020-02-20
+     * Last Modified:
      * Last Modified By: -
-     * Created: 2020-02-17
+     * Created: 2020-02-20
      * Created By: Kim Mikyung
-     * Function: Back to BaseActivity (Main View)
-     * Called when the user taps the back_button
-     * @param view
+     * Function: kakaomap EventListener
      */
-    public void backToMain(View view) {
-        // Check focusing
-        View focusedView = getCurrentFocus();
-        if(focusedView != null) {
-            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-        }
-        // ~Check focusing
-        this.finish();
+    @Override
+    public void onMapViewInitialized(MapView mapView) {
+        mapView.setMapCenterPoint(markerPoint, true);
     }
 
+    @Override
+    public void onMapViewCenterPointMoved(MapView mapView, MapPoint mapPoint) {
+        scrollView.requestDisallowInterceptTouchEvent(true);
+
+    }
+
+    @Override
+    public void onMapViewZoomLevelChanged(MapView mapView, int i) {
+        scrollView.requestDisallowInterceptTouchEvent(true);
+
+    }
+
+    @Override
+    public void onMapViewSingleTapped(MapView mapView, MapPoint mapPoint) {
+        scrollView.requestDisallowInterceptTouchEvent(true);
+
+    }
+
+    @Override
+    public void onMapViewDoubleTapped(MapView mapView, MapPoint mapPoint) {
+        scrollView.requestDisallowInterceptTouchEvent(true);
+
+    }
+
+    @Override
+    public void onMapViewLongPressed(MapView mapView, MapPoint mapPoint) {
+        scrollView.requestDisallowInterceptTouchEvent(true);
+
+    }
+
+    @Override
+    public void onMapViewDragStarted(MapView mapView, MapPoint mapPoint) {
+        scrollView.requestDisallowInterceptTouchEvent(true);
+
+    }
+
+    @Override
+    public void onMapViewDragEnded(MapView mapView, MapPoint mapPoint) {
+        scrollView.requestDisallowInterceptTouchEvent(true);
+
+    }
+
+    @Override
+    public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
+        scrollView.requestDisallowInterceptTouchEvent(true);
+
+    }
 }
+
 
