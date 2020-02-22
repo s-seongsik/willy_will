@@ -5,17 +5,28 @@ import android.os.Parcelable;
 
 public class Distance implements Parcelable {
 
+    private int length = -1;
     private String text = null;
     private boolean use = false;
 
-    public Distance(String text, boolean use) {
+    public Distance(int length, String text, boolean use) {
+        this.length = length;
         this.text = text;
         this.use = use;
     }
 
     protected Distance(Parcel in) {
+        length = in.readInt();
         text = in.readString();
         use = in.readByte() != 0;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
 
     public String getText() {
@@ -51,6 +62,7 @@ public class Distance implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         int useInt = this.use ? 1 : 0;
+        dest.writeInt(this.length);
         dest.writeString(this.text);
         dest.writeInt(useInt);
     }

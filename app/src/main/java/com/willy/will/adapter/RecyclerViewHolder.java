@@ -125,7 +125,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
         // Group
         else if(type == GROUP_CODE) {
             Group group = (Group) data;
-            textOnlyView.setText(group.getName());
+            textOnlyView.setText(group.getGroupName());
         }
         // Done
         else if(type == DONE_CODE) {

@@ -11,35 +11,37 @@ import android.os.Parcelable;
 
 public class Group implements Parcelable {
 
-    private int id = -1;
-    private String name = null;
+    private int groupId = -1;
+    private String groupName = null;
+    private String groupColor = null;
 
     // temp
-    public Group(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Group(int groupId, String groupName) {
+        this.groupId = groupId;
+        this.groupName = groupName;
     }
     // ~temp
 
     protected Group(Parcel in) {
-        id = in.readInt();
-        name = in.readString();
+        groupId = in.readInt();
+        groupName = in.readString();
+        groupColor = in.readString();
     }
 
-    public int getId() {
-        return id;
+    public int getGroupId() {
+        return groupId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 
-    public String getName() {
-        return name;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
     @Override
@@ -58,8 +60,8 @@ public class Group implements Parcelable {
      */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.id);
-        dest.writeString(this.name);
+        dest.writeInt(this.groupId);
+        dest.writeString(this.groupName);
     }
 
     public static final Creator<Group> CREATOR = new Creator<Group>() {

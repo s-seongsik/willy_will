@@ -25,7 +25,7 @@ public class DistanceSet {
             String longUnit = resources.getString(R.string.unit_long);
             String basicText = resources.getString(R.string.distance_text);
 
-            distances.add(new Distance(resources.getString(R.string.all), true));
+            distances.add(new Distance(0, resources.getString(R.string.all), true));
 
             String text = null;
             int length = 0;
@@ -38,10 +38,10 @@ public class DistanceSet {
                 }
 
                 if(lengthUseArr[i] > 0) {
-                    distances.add(new Distance(text, true));
+                    distances.add(new Distance(length, text, true));
                 }
                 else {
-                    distances.add(new Distance(text, false));
+                    distances.add(new Distance(length, text, false));
                 }
             }
         }

@@ -1,13 +1,11 @@
 package com.willy.will.search.view;
 
 import android.content.Intent;
-import android.icu.text.Edits;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.selection.Selection;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +16,6 @@ import com.willy.will.adapter.RecyclerViewSetter;
 import com.willy.will.common.model.Group;
 import com.willy.will.search.model.PopupActivity;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -87,7 +84,7 @@ public class GroupSearchSettingActivity extends PopupActivity {
             while(selectIter.hasNext()) {
                 selectGroup = selectIter.next();
                 for(; i < groupListSize; i++) {
-                    if(groupList.get(i).getId() == selectGroup.getId()) {
+                    if(groupList.get(i).getGroupId() == selectGroup.getGroupId()) {
                         tracker.select(Long.valueOf(i));
                         break;
                     }

@@ -10,12 +10,14 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.willy.will.R;
 import com.willy.will.common.model.Group;
 import com.willy.will.search.model.Distance;
 import com.willy.will.search.model.DistanceSet;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -27,6 +29,8 @@ public class SearchActivity extends AppCompatActivity {
     private String extraNameCode = null;
     private Resources resources = null;
     private int code = 0;
+
+    private TextInputEditText editText = null;
 
     private ArrayList<Group> selectedGroups = null;
     private String selectedDone = null;
@@ -40,6 +44,8 @@ public class SearchActivity extends AppCompatActivity {
         resources = getResources();
         extraNameCode = resources.getString(R.string.requestCode);
 
+        //editText = findViewById(R.id.search_edit_text);
+
         initSearchSetting(getWindow().getDecorView());
 
         selectedGroupsKey = resources.getString(R.string.selectedGroups);
@@ -49,8 +55,8 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     /**
-     * Last Modified: -
-     * Last Modified By: -
+     * Last Modified: 2020-02-20
+     * Last Modified By: Shin Minyong
      * Created: 2020-02-08
      * Created By: Shin Minyong
      * Function: Back to BaseActivity (Main View)
@@ -67,6 +73,33 @@ public class SearchActivity extends AppCompatActivity {
         }
         // ~Check focusing
         this.finish();
+    }
+
+    /**
+     * Last Modified: -
+     * Last Modified By: -
+     * Created: 2020-02-21
+     * Created By: Shin Minyong
+     * Function: Prepare to search
+     * Called when the user taps the search_button
+     * @param view
+     */
+    public void search(View view) {
+        // Preprocess
+        //String searchText = editText.getText().toString();
+
+        ArrayList<Integer> groupIds = new ArrayList<>();
+        if(selectedGroups.size() > 0) {
+            Iterator<Group> selectedGroupsIter = selectedGroups.iterator();
+            while (selectedGroupsIter.hasNext()) {
+                groupIds.add(selectedGroupsIter.next().getGroupId());
+            }
+        }
+
+        int length = selectedDistance.getLength();
+        // ~Preprocess
+
+        //int itemId = findItemId(searchText, groupIds, selectedDone, includedRepeat, length);
     }
 
     /**

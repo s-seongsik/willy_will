@@ -11,20 +11,20 @@
         android:id="@+id/back_button"
         style="@style/BackButtonStyle"
         android:onClick="backToMain"
-        app:layout_constraintEnd_toStartOf="@id/search_edit_text"
+        app:layout_constraintEnd_toStartOf="@id/search_text_input_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/search_edit_text"
+    <LinearLayout
+        android:id="@+id/search_text_input_layout"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="55dp"
-        android:hint="@string/search_hint"
-        android:inputType="text"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/search_button"
         app:layout_constraintStart_toEndOf="@id/back_button"
-        app:layout_constraintBottom_toTopOf="@id/search_setting_layout" />
+        app:layout_constraintBottom_toTopOf="@id/search_setting_layout">
+
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/search_button"
@@ -32,7 +32,7 @@
         android:foreground="@drawable/ic_search_24px"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/search_edit_text" />
+        app:layout_constraintStart_toEndOf="@id/search_text_input_layout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/search_setting_layout"
@@ -42,7 +42,7 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_edit_text">
+        app:layout_constraintTop_toBottomOf="@id/search_text_input_layout">
 
         <Button
             android:id="@+id/group_search_setting_button"
