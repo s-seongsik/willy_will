@@ -23,17 +23,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+
+
+
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back_button">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:descendantFocusability="blocksDescendants"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent">
@@ -51,12 +56,11 @@
                 app:layout_constraintTop_toBottomOf="parent">
 
                 <ImageView
-                    android:id="@+id/importance"
+                    android:id="@+id/important"
                     android:layout_width="20dp"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/gravity1" />
+                    android:layout_marginRight="10dp"/>
 
                 <TextView
                     android:id="@+id/itemName"
@@ -194,7 +198,7 @@
                         style="@style/DetailTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/roof" />
+                        android:text="@string/loop" />
 
                     <TextView
                         android:id="@+id/roof"
@@ -240,6 +244,11 @@
                     android:paddingBottom="@dimen/detail_list_padding">
 
                     <TextView
+                        android:id="@+id/sun"
+                        android:text="@string/sunday"
+                        style="@style/DetailDayStyle"/>
+
+                    <TextView
                         android:id="@+id/mon"
                         android:text="@string/monday"
                         style="@style/DetailDayStyle"/>
@@ -275,11 +284,14 @@
             </RelativeLayout>
 
 
+
+
             <LinearLayout
                 android:id="@+id/locationArea"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="390dp"
                 android:orientation="vertical"
+                android:padding="@dimen/detail_list_padding"
                 style="@style/DetailListStyle"
                 app:layout_constraintTop_toBottomOf="@id/achievementRateArea"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -299,19 +311,21 @@
                     android:text="서울 강남구 강남대로 지하 396" />
 
                 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
+                    android:layout_height="200dp"
+                    android:layout_marginTop="10dp">
                     <RelativeLayout
                         android:id="@+id/map_view"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp" />
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="20dp"/>
                 </RelativeLayout>
 
             </LinearLayout> <!-- end locationArea-->
 
         </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

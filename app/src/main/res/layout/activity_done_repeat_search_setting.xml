@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PopupStyle"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/PopupTitleStyle"
+        android:text="@string/done_repeat" />
+
+    <ImageView style="@style/ThickBottomBarStyle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/done_search_setting_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never" />
+
+    <ImageView style="@style/BottomBarStyle" />
+
+    <TextView
+        android:id="@+id/including_repeat"
+        style="@style/TextRecyclerItemStyle"
+        android:text="@string/including_repeat" />
+
+    <include layout="@layout/layout_popup_bottom" />
+
+</LinearLayout>

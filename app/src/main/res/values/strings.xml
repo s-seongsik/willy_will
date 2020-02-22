@@ -1,23 +1,19 @@
 <resources>
-    <!-- dialog Text -->
-    <string name="app_name">willy_will</string>
-    <string name="action_settings">Settings</string>
-    <string name="search_hint">할 일 이름을 검색하십시오.</string>
+    <!-- #################### dialog Text #################### -->
+    <!-- common -->
+    <string name="app_name">WILL</string>
     <string name="group">그룹</string>
-    <string name="complete_repeat">완료/반복</string>
-    <string name="period">기간</string>
-    <string name="radius">거리</string>
-    <string name="all">전체</string>
-    <string name="incomplete">미완료</string>
-    <string name="complete">완료</string>
-    <string name="including_repeat">반복 포함</string>
-    <string name="within_1km">여기서 1km 이내</string>
-    <string name="within_5km">여기서 5km 이내</string>
-    <string name="within_10km">여기서 10km 이내</string>
-    <string name="start_date">시작 날짜</string>
+    <string name="start_date">시작 날짜</string>d
     <string name="end_date">종료 날짜</string>
     <string name="done_date">완료 날짜</string>
-    <string name="roof">반복</string>
+    <string name="loop">반복</string>
+    <!-- ~common -->
+
+    <!-- setting -->
+    <string name="action_settings">Settings</string>
+    <!-- ~setting -->
+
+    <!-- detail -->
     <string name="week_achievement_rate">주간 달성</string>
     <string name="sunday">일</string>
     <string name="monday">월</string>
@@ -27,11 +23,52 @@
     <string name="friday">금</string>
     <string name="saturday">토</string>
     <string name="location">위치</string>
-    <!-- ~dialog Text -->
+    <!-- ~detail -->
 
-    <!-- value -->
-    <string name="selection_id_group_search_setting">groupSearchSettingSelection</string>
+    <!-- search -->
+    <string name="search_hint">할 일 이름을 검색하십시오.</string>
+    <string name="all">전체</string>
+
+    <string name="done_repeat">완료/반복</string>
+    <string name="undone">미완료</string>
+    <string name="done">완료</string>
+    <string name="including_repeat">반복 포함</string>
+
+    <string name="period">기간</string>
+    <string name="tilde">~</string>
+
+    <string name="distance">거리</string>
+    <string name="distance_text">여기서 %1$d%2$s 이내</string>
+    <!-- ~search -->
+
+    <!-- navigation drawer -->
+    <string name="group_setting">그룹관리</string>
+    <string name="task_setting">할일관리</string>
+    <string name="alarm_setting">알람관리</string>
+    <string name="copyright">© 2020 Willy All Rights Reserved</string>
+    <!-- ~navigation drawer -->
+
+    <!-- #################### ~dialog Text #################### -->
+
+    <!-- #################### value #################### -->
+    <!-- selection id for recycler view -->
     <string name="selection_id_main">selectionIdMain</string>
+    <string name="selection_id_group_search_setting">groupSearchSettingSelection</string>
+    <string name="selection_id_done_search_setting">doneSearchSettingSelection</string>
+    <string name="selection_id_distance_search_setting">distanceSearchSettingSelection</string>
+    <!-- ~selection id for recycler view -->
+
+    <!-- startActivityForResult -->
     <string name="requestCode">requestCode</string>
-    <!-- ~value -->
+    <string name="selectedGroups">selectedGroups</string>
+    <string name="selectedDone">selectedDone</string>
+    <string name="includedRepeat">includedRepeat</string>
+    <string name="selectedDistance">selectedDistance</string>
+    <!-- ~startActivityForResult -->
+
+    <!-- distance -->
+    <string name="unit_short">m</string>
+    <string name="unit_long">km</string>
+    <!-- ~distance -->
+    <!-- #################### ~value #################### -->
 </resources>

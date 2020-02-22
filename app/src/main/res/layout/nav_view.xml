@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nav_view"
+    android:layout_width="@dimen/nav_width"
+    android:layout_height="match_parent"
+    android:layout_gravity="end"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/nav_margin"
+            android:layout_marginTop="@dimen/nav_app_name_margin"
+            android:text="@string/app_name"
+            android:textColor="@color/colorString"
+            android:textStyle="bold"
+            android:textSize="@dimen/nav_app_name_text"></TextView>
+
+        <LinearLayout
+            android:id="@+id/nav_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/app_name"
+            android:layout_marginTop="@dimen/nav_menu_top_margin"></LinearLayout>
+
+        <ImageView
+            android:id="@+id/nav_ic_group"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/nav_menu_height"
+            android:layout_below="@+id/nav_line"
+            android:layout_marginStart="@dimen/nav_margin"
+            android:layout_marginTop="@dimen/nav_menu_top_margin"
+            android:src="@drawable/ic_folder"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/nav_menu_height"
+            android:layout_below="@+id/nav_line"
+            android:layout_marginStart="@dimen/nav_menu_start_margin"
+            android:layout_marginTop="@dimen/nav_menu_top_margin"
+            android:layout_toEndOf="@+id/nav_ic_group"
+            android:gravity="center"
+            android:text="@string/group_setting"
+            android:textSize="@dimen/nav_menu_text"
+            android:textColor="@color/colorString"
+            android:onClick="OnClick"></TextView>
+
+        <ImageView
+            android:id="@+id/nav_ic_task"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/nav_menu_height"
+            android:layout_below="@+id/nav_ic_group"
+            android:layout_marginStart="@dimen/nav_margin"
+            android:layout_marginTop="@dimen/nav_menu_top_margin"
+            android:src="@drawable/ic_task_24px"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_task_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/nav_menu_height"
+            android:layout_below="@+id/tv_group_name"
+            android:layout_marginStart="11dp"
+            android:layout_marginLeft="@dimen/nav_menu_start_margin"
+            android:layout_marginTop="@dimen/nav_menu_top_margin"
+            android:layout_toEndOf="@+id/nav_ic_task"
+            android:gravity="center"
+            android:text="@string/task_setting"
+            android:textSize="@dimen/nav_menu_text"
+            android:textColor="@color/colorString"
+            android:onClick="OnClick"></TextView>
+
+        <ImageView
+            android:id="@+id/nav_ic_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/nav_menu_height"
+            android:layout_below="@+id/nav_ic_task"
+            android:layout_marginStart="@dimen/nav_margin"
+            android:layout_marginTop="@dimen/nav_menu_top_margin"
+            android:src="@drawable/ic_alarm_24px"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_alarm_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/nav_menu_height"
+            android:layout_below="@+id/tv_task_name"
+            android:layout_marginStart="@dimen/nav_menu_start_margin"
+            android:layout_marginTop="@dimen/nav_menu_top_margin"
+            android:layout_toEndOf="@+id/nav_ic_alarm"
+            android:gravity="center"
+            android:text="@string/alarm_setting"
+            android:textColor="@color/colorString"
+            android:textSize="@dimen/nav_menu_text"
+            android:onClick="OnClick"></TextView>
+
+        <TextView
+            android:id="@+id/app_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/nav_menu_top_margin"
+            android:gravity="center"
+            android:text="@string/copyright" />
+
+    </RelativeLayout>
+
+</LinearLayout>

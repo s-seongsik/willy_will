@@ -1,8 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
 
-    <!-- [2020-02-15] Modified by Shin Minyong -->
-
     <!-- Common -->
     <dimen name="match_constraint">0dp</dimen>
     <dimen name="basic_padding">16dp</dimen>
@@ -11,6 +9,7 @@
     <dimen name="thick_bottom_bar_height">2dp</dimen>
     <dimen name="text_recycler_item_height">48dp</dimen>
     <dimen name="text_recycler_item_text_size">20sp</dimen>
+    <dimen name="main_date_text_size">50sp</dimen>
     <!-- ~Common -->
 
     <!-- Pop-up -->
@@ -32,18 +31,47 @@
     <dimen name="button_margin">2dp</dimen>
     <!-- ~Button -->
 
-    <!-- Group Recycler View -->
-    <dimen name="group_recycler_view_height">195dp</dimen>
-    <!-- ~Group Recycler View -->
+    <!-- Search Setting Recycler View -->
+    <dimen name="search_setting_contents_view_height">195dp</dimen>
+    <dimen name="group_search_setting_recycler_view_max_height">146dp</dimen>
+    <!-- ~Search Setting Recycler View -->
 
-    <!-- ~[2020-02-15] Modified by Shin Minyong -->
+    <!-- [2020-02-19] Modified by Lee Jaeeun -->
+    <!-- Spinner-->
+    <dimen name="spinner_width">225dp</dimen>
+    <!-- ~Spinner-->
 
-    <!-- [2020-02-13] Created by Lee Jaeeun -->
     <!-- MainIconButton -->
     <dimen name="main_icon_width">30dp</dimen>
     <dimen name="main_icon_height">30dp</dimen>
+    <!-- ~MainIconButton -->
 
-    <!-- ~[2020-02-13] Created by Lee Jaeeun -->
+    <!-- MainListItem-->
+    <dimen name="itembox_height">75dp</dimen>
+    <dimen name="itembox_half_height">32dp</dimen>
+    <dimen name="number_text_width">50dp</dimen>
+    <dimen name="checkbox_margin_start">20dp</dimen>
+    <dimen name="checkbox_margin_end">10dp</dimen>
+    <!-- ~MainListItem-->
+
+    <!-- NavigationDrawer -->
+    <dimen name="nav_width">250dp</dimen>
+    <dimen name="nav_margin">30dp</dimen>
+    <!-- ~NavigationDrawer -->
+
+    <!-- Navigation Header-->
+    <dimen name="nav_app_name_margin">60dp</dimen>
+    <dimen name="nav_app_name_text">30sp</dimen>
+    <!-- ~Navigation Header-->
+
+    <!-- Navigation Menu-->
+    <dimen name="nav_menu_height">24dp</dimen>
+    <dimen name="nav_menu_top_margin">30dp</dimen>
+    <dimen name="nav_menu_start_margin">10dp</dimen>
+    <dimen name="nav_menu_text">15sp</dimen>
+    <!-- ~Navigation Menu-->
+
+    <!-- ~[2020-02-19] Modified by Lee Jaeeun -->
 
     <!-- [2020-02-17] Modified by Kim Mikyung -->
     <dimen name="detail_icon_margin">15dp</dimen>
